@@ -1,0 +1,23 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.nav
+*.snm
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex.gz.sum.synctex
+*.xdv
+*.vrb
+*.bbl
+*.blg
+
+# Build/scratch directories
+Latex/tmp/
+Latex/output/
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db

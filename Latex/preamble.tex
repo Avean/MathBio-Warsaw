@@ -1,0 +1,65 @@
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+
+\usetikzlibrary{arrows.meta,calc,positioning}
+
+\setsansfont{Arial}
+\setmainfont{Arial}
+
+\definecolor{HydraNavy}{HTML}{020817}
+\definecolor{HydraPanel}{HTML}{0B1930}
+\definecolor{HydraLine}{HTML}{263B59}
+\definecolor{HydraWhite}{HTML}{F6F8FC}
+\definecolor{HydraBody}{HTML}{D8E1F0}
+\definecolor{HydraMuted}{HTML}{AAB7CD}
+\definecolor{HydraCyan}{HTML}{43D5FF}
+\definecolor{HydraGold}{HTML}{FFBE4A}
+\definecolor{HydraViolet}{HTML}{9B86FF}
+\definecolor{HydraMagenta}{HTML}{FF65B8}
+\definecolor{HydraGreen}{HTML}{42D6A4}
+\definecolor{HydraRed}{HTML}{FF6B6B}
+
+\setbeamercolor{normal text}{fg=HydraWhite,bg=HydraNavy}
+\setbeamercolor{structure}{fg=HydraCyan}
+\setbeamercolor{frametitle}{fg=HydraWhite,bg=HydraNavy}
+\setbeamercolor{itemize item}{fg=HydraGold}
+\setbeamercolor{itemize subitem}{fg=HydraCyan}
+\setbeamercolor{alerted text}{fg=HydraGold}
+
+\setbeamerfont{title}{size=\fontsize{27}{31}\selectfont,series=\bfseries}
+\setbeamerfont{subtitle}{size=\fontsize{13}{17}\selectfont}
+\setbeamerfont{frametitle}{size=\fontsize{16}{19}\selectfont,series=\bfseries}
+\setbeamerfont{normal text}{size=\fontsize{10}{13}\selectfont}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize item}{\raise0.2ex\hbox{\color{HydraGold}\scriptsize$\bullet$}}
+\setbeamertemplate{itemize subitem}{\raise0.2ex\hbox{\color{HydraCyan}\tiny$\bullet$}}
+
+\setbeamersize{text margin left=0.70cm,text margin right=0.70cm}
+
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.49cm,dp=0.06cm,
+      leftskip=0.70cm,rightskip=0.70cm,sep=0pt]{frametitle}
+    \raisebox{0.02cm}{\color{HydraGold}\rule{0.58cm}{0.045cm}}%
+    \hspace{0.14cm}%
+    {\color{HydraGold}\bfseries\fontsize{6.4}{7.4}\selectfont
+      \hydraBreadcrumb}%
+  \end{beamercolorbox}
+  \nointerlineskip
+  \vspace*{0.2cm}%
+  \begin{beamercolorbox}[wd=\paperwidth,
+      leftskip=0.70cm,rightskip=0.70cm,sep=0pt]{frametitle}
+    \vspace*{0.05cm}%
+    {\usebeamerfont{frametitle}\insertframetitle\par}%
+    \vspace*{0.06cm}%
+  \end{beamercolorbox}%
+}
+
+\setbeamertemplate{footline}{}

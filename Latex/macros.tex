@@ -1,0 +1,347 @@
+% -----------------------------------------------------------------------------
+% Navigation state and automatic section/subsection slides
+% -----------------------------------------------------------------------------
+\makeatletter
+
+\newcounter{hydrasubindex}
+\setcounter{hydrasubindex}{0}
+
+\newcommand{\hydraFocusX}{0.64}
+\newcommand{\hydraFocusY}{0.25}
+\newcommand{\hydraFocusRadius}{0.13}
+\newcommand{\hydraZoom}{2.05}
+\newcommand{\hydraSectionImage}{figures/hydra/hydra_zoom_map.png}
+\newcommand{\hydraSubTagline}{}
+
+\pgfkeys{/hydra section/.is family}
+\pgfkeys{/hydra section/focus x/.store in=\hydraNextFocusX}
+\pgfkeys{/hydra section/focus y/.store in=\hydraNextFocusY}
+\pgfkeys{/hydra section/radius/.store in=\hydraNextRadius}
+\pgfkeys{/hydra section/zoom/.store in=\hydraNextZoom}
+\pgfkeys{/hydra section/image/.store in=\hydraNextImage}
+% TeX collapses indentation after line breaks to one leading space.  These
+% aliases keep multi-line option lists readable in section files.
+\pgfkeys{/hydra section/ focus x/.store in=\hydraNextFocusX}
+\pgfkeys{/hydra section/ focus y/.store in=\hydraNextFocusY}
+\pgfkeys{/hydra section/ radius/.store in=\hydraNextRadius}
+\pgfkeys{/hydra section/ zoom/.store in=\hydraNextZoom}
+\pgfkeys{/hydra section/ image/.store in=\hydraNextImage}
+
+\newcommand{\hydraSetSubTotal}[2]{%
+  \expandafter\gdef\csname hydraSubTotal@#1\endcsname{#2}%
+}
+
+\newcommand{\hydraWriteSubTotal}{%
+  \ifnum\value{section}>0\relax
+    \protected@write\@auxout{}{%
+      \string\hydraSetSubTotal{\number\value{section}}{\number\value{hydrasubindex}}%
+    }%
+  \fi
+}
+
+\newcommand{\hydraCurrentSubTotal}{%
+  \ifcsname hydraSubTotal@\number\value{section}\endcsname
+    \csname hydraSubTotal@\number\value{section}\endcsname
+  \else
+    \number\value{hydrasubindex}%
+  \fi
+}
+
+\newcommand{\hydraTwoDigits}[1]{%
+  \ifnum#1<10 0\fi\number#1%
+}
+
+\newcommand{\hydraBreadcrumb}{%
+  \MakeUppercase{\insertsectionhead}%
+  \ifnum\value{subsection}>0\relax
+    \hspace{0.18em}/\hspace{0.18em}\MakeUppercase{\insertsubsectionhead}%
+  \fi
+}
+
+\newcommand{\hydraTocLine}[3]{%
+  \noindent
+  \begin{tikzpicture}[baseline=(title.base)]
+    \fill[#1] (0,0.28) rectangle (0.30,0.32);
+    \node[anchor=west,text=#1,font=\bfseries\fontsize{7.6}{8.6}\selectfont]
+      at (0,0) {\hydraTwoDigits{\inserttocsectionnumber}};
+    \node[anchor=west,text=#2,text width=5.05cm,font=#3\fontsize{8.9}{10.4}\selectfont]
+      (title) at (0.62,0) {\inserttocsection};
+  \end{tikzpicture}\par
+    % \vspace{-0.50cm}%
+}
+
+\newcommand{\hydraSectionMapFrame}{%
+  \begingroup
+  \patchcmd{\beamer@sectionintoc}
+  {\vskip1.5em}
+  {\vskip0.35cm}
+  {}{}
+  \setbeamertemplate{section in toc}{%
+    \hydraTocLine{HydraGold}{HydraWhite}{\bfseries}%
+  }%
+  \setbeamertemplate{section in toc shaded}{%
+    \hydraTocLine{HydraLine}{HydraMuted}{\mdseries}%
+  }%
+  \begin{frame}[plain,noframenumbering]
+    \begin{tikzpicture}[remember picture,overlay]
+      \fill[HydraNavy] (current page.south west) rectangle (current page.north east);
+      \node[anchor=center,inner sep=0pt] at (current page.center)
+        {\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]
+          {\hydraSectionImage}};
+      \fill[HydraNavy,opacity=.91]
+        (current page.south west)
+        rectangle ([xshift=7.55cm]current page.north west);
+
+      \pgfmathsetlengthmacro{\hydraCircleX}{\hydraFocusX*\paperwidth}
+      \pgfmathsetlengthmacro{\hydraCircleY}{\hydraFocusY*\paperheight}
+      \pgfmathsetlengthmacro{\hydraCircleR}{\hydraFocusRadius*\paperheight}
+      \coordinate (hydrafocus) at
+        ([xshift=\hydraCircleX,yshift=-\hydraCircleY]current page.north west);
+      \fill[HydraNavy,opacity=.22] (hydrafocus) circle[radius=\hydraCircleR];
+      \draw[HydraGold,line width=1.15pt] (hydrafocus) circle[radius=\hydraCircleR];
+
+      \node[anchor=north west,text=HydraGold,font=\bfseries\fontsize{7.8}{9}\selectfont]
+        at ([xshift=0.84cm,yshift=-0.62cm]current page.north west)
+        {LECTURE MAP};
+      \node[anchor=north west,text=HydraWhite,text width=6.15cm,
+        font=\bfseries\fontsize{15.5}{18.5}\selectfont]
+        at ([xshift=0.84cm,yshift=-1.15cm]current page.north west)
+        {\mbox{The road from Hydra}\\\mbox{to pattern formation}};
+      \node[anchor=north west,text=HydraBody,text width=6.05cm,
+        font=\fontsize{8.8}{11}\selectfont]
+        at ([xshift=0.84cm,yshift=-2.65cm]current page.north west)
+        {From biological observations to mathematical mechanisms.};
+      \node[anchor=north west,inner sep=0pt,text width=6.15cm]
+        at ([xshift=0.84cm,yshift=-3.52cm]current page.north west)
+        {\begin{minipage}{6.15cm}
+          \def\vfill{\vskip0.07cm}%
+          \tableofcontents[currentsection,hideallsubsections]
+        \end{minipage}};
+    \end{tikzpicture}
+  \end{frame}
+  \endgroup
+}
+
+\newcommand{\hydraSubsectionFrame}{%
+  \begin{frame}[plain,noframenumbering]
+    \begin{tikzpicture}[remember picture,overlay]
+      \fill[HydraNavy] (current page.south west) rectangle (current page.north east);
+
+      \pgfmathsetlengthmacro{\hydraZoomW}{\hydraZoom*\paperwidth}
+      \pgfmathsetlengthmacro{\hydraZoomH}{\hydraZoom*\paperheight}
+      \pgfmathsetlengthmacro{\hydraZoomCX}{%
+        0.74*\paperwidth-\hydraZoom*(\hydraFocusX-0.5)*\paperwidth}
+      \pgfmathsetlengthmacro{\hydraZoomCY}{%
+        0.50*\paperheight-\hydraZoom*(0.5-\hydraFocusY)*\paperheight}
+      \node[anchor=center,inner sep=0pt]
+        at ([xshift=\hydraZoomCX,yshift=\hydraZoomCY]current page.south west)
+        {\includegraphics[width=\hydraZoomW,height=\hydraZoomH,keepaspectratio]
+          {\hydraSectionImage}};
+
+      \fill[HydraNavy,opacity=.90]
+        (current page.south west)
+        rectangle ([xshift=7.48cm]current page.north west);
+      \fill[HydraNavy,opacity=.16]
+        ([xshift=7.48cm]current page.south west) rectangle (current page.north east);
+
+      \fill[HydraGold]
+        ([xshift=0.86cm,yshift=-1.02cm]current page.north west)
+        rectangle ++(0.82cm,0.055cm);
+      \node[anchor=west,text=HydraGold,font=\bfseries\fontsize{8.2}{9.5}\selectfont]
+        at ([xshift=0.86cm,yshift=-1.45cm]current page.north west)
+        {\hydraTwoDigits{\value{section}}\space \MakeUppercase{\insertsectionhead}};
+
+      \node[anchor=north west,text=HydraWhite,text width=6.55cm,
+        font=\bfseries\fontsize{21}{25}\selectfont]
+        at ([xshift=0.86cm,yshift=-2.10cm]current page.north west)
+        {\insertsubsectionhead};
+
+      \ifx\hydraSubTagline\@empty\else
+        \node[anchor=north west,text=HydraBody,text width=6.10cm,
+          font=\fontsize{10}{13}\selectfont]
+          at ([xshift=0.86cm,yshift=-5.02cm]current page.north west)
+          {\hydraSubTagline};
+      \fi
+
+      \begin{scope}[shift={([xshift=0.86cm,yshift=0.66cm]current page.south west)}]
+        \edef\hydraTotalBars{\hydraCurrentSubTotal}
+        \foreach \i in {1,...,\hydraTotalBars}{%
+          \pgfmathsetmacro{\hydraBarX}{(\i-1)*0.66}
+          \ifnum\i=\value{hydrasubindex}\relax
+            \fill[HydraGold] (\hydraBarX,0) rectangle ++(0.46,0.05);
+          \else
+            \fill[HydraMuted,opacity=.58] (\hydraBarX,0) rectangle ++(0.46,0.05);
+          \fi
+        }
+      \end{scope}
+    \end{tikzpicture}
+  \end{frame}
+}
+
+\NewDocumentCommand{\HydraSection}{O{} m}{%
+  \hydraWriteSubTotal
+  \setcounter{hydrasubindex}{0}%
+  \pgfkeys{/hydra section/.cd,
+    focus x=0.64,
+    focus y=0.25,
+    radius=0.13,
+    zoom=2.05,
+    image=figures/hydra/hydra_zoom_map.png,
+    #1}%
+  \xdef\hydraFocusX{\hydraNextFocusX}%
+  \xdef\hydraFocusY{\hydraNextFocusY}%
+  \xdef\hydraFocusRadius{\hydraNextRadius}%
+  \xdef\hydraZoom{\hydraNextZoom}%
+  \xdef\hydraSectionImage{\hydraNextImage}%
+  \section{#2}%
+}
+
+\NewDocumentCommand{\HydraSubsection}{O{} m}{%
+  \stepcounter{hydrasubindex}%
+  \gdef\hydraSubTagline{#1}%
+  \subsection{#2}%
+}
+
+\AtBeginSection[]{\hydraSectionMapFrame}
+\AtBeginSubsection[]{\hydraSubsectionFrame}
+\AtEndDocument{\hydraWriteSubTotal}
+
+\makeatother
+
+% -----------------------------------------------------------------------------
+% Reusable content layouts
+% -----------------------------------------------------------------------------
+\NewDocumentCommand{\HydraPoint}{O{HydraGold} m m}{%
+  \noindent
+  \begin{minipage}[t]{0.26cm}
+    \vspace{0.12cm}%
+    \centering
+    \begin{tikzpicture}
+      \fill[#1] (0,0) circle[radius=0.055cm];
+    \end{tikzpicture}
+  \end{minipage}%
+  \hspace{0.10cm}%
+  \begin{minipage}[t]{\dimexpr\linewidth-0.40cm\relax}
+    \RaggedRight
+    \hyphenpenalty=10000\exhyphenpenalty=10000\relax
+    {\color{HydraWhite}\bfseries\fontsize{9.5}{12.4}\selectfont #2\par}%
+    \vspace{-0.05cm}%
+    {\color{HydraBody}\fontsize{6.8}{11.2}\selectfont #3\par}%
+  \end{minipage}\par
+  \vspace{0.32cm}%
+}
+
+\NewDocumentCommand{\HydraTextImage}{O{5.55cm} +m m +m}{%
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.61\textwidth}
+      #2
+    \end{column}
+    \begin{column}{0.35\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=#1,keepaspectratio]{#3}
+
+      \vspace{0.06cm}
+
+      {\color{HydraMuted}\fontsize{5.0}{5.8}\selectfont
+       \centering #4\par}
+    \end{column}
+  \end{columns}%
+}
+
+\newcommand{\HydraTwoColumns}[2]{%
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}#1\end{column}
+    \begin{column}{0.48\textwidth}#2\end{column}
+  \end{columns}%
+}
+
+\NewDocumentCommand{\HydraWideFigure}{O{5.05cm} m}{%
+  \begin{center}
+    \includegraphics[width=\linewidth,height=#1,keepaspectratio]{#2}
+  \end{center}%
+}
+
+\newcommand{\HydraProcess}[3]{%
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.28\textwidth}
+      \centering\color{HydraCyan}\bfseries\fontsize{13}{15.5}\selectfont #1
+    \end{column}
+    \begin{column}{0.055\textwidth}
+      \centering\color{HydraCyan}\fontsize{18}{18}\selectfont $\rightarrow$
+    \end{column}
+    \begin{column}{0.24\textwidth}
+      \centering\color{HydraCyan}\bfseries\fontsize{13}{15.5}\selectfont #2
+    \end{column}
+    \begin{column}{0.055\textwidth}
+      \centering\color{HydraCyan}\fontsize{18}{18}\selectfont $\rightarrow$
+    \end{column}
+    \begin{column}{0.30\textwidth}
+      \centering\color{HydraCyan}\bfseries\fontsize{13}{15.5}\selectfont #3
+    \end{column}
+  \end{columns}%
+}
+
+\newcommand{\HydraGridRow}[2]{%
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.47\textwidth}#1\end{column}
+    \begin{column}{0.47\textwidth}#2\end{column}
+  \end{columns}%
+}
+
+\newcommand{\HydraTakeaway}[1]{%
+  \begin{center}
+    \begin{minipage}{0.88\linewidth}
+      \centering
+      {\color{HydraWhite}\bfseries\fontsize{10.4}{13}\selectfont #1\par}
+    \end{minipage}
+  \end{center}%
+}
+
+\newcommand{\source}[1]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south east,text=HydraMuted,font=\fontsize{5.0}{5.8}\selectfont,
+      align=right,text width=13.6cm]
+      at ([xshift=-0.70cm,yshift=0.16cm]current page.south east) {#1};
+  \end{tikzpicture}%
+}
+
+\newcommand{\highlightbox}[2][HydraCyan]{%
+  \begin{beamercolorbox}[rounded=true,sep=0.28cm,wd=\linewidth]{normal text}
+    \begin{tikzpicture}[remember picture,overlay]
+      \draw[#1,line width=0.8pt,rounded corners=3pt]
+        ([xshift=-0.23cm,yshift=0.20cm]current bounding box.north west)
+        rectangle
+        ([xshift=0.23cm,yshift=-0.20cm]current bounding box.south east);
+    \end{tikzpicture}
+    #2
+  \end{beamercolorbox}
+}
+
+% The title layout is intentionally independent from all navigation templates.
+\newcommand{\titlelayout}[1]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[HydraNavy] (current page.south west) rectangle (current page.north east);
+    \node[anchor=center,inner sep=0pt] at ([xshift=2.0cm]current page.center)
+      {\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{#1}};
+    \fill[HydraGold] ([xshift=0.76cm,yshift=-1.25cm]current page.north west)
+      rectangle ++(0.90cm,0.055cm);
+    \node[anchor=west,text=HydraCyan,font=\bfseries\scriptsize]
+      at ([xshift=0.76cm,yshift=-1.70cm]current page.north west)
+      {MATHEMATICAL BIOLOGY};
+    \node[anchor=north west,text=HydraWhite,text width=8.3cm,
+      font=\fontsize{21}{28}\selectfont\bfseries]
+      at ([xshift=0.76cm,yshift=-2.35cm]current page.north west)
+      {\inserttitle};
+    \node[anchor=north west,text=HydraWhite,text width=7.5cm,
+      font=\fontsize{10}{14}\selectfont]
+      at ([xshift=0.76cm,yshift=-5.85cm]current page.north west)
+      {\insertsubtitle};
+    \node[anchor=south west,text=HydraMuted,text width=9.0cm,
+      font=\fontsize{7}{9}\selectfont]
+      at ([xshift=0.76cm,yshift=0.88cm]current page.south west)
+      {\insertdate};
+  \end{tikzpicture}%
+}
+
+% Backwards-compatible name used in older section files.
+\let\twocolumnslide\HydraTwoColumns
