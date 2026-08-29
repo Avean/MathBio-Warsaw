@@ -1,16 +1,24 @@
 \usepackage{fontspec}
 \usepackage{graphicx}
 \usepackage{tikz}
-\usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{xcolor}
 \usepackage{ragged2e}
-\usepackage{booktabs}
+
+% unicode-math must come after amsmath/mathtools; it replaces the legacy
+% Computer Modern math fonts with a single OpenType family so that text and
+% formulas no longer mix two typefaces at two different optical sizes.
+\usepackage{unicode-math}
 
 \usetikzlibrary{arrows.meta,calc,positioning}
 
 \setsansfont{Arial}
 \setmainfont{Arial}
+\setmathfont{FiraMath-Regular.otf}
+
+% A colon is not the end of a sentence: without this TeX widens the space
+% after every ':' and after abbreviations such as "i.e." or "Phil. Trans.".
+\frenchspacing
 
 \definecolor{HydraNavy}{HTML}{020817}
 \definecolor{HydraPanel}{HTML}{0B1930}
@@ -21,7 +29,6 @@
 \definecolor{HydraCyan}{HTML}{43D5FF}
 \definecolor{HydraGold}{HTML}{FFBE4A}
 \definecolor{HydraViolet}{HTML}{9B86FF}
-\definecolor{HydraMagenta}{HTML}{FF65B8}
 \definecolor{HydraGreen}{HTML}{42D6A4}
 \definecolor{HydraRed}{HTML}{FF6B6B}
 
@@ -57,9 +64,25 @@
   \begin{beamercolorbox}[wd=\paperwidth,
       leftskip=0.70cm,rightskip=0.70cm,sep=0pt]{frametitle}
     \vspace*{0.05cm}%
-    {\usebeamerfont{frametitle}\insertframetitle\par}%
+    % Ragged right with hyphenation switched off: a justified frame title
+    % stretches the word spacing and breaks long words across two lines.
+    % \raggedright would zero the colorbox leftskip and kill the left margin,
+    % so add the stretch to \rightskip instead and leave both margins alone.
+    {\usebeamerfont{frametitle}%
+     \hyphenpenalty=10000\exhyphenpenalty=10000\relax
+     \advance\rightskip 0pt plus 1fil\relax
+     \insertframetitle\par}%
     \vspace*{0.06cm}%
   \end{beamercolorbox}%
 }
 
-\setbeamertemplate{footline}{}
+% Slide number, bottom left. Drawn as an overlay so it costs no text height
+% and cannot collide with \source, which is anchored bottom right.
+\setbeamertemplate{footline}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south west,text=HydraMuted,
+      font=\fontsize{6.6}{7.6}\selectfont]
+      at ([xshift=0.70cm,yshift=0.20cm]current page.south west)
+      {\insertframenumber};
+  \end{tikzpicture}%
+}
