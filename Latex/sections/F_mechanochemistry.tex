@@ -71,6 +71,351 @@
 \end{frame}
 
 
+\begin{frame}{The activator has candidates but the inhibitor remains unclear}
+
+  \vspace{-0.12cm}
+
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.47\textwidth}
+      \centering
+      {\color{HydraGold}\bfseries\fontsize{8}{9.5}\selectfont
+        ACTIVATOR CANDIDATE\par}
+      \vspace{0.22cm}
+      {\color{HydraWhite}\bfseries\fontsize{21}{24}\selectfont Wnt3\par}
+      \vspace{0.22cm}
+      {\color{HydraMuted}\fontsize{7.5}{9.2}\selectfont
+        Stable localized Wnt3 expression marks the emerging head organizer
+      \par}
+    \end{column}
+
+    \begin{column}{0.06\textwidth}
+      \centering{\color{HydraLine}\fontsize{28}{28}\selectfont $\vert$}
+    \end{column}
+
+    \begin{column}{0.47\textwidth}
+      \centering
+      {\color{HydraCyan}\bfseries\fontsize{8}{9.5}\selectfont
+        MISSING COMPONENT\par}
+      \vspace{0.22cm}
+      {\color{HydraWhite}\bfseries\fontsize{18}{22}\selectfont ?\par}
+      \vspace{0.22cm}
+      {\color{HydraMuted}\fontsize{7.5}{9.2}\selectfont
+        No biochemical species has been established as the required fast long-range inhibitor
+      \par}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.48cm}
+
+  \HydraTakeaway{
+    The mathematical inhibitor has a clear role but its biological identity is unresolved
+  }
+
+\end{frame}
+
+
+\begin{frame}{Long-range inhibition need not be chemical}
+
+  \vspace{-0.18cm}
+
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.43\textwidth}
+      \HydraPoint[HydraGold]
+        {Chemical transport}
+        {A molecule would have to transmit inhibition across the regenerating tissue}
+
+      \vspace{-0.04cm}
+
+      \HydraPoint[HydraCyan]
+        {Mechanical coupling}
+        {Stress and deformation can couple distant parts of a closed tissue without a second inhibitor}
+
+      \vspace{-0.04cm}
+
+      \HydraPoint[HydraViolet]
+        {Modelling question}
+        {Can one morphogen and tissue mechanics reproduce local activation and long-range inhibition}
+    \end{column}
+
+    \begin{column}{0.53\textwidth}
+      \centering
+      \begin{tikzpicture}[x=0.90cm,y=0.90cm]
+        \draw[HydraLine,line width=1.2pt] (0.45,2.75) circle[radius=0.52cm];
+        \draw[HydraLine,line width=1.2pt] (6.15,2.75) circle[radius=0.52cm];
+        \fill[HydraGold] (0.45,2.75) circle[radius=0.13cm];
+        \fill[HydraGold] (6.15,2.75) circle[radius=0.13cm];
+        \draw[<->,HydraCyan,line width=1.4pt] (1.10,2.75) -- (5.50,2.75);
+        \node[text=HydraCyan,font=\bfseries\fontsize{7.4}{8.8}\selectfont]
+          at (3.30,3.20) {mechanical communication};
+        \node[text=HydraMuted,align=center,text width=4.6cm,
+          font=\fontsize{7.1}{8.6}\selectfont]
+          at (3.30,0.72) {a global constraint can transmit local changes throughout the tissue};
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Symmetry breaking occurs in a regenerating spheroid}
+
+  \vspace{-0.22cm}
+
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.67\textwidth}
+      \centering
+      \includegraphics[
+        width=\linewidth,
+        height=5.20cm,
+        keepaspectratio
+      ]{figures/mechanochemistry/hydra_biology.png}
+    \end{column}
+
+    \begin{column}{0.29\textwidth}
+      \HydraPoint[HydraGold]
+        {Initially symmetric}
+        {A tissue fragment rounds into a hollow spheroid}
+      \vspace{-0.08cm}
+      \HydraPoint[HydraCyan]
+        {Symmetry is broken}
+        {One region becomes the future head organizer}
+      \vspace{-0.08cm}
+      \HydraPoint[HydraGreen]
+        {A complete axis emerges}
+        {The localized organizer directs whole-body regeneration}
+    \end{column}
+  \end{columns}
+
+  \source{Wang et al., Integrative and Comparative Biology, 2023}
+
+\end{frame}
+
+
+\begin{frame}{The central question}
+
+  \vspace{0.40cm}
+
+  \begin{center}
+    \begin{minipage}{0.84\linewidth}
+      \centering
+      {\color{HydraMuted}\fontsize{8.2}{10}\selectfont
+        Can a local morphogen change the mechanics of the entire spheroid
+      \par}
+      \vspace{0.36cm}
+      {\color{HydraWhite}\bfseries\fontsize{18}{23}\selectfont
+        Can mechanics replace the diffusible inhibitor
+      \par}
+      \vspace{0.46cm}
+      {\color{HydraCyan}\fontsize{20}{20}\selectfont $\Downarrow$\par}
+      \vspace{0.40cm}
+      {\color{HydraGold}\bfseries\fontsize{12}{15}\selectfont
+        Build the simplest mechanochemical model that can answer this question
+      \par}
+    \end{minipage}
+  \end{center}
+
+\end{frame}
+
+
+\HydraSubsection[
+  \mbox{Swelling and rupture expose}
+  \mbox{a two-way coupling between}
+  \mbox{morphogen signalling and mechanics}
+]{Mechanics during regeneration}
+
+
+\begin{frame}{Regenerating spheroids undergo mechanical oscillations}
+
+  \vspace{-0.16cm}
+
+  \begin{center}
+    \begin{tikzpicture}[x=1cm,y=1cm]
+      \fill[HydraPanel] (0.40,0.35) rectangle (14.70,5.05);
+      \draw[HydraLine,line width=1.0pt,rounded corners=3pt]
+        (0.40,0.35) rectangle (14.70,5.05);
+      \fill[HydraGold,opacity=0.18] (7.55,2.70) circle[radius=1.05cm];
+      \draw[HydraGold,line width=1.5pt] (7.55,2.70) circle[radius=1.05cm];
+      \fill[HydraWhite] (7.55,2.70) circle[radius=0.17cm];
+      \draw[-{Latex[length=3.0mm]},HydraWhite,line width=1.2pt]
+        (7.34,2.70) -- (7.90,2.70);
+      \node[text=HydraWhite,font=\bfseries\fontsize{10}{12}\selectfont]
+        at (7.55,4.32) {REGENERATING HYDRA SPHEROID};
+      \node[text=HydraMuted,font=\fontsize{7.6}{9.2}\selectfont]
+        at (7.55,0.92) {observe gradual swelling followed by rapid collapse};
+    \end{tikzpicture}
+  \end{center}
+
+  % Replace the panel above with the biological movie when the file is available
+
+\end{frame}
+
+
+\begin{frame}{One oscillation is a swelling and rupture cycle}
+
+  \vspace{0.22cm}
+
+  \HydraProcess{water enters}{tissue stretches}{tissue ruptures}
+
+  \vspace{0.54cm}
+
+  \begin{center}
+    {\color{HydraCyan}\fontsize{19}{19}\selectfont $\Downarrow$}
+
+    \vspace{0.28cm}
+
+    {\color{HydraGreen}\bfseries\fontsize{12}{15}\selectfont
+      the tissue deflates heals and the cycle begins again
+    \par}
+  \end{center}
+
+  \vspace{0.46cm}
+
+  \HydraTakeaway{
+    Osmotic pressure repeatedly converts fluid transport into tissue stretching
+  }
+
+\end{frame}
+
+
+\begin{frame}{The spheroid radius records repeated rupture events}
+
+  \vspace{-0.18cm}
+
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.72\textwidth}
+      \centering
+      \includegraphics[
+        width=\linewidth,
+        height=5.25cm,
+        keepaspectratio
+      ]{figures/mechanochemistry/oscillation_radius.png}
+    \end{column}
+
+    \begin{column}{0.24\textwidth}
+      \HydraPoint[HydraGold]
+        {Slow increase}
+        {Water influx gradually increases the spheroid radius}
+      \vspace{-0.06cm}
+      \HydraPoint[HydraRed]
+        {Rapid decrease}
+        {Rupture releases fluid and abruptly reduces the radius}
+      \vspace{-0.06cm}
+      \HydraPoint[HydraCyan]
+        {Changing dynamics}
+        {The oscillation changes as the body axis and tentacles form}
+    \end{column}
+  \end{columns}
+
+  \source{Kuecken et al., Biophysical Journal, 2008}
+
+\end{frame}
+
+
+\begin{frame}{Wnt3 changes the oscillatory dynamics}
+
+  \vspace{-0.18cm}
+
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.72\textwidth}
+      \centering
+      \includegraphics[
+        width=\linewidth,
+        height=5.15cm,
+        keepaspectratio
+      ]{figures/mechanochemistry/oscillation_wnt3_oe.jpg}
+    \end{column}
+
+    \begin{column}{0.24\textwidth}
+      \HydraPoint[HydraWhite]
+        {Control}
+        {Repeated rupture limits the gradual increase in radius}
+      \vspace{-0.02cm}
+      \HydraPoint[HydraGreen]
+        {Wnt3 overexpression}
+        {The timing and amplitude of rupture events are altered}
+      \vspace{-0.02cm}
+      {\color{HydraMuted}\fontsize{7.1}{8.7}\selectfont
+        Morphogen signalling and tissue-scale mechanics cannot be treated independently
+      \par}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Experiments suggest a two-way mechanochemical coupling}
+
+  \vspace{0.10cm}
+
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.44\textwidth}
+      \centering
+      {\color{HydraGold}\bfseries\fontsize{9.2}{11}\selectfont TISSUE STRETCHING\par}
+      \vspace{0.32cm}
+      {\color{HydraCyan}\fontsize{19}{19}\selectfont $\Downarrow$}
+      \vspace{0.28cm}
+      {\color{HydraWhite}\bfseries\fontsize{11.5}{14}\selectfont Wnt3 production\par}
+      \vspace{0.24cm}
+      {\color{HydraMuted}\fontsize{7.3}{9}\selectfont
+        Stretching correlates with organizer formation and Wnt3 expression
+      \par}
+    \end{column}
+
+    \begin{column}{0.08\textwidth}
+      \centering{\color{HydraLine}\fontsize{30}{30}\selectfont $\vert$}
+    \end{column}
+
+    \begin{column}{0.44\textwidth}
+      \centering
+      {\color{HydraWhite}\bfseries\fontsize{11.5}{14}\selectfont MORPHOGEN\par}
+      \vspace{0.32cm}
+      {\color{HydraCyan}\fontsize{19}{19}\selectfont $\Downarrow$}
+      \vspace{0.28cm}
+      {\color{HydraGreen}\bfseries\fontsize{10.2}{12.5}\selectfont Tissue elasticity\par}
+      \vspace{0.24cm}
+      {\color{HydraMuted}\fontsize{7.3}{9}\selectfont
+        Morphogen signalling changes how strongly the tissue resists deformation
+      \par}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.52cm}
+  \HydraTakeaway{Each side of the feedback modifies the other}
+
+\end{frame}
+
+
+\begin{frame}{Local feedback interacts with a global mechanical constraint}
+
+  \vspace{-0.18cm}
+
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.62\textwidth}
+      \centering
+      \includegraphics[
+        width=\linewidth,
+        height=5.35cm,
+        keepaspectratio
+      ]{figures/mechanochemistry/3d_intersection.jpg}
+    \end{column}
+
+    \begin{column}{0.34\textwidth}
+      \HydraPoint[HydraGold]
+        {Local activation}
+        {Morphogen changes elasticity and concentrates strain locally}
+      \vspace{-0.05cm}
+      \HydraPoint[HydraCyan]
+        {Long-range inhibition}
+        {The closed pressurized tissue shares a finite total deformation}
+      \vspace{-0.05cm}
+      \HydraPoint[HydraViolet]
+        {Minimal ingredients}
+        {Morphogen dynamics mechanics and one global constraint}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
 \HydraSubsection[
   \mbox{A closed ring of springs reveals}
   \mbox{how local elasticity produces}
@@ -78,40 +423,40 @@
 ]{From springs to a continuum}
 
 
-\begin{frame}{Replace the spheroid by an elastic ring}
+% \begin{frame}{Replace the spheroid by an elastic ring}
 
-  \vspace{-0.18cm}
+%   \vspace{-0.18cm}
 
-  \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.48\textwidth}
-      \centering
-      \includegraphics[
-        width=\linewidth,
-        height=4.95cm,
-        keepaspectratio
-      ]{figures/mechanochemistry/sphere_springs.png}
-    \end{column}
+%   \begin{columns}[c,onlytextwidth]
+%     \begin{column}{0.48\textwidth}
+%       \centering
+%       \includegraphics[
+%         width=\linewidth,
+%         height=4.95cm,
+%         keepaspectratio
+%       ]{figures/mechanochemistry/sphere_springs.png}
+%     \end{column}
 
-    \begin{column}{0.48\textwidth}
-      \HydraPoint[HydraGold]
-        {Closed geometry}
-        {The one-dimensional ring represents a cross-section of the spheroid}
-      \vspace{-0.04cm}
-      \HydraPoint[HydraCyan]
-        {Elastic tissue}
-        {Neighbouring material points are connected by springs}
-      \vspace{-0.04cm}
-      \HydraPoint[HydraGreen]
-        {Morphogen-dependent stiffness}
-        {Each spring responds to the local concentration of morphogen}
-    \end{column}
-  \end{columns}
+%     \begin{column}{0.48\textwidth}
+%       \HydraPoint[HydraGold]
+%         {Closed geometry}
+%         {The one-dimensional ring represents a cross-section of the spheroid}
+%       \vspace{-0.04cm}
+%       \HydraPoint[HydraCyan]
+%         {Elastic tissue}
+%         {Neighbouring material points are connected by springs}
+%       \vspace{-0.04cm}
+%       \HydraPoint[HydraGreen]
+%         {Morphogen-dependent stiffness}
+%         {Each spring responds to the local concentration of morphogen}
+%     \end{column}
+%   \end{columns}
 
-  \HydraTakeaway{
-    The ring retains the essential coupling while removing unnecessary geometry
-  }
+%   \HydraTakeaway{
+%     The ring retains the essential coupling while removing unnecessary geometry
+%   }
 
-\end{frame}
+% \end{frame}
 
 
 \begin{frame}{The spring application makes the mechanics tangible}
@@ -950,7 +1295,7 @@
       }
       \vspace{-0.26cm}
       {\color{HydraMuted}\fontsize{7.4}{9.1}\selectfont
-        The tildes are dropped and the domain is the unit circle $\mathbb T=[0,1]$
+        The tildes are dropped and the domain is the unit circle $\mathbb{T}=[0,1]$
       \par}
     \end{column}
   \end{columns}
@@ -1020,249 +1365,274 @@
 \end{frame}
 
 
-\begin{frame}{The activator has candidates but the inhibitor remains unclear}
-
-  \vspace{-0.12cm}
-
-  \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.47\textwidth}
-      \centering
-      {\color{HydraGold}\bfseries\fontsize{8}{9.5}\selectfont
-        ACTIVATOR CANDIDATE\par}
-      \vspace{0.22cm}
-      {\color{HydraWhite}\bfseries\fontsize{21}{24}\selectfont Wnt3\par}
-      \vspace{0.22cm}
-      {\color{HydraMuted}\fontsize{7.5}{9.2}\selectfont
-        Stable localized Wnt3 expression marks the emerging head organizer
-      \par}
-    \end{column}
-
-    \begin{column}{0.06\textwidth}
-      \centering{\color{HydraLine}\fontsize{28}{28}\selectfont $\vert$}
-    \end{column}
-
-    \begin{column}{0.47\textwidth}
-      \centering
-      {\color{HydraCyan}\bfseries\fontsize{8}{9.5}\selectfont
-        MISSING COMPONENT\par}
-      \vspace{0.22cm}
-      {\color{HydraWhite}\bfseries\fontsize{18}{22}\selectfont ?\par}
-      \vspace{0.22cm}
-      {\color{HydraMuted}\fontsize{7.5}{9.2}\selectfont
-        No biochemical species has been established as the required fast long-range inhibitor
-      \par}
-    \end{column}
-  \end{columns}
-
-  \vspace{0.48cm}
-
-  \HydraTakeaway{
-    The mathematical inhibitor has a clear role but its biological identity is unresolved
-  }
-
-\end{frame}
-
-
-\begin{frame}{Long-range inhibition need not be chemical}
-
-  \vspace{-0.18cm}
-
-  \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.43\textwidth}
-      \HydraPoint[HydraGold]
-        {Chemical transport}
-        {A molecule would have to transmit inhibition across the regenerating tissue}
-
-      \vspace{-0.04cm}
-
-      \HydraPoint[HydraCyan]
-        {Mechanical coupling}
-        {Stress and deformation can couple distant parts of a closed tissue without a second inhibitor}
-
-      \vspace{-0.04cm}
-
-      \HydraPoint[HydraViolet]
-        {Modelling question}
-        {Can one morphogen and tissue mechanics reproduce local activation and long-range inhibition}
-    \end{column}
-
-    \begin{column}{0.53\textwidth}
-      \centering
-      \begin{tikzpicture}[x=0.90cm,y=0.90cm]
-        \draw[HydraLine,line width=1.2pt] (0.45,2.75) circle[radius=0.52cm];
-        \draw[HydraLine,line width=1.2pt] (6.15,2.75) circle[radius=0.52cm];
-        \fill[HydraGold] (0.45,2.75) circle[radius=0.13cm];
-        \fill[HydraGold] (6.15,2.75) circle[radius=0.13cm];
-        \draw[<->,HydraCyan,line width=1.4pt] (1.10,2.75) -- (5.50,2.75);
-        \node[text=HydraCyan,font=\bfseries\fontsize{7.4}{8.8}\selectfont]
-          at (3.30,3.20) {mechanical communication};
-        \node[text=HydraMuted,align=center,text width=4.6cm,
-          font=\fontsize{7.1}{8.6}\selectfont]
-          at (3.30,0.72) {a global constraint can transmit local changes throughout the tissue};
-      \end{tikzpicture}
-    \end{column}
-  \end{columns}
-
-\end{frame}
-
-
-\begin{frame}{Symmetry breaking occurs in a regenerating spheroid}
-
-  \vspace{-0.22cm}
-
-  \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.67\textwidth}
-      \centering
-      \includegraphics[
-        width=\linewidth,
-        height=5.20cm,
-        keepaspectratio
-      ]{figures/mechanochemistry/hydra_biology.png}
-    \end{column}
-
-    \begin{column}{0.29\textwidth}
-      \HydraPoint[HydraGold]
-        {Initially symmetric}
-        {A tissue fragment rounds into a hollow spheroid}
-      \vspace{-0.08cm}
-      \HydraPoint[HydraCyan]
-        {Symmetry is broken}
-        {One region becomes the future head organizer}
-      \vspace{-0.08cm}
-      \HydraPoint[HydraGreen]
-        {A complete axis emerges}
-        {The localized organizer directs whole-body regeneration}
-    \end{column}
-  \end{columns}
-
-  \source{Wang et al., Integrative and Comparative Biology, 2023}
-
-\end{frame}
-
-
-\begin{frame}{The central question}
-
-  \vspace{0.40cm}
-
-  \begin{center}
-    \begin{minipage}{0.84\linewidth}
-      \centering
-      {\color{HydraMuted}\fontsize{8.2}{10}\selectfont
-        Can a local morphogen change the mechanics of the entire spheroid
-      \par}
-      \vspace{0.36cm}
-      {\color{HydraWhite}\bfseries\fontsize{18}{23}\selectfont
-        Can mechanics replace the diffusible inhibitor
-      \par}
-      \vspace{0.46cm}
-      {\color{HydraCyan}\fontsize{20}{20}\selectfont $\Downarrow$\par}
-      \vspace{0.40cm}
-      {\color{HydraGold}\bfseries\fontsize{12}{15}\selectfont
-        Build the simplest mechanochemical model that can answer this question
-      \par}
-    \end{minipage}
-  \end{center}
-
-\end{frame}
-
-
 \HydraSubsection[
-  \mbox{Swelling and rupture expose}
-  \mbox{a two-way coupling between}
-  \mbox{morphogen signalling and mechanics}
-]{Mechanics during regeneration}
+  \mbox{Variational structure determines}
+  \mbox{when patterns exist and which}
+  \mbox{stationary profiles can be stable}
+]{Steady states and stability}
 
 
-\begin{frame}{Regenerating spheroids undergo mechanical oscillations}
+\begin{frame}{Stationary patterns solve a nonlocal boundary-value problem}
+
+  \vspace{0.02cm}
+
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.62\textwidth}
+      {\color{HydraWhite}\fontsize{11}{13.9}\selectfont
+      \begin{align*}
+        0
+        &=D\partial_{xx}U-U
+        +\kappa
+        \frac{e^{U(x)}}
+        {\displaystyle\int_0^1e^{U(y)}\,dy}
+      \end{align*}
+      }
+      \vspace{-0.20cm}
+      {\color{HydraWhite}\fontsize{9.8}{12.5}\selectfont
+      \begin{align*}
+        U(0)&=U(1)
+        \\
+        \partial_xU(0)&=\partial_xU(1)
+      \end{align*}
+      }
+    \end{column}
+
+    \begin{column}{0.34\textwidth}
+      \HydraPoint[HydraGold]
+        {Homogeneous solution}
+        {$\bar U\equiv\kappa$ is always a stationary solution}
+      \vspace{-0.04cm}
+      \HydraPoint[HydraCyan]
+        {Patterned solution}
+        {A nonconstant periodic function $U(x)$ represents a spatial pattern}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.18cm}
+
+  {\color{HydraMuted}\fontsize{7.4}{9.1}\selectfont
+    Every stationary solution has mean value $\int_0^1U(x)\,dx=\kappa$
+  \par}
+
+\end{frame}
+
+
+\begin{frame}{Small diffusion permits patterns while large diffusion suppresses them}
 
   \vspace{-0.16cm}
 
-  \begin{center}
-    \begin{tikzpicture}[x=1cm,y=1cm]
-      \fill[HydraPanel] (0.40,0.35) rectangle (14.70,5.05);
-      \draw[HydraLine,line width=1.0pt,rounded corners=3pt]
-        (0.40,0.35) rectangle (14.70,5.05);
-      \fill[HydraGold,opacity=0.18] (7.55,2.70) circle[radius=1.05cm];
-      \draw[HydraGold,line width=1.5pt] (7.55,2.70) circle[radius=1.05cm];
-      \fill[HydraWhite] (7.55,2.70) circle[radius=0.17cm];
-      \draw[-{Latex[length=3.0mm]},HydraWhite,line width=1.2pt]
-        (7.34,2.70) -- (7.90,2.70);
-      \node[text=HydraWhite,font=\bfseries\fontsize{10}{12}\selectfont]
-        at (7.55,4.32) {REGENERATING HYDRA SPHEROID};
-      \node[text=HydraMuted,font=\fontsize{7.6}{9.2}\selectfont]
-        at (7.55,0.92) {observe gradual swelling followed by rapid collapse};
-    \end{tikzpicture}
-  \end{center}
+  {\color{HydraGold}\bfseries\fontsize{8.2}{9.8}\selectfont
+    THEOREM\par}
 
-  % Replace the panel above with the biological movie when the file is available
+  \vspace{0.12cm}
+
+  {\color{HydraWhite}\fontsize{8.5}{10.7}\selectfont
+    For every $\kappa>0$ there exist constants
+  \par}
+
+  \vspace{-0.34cm}
+
+  {\color{HydraWhite}\bfseries\fontsize{11.2}{14.2}\selectfont
+  \begin{align*}
+    0<D_{\min}(\kappa)<D_{\max}(\kappa)
+  \end{align*}
+  }
+
+  \vspace{-0.36cm}
+
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \HydraPoint[HydraGold]
+        {$0<D<D_{\min}(\kappa)$}
+        {A nonconstant stationary solution exists and is Lyapunov stable in $L^2$}
+    \end{column}
+
+    \begin{column}{0.48\textwidth}
+      \HydraPoint[HydraCyan]
+        {$D>D_{\max}(\kappa)$}
+        {$\bar U\equiv\kappa$ is the unique stationary solution and is globally asymptotically stable}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.20cm}
+
+  {\color{HydraMuted}\fontsize{7.4}{9.1}\selectfont
+    The analytic thresholds are sufficient bounds and need not be optimal
+  \par}
 
 \end{frame}
 
 
-\begin{frame}{One oscillation is a swelling and rupture cycle}
+\begin{frame}{The parameter plane separates homogeneous and patterned regimes}
 
-  \vspace{0.22cm}
+  \vspace{-0.16cm}
 
-  \HydraProcess{water enters}{tissue stretches}{tissue ruptures}
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.74\textwidth}
+      \centering
+      \includegraphics[
+        width=\linewidth,
+        height=5.35cm,
+        keepaspectratio
+      ]{figures/mechanochemistry/parameter_space.png}
+    \end{column}
 
-  \vspace{0.54cm}
+    \begin{column}{0.22\textwidth}
+      \HydraPoint[HydraCyan]
+        {Patterns}
+        {Nonconstant steady states are found for sufficiently small diffusion}
+      \vspace{-0.10cm}
+      \HydraPoint[HydraGold]
+        {Homogeneous state}
+        {Large diffusion removes spatial variation}
+      \vspace{-0.10cm}
+      {\color{HydraMuted}\fontsize{6.9}{8.5}\selectfont
+        Hatched regions are established analytically
+      \par}
+    \end{column}
+  \end{columns}
 
-  \begin{center}
-    {\color{HydraCyan}\fontsize{19}{19}\selectfont $\Downarrow$}
+\end{frame}
 
-    \vspace{0.28cm}
 
-    {\color{HydraGreen}\bfseries\fontsize{12}{15}\selectfont
-      the tissue deflates heals and the cycle begins again
-    \par}
-  \end{center}
+\begin{frame}{Linearization asks whether a stationary profile amplifies perturbations}
 
-  \vspace{0.46cm}
+  \vspace{-0.10cm}
+
+  {\color{HydraWhite}\fontsize{9.8}{12.4}\selectfont
+  \begin{align*}
+    u(x,t)&=U(x)+e^{\nu t}\varphi(x)
+  \end{align*}
+  }
+
+  \vspace{-0.36cm}
+
+  {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
+    Keeping only first-order terms gives the nonlocal eigenvalue problem
+  \par}
+
+  \vspace{-0.24cm}
+
+  {\color{HydraWhite}\fontsize{8.7}{11}\selectfont
+  \begin{align*}
+    D\partial_{xx}\varphi
+    +\left(
+      \kappa\frac{e^U}{\int_0^1e^U}-1-\nu
+    \right)\varphi
+    &=
+    \kappa
+    \frac{e^U}{\left(\int_0^1e^U\right)^2}
+    \int_0^1e^U\varphi
+  \end{align*}
+  }
+
+  \vspace{-0.24cm}
+
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \HydraPoint[HydraCyan]
+        {$\nu<0$}
+        {The corresponding perturbation decays}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \HydraPoint[HydraGold]
+        {$\nu>0$}
+        {The corresponding perturbation grows}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+
+\begin{frame}{A local problem helps locate the nonlocal eigenvalues}
+
+  \vspace{-0.08cm}
+
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \centering
+      {\color{HydraGold}\bfseries\fontsize{7.8}{9.4}\selectfont
+        NONLOCAL PROBLEM\par}
+      \vspace{-0.24cm}
+      {\color{HydraWhite}\fontsize{8.7}{11}\selectfont
+      \begin{align*}
+        D\partial_{xx}\varphi
+        +(A-\nu)\varphi
+        &=MC(x)\int_0^1C(y)\varphi(y)\,dy
+      \end{align*}
+      }
+      \vspace{-0.28cm}
+      {\color{HydraMuted}\fontsize{7.2}{8.8}\selectfont
+        Every value of $\varphi$ is coupled through the integral
+      \par}
+    \end{column}
+
+    \begin{column}{0.48\textwidth}
+      \centering
+      {\color{HydraCyan}\bfseries\fontsize{7.8}{9.4}\selectfont
+        LOCAL PROBLEM\par}
+      \vspace{-0.24cm}
+      {\color{HydraWhite}\fontsize{8.7}{11}\selectfont
+      \begin{align*}
+        D\partial_{xx}\psi
+        +(A-\lambda)\psi
+        &=0
+      \end{align*}
+      }
+      \vspace{-0.28cm}
+      {\color{HydraMuted}\fontsize{7.2}{8.8}\selectfont
+        Classical oscillation theory orders the eigenfunctions by their zeros
+      \par}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.36cm}
 
   \HydraTakeaway{
-    Osmotic pressure repeatedly converts fluid transport into tissue stretching
+    Relevant nonlocal eigenvalues lie between eigenvalues of the associated local problem
   }
 
 \end{frame}
 
 
-\begin{frame}{The spheroid radius records repeated rupture events}
+\begin{frame}{Stable mechanochemical patterns are necessarily unimodal}
 
-  \vspace{-0.18cm}
+  \vspace{-0.16cm}
 
   \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.72\textwidth}
+    \begin{column}{0.52\textwidth}
       \centering
       \includegraphics[
         width=\linewidth,
-        height=5.25cm,
+        height=4.65cm,
         keepaspectratio
-      ]{figures/mechanochemistry/oscillation_radius.png}
+      ]{figures/mechanochemistry/one_two_peaks.png}
     \end{column}
 
-    \begin{column}{0.24\textwidth}
-      \HydraPoint[HydraGold]
-        {Slow increase}
-        {Water influx gradually increases the spheroid radius}
+    \begin{column}{0.44\textwidth}
+      {\color{HydraGold}\bfseries\fontsize{8.2}{9.8}\selectfont
+        THEOREM\par}
+      \vspace{0.16cm}
+      \HydraPoint[HydraGreen]
+        {Stable nonconstant solution}
+        {The stable solution obtained by energy minimization has one peak}
       \vspace{-0.06cm}
       \HydraPoint[HydraRed]
-        {Rapid decrease}
-        {Rupture releases fluid and abruptly reduces the radius}
+        {Every multimodal solution}
+        {All solutions with two or more peaks are linearly and nonlinearly unstable}
       \vspace{-0.06cm}
-      \HydraPoint[HydraCyan]
-        {Changing dynamics}
-        {The oscillation changes as the body axis and tentacles form}
+      {\color{HydraMuted}\fontsize{7.2}{8.8}\selectfont
+        The global mechanical constraint strongly selects a single organizer
+      \par}
     \end{column}
   \end{columns}
-
-  \source{Kuecken et al., Biophysical Journal, 2008}
 
 \end{frame}
 
 
-\begin{frame}{Wnt3 changes the oscillatory dynamics}
+\begin{frame}{Diffusion changes the width but not the number of stable peaks}
 
-  \vspace{-0.18cm}
+  \vspace{-0.14cm}
 
   \begin{columns}[c,onlytextwidth]
     \begin{column}{0.72\textwidth}
@@ -1271,96 +1641,383 @@
         width=\linewidth,
         height=5.15cm,
         keepaspectratio
-      ]{figures/mechanochemistry/oscillation_wnt3_oe.jpg}
+      ]{figures/mechanochemistry/stationary_profiles.png}
     \end{column}
 
     \begin{column}{0.24\textwidth}
-      \HydraPoint[HydraWhite]
-        {Control}
-        {Repeated rupture limits the gradual increase in radius}
-      \vspace{-0.02cm}
+      \HydraPoint[HydraGold]
+        {Smaller diffusion}
+        {The stable peak becomes sharper and more localized}
+      \vspace{-0.04cm}
+      \HydraPoint[HydraCyan]
+        {Larger diffusion}
+        {The stable profile becomes broader}
+      \vspace{-0.04cm}
       \HydraPoint[HydraGreen]
-        {Wnt3 overexpression}
-        {The timing and amplitude of rupture events are altered}
-      \vspace{-0.02cm}
-      {\color{HydraMuted}\fontsize{7.1}{8.7}\selectfont
-        Morphogen signalling and tissue-scale mechanics cannot be treated independently
-      \par}
+        {Robust selection}
+        {The stable pattern retains a single dominant peak}
     \end{column}
   \end{columns}
 
 \end{frame}
 
 
-\begin{frame}{Experiments suggest a two-way mechanochemical coupling}
+\HydraSubsection[
+  \mbox{Stationary branches emerge when} \mbox{a homogeneous state changes stability} \mbox{and can generate tissue oscillations}
+]{Bifurcations and oscillations}
 
-  \vspace{0.10cm}
+
+\begin{frame}{A bifurcation marks a qualitative change in stationary states}
+
+  \vspace{-0.16cm}
 
   \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.44\textwidth}
+    \begin{column}{0.57\textwidth}
       \centering
-      {\color{HydraGold}\bfseries\fontsize{9.2}{11}\selectfont TISSUE STRETCHING\par}
-      \vspace{0.32cm}
-      {\color{HydraCyan}\fontsize{19}{19}\selectfont $\Downarrow$}
-      \vspace{0.28cm}
-      {\color{HydraWhite}\bfseries\fontsize{11.5}{14}\selectfont Wnt3 production\par}
-      \vspace{0.24cm}
-      {\color{HydraMuted}\fontsize{7.3}{9}\selectfont
-        Stretching correlates with organizer formation and Wnt3 expression
-      \par}
+      \begin{tikzpicture}[x=0.88cm,y=0.90cm]
+        \draw[-{Latex[length=2.2mm]},HydraMuted,line width=0.75pt]
+          (0.45,2.60) -- (7.75,2.60)
+          node[anchor=north east,text=HydraMuted,font=\fontsize{7}{8.2}\selectfont] {control parameter $\kappa$};
+        \draw[-{Latex[length=2.2mm]},HydraMuted,line width=0.75pt]
+          (0.70,0.35) -- (0.70,5.35)
+          node[left,text=HydraMuted,font=\fontsize{7}{8.2}\selectfont] {pattern amplitude};
+
+        \draw[HydraCyan,line width=1.65pt]
+          (0.75,2.60) -- (7.25,2.60);
+        \draw[HydraGold,line width=1.75pt,domain=4.20:7.15,samples=80]
+          plot (\x,{2.60+0.78*sqrt(\x-4.20)});
+        \draw[HydraGold,line width=1.75pt,domain=4.20:7.15,samples=80]
+          plot (\x,{2.60-0.78*sqrt(\x-4.20)});
+
+        \draw[dashed,HydraLine,line width=0.8pt]
+          (4.20,0.55) -- (4.20,4.95);
+        \fill[HydraWhite] (4.20,2.60) circle[radius=0.085cm];
+
+        \node[anchor=south,text=HydraWhite,
+          font=\bfseries\fontsize{7.4}{8.9}\selectfont]
+          at (4.20,5.02) {bifurcation point};
+        \node[anchor=south west,text=HydraCyan,
+          font=\fontsize{7.2}{8.7}\selectfont]
+          at (1.20,2.72) {homogeneous state};
+        \node[anchor=south west,text=HydraGold,
+          font=\fontsize{7.2}{8.7}\selectfont]
+          at (5.45,4.25) {patterned states};
+      \end{tikzpicture}
     \end{column}
 
-    \begin{column}{0.08\textwidth}
-      \centering{\color{HydraLine}\fontsize{30}{30}\selectfont $\vert$}
-    \end{column}
-
-    \begin{column}{0.44\textwidth}
-      \centering
-      {\color{HydraWhite}\bfseries\fontsize{11.5}{14}\selectfont MORPHOGEN\par}
-      \vspace{0.32cm}
-      {\color{HydraCyan}\fontsize{19}{19}\selectfont $\Downarrow$}
-      \vspace{0.28cm}
-      {\color{HydraGreen}\bfseries\fontsize{10.2}{12.5}\selectfont Tissue elasticity\par}
-      \vspace{0.24cm}
-      {\color{HydraMuted}\fontsize{7.3}{9}\selectfont
-        Morphogen signalling changes how strongly the tissue resists deformation
-      \par}
+    \begin{column}{0.39\textwidth}
+      \HydraPoint[HydraCyan]
+        {Before the threshold}
+        {Only the homogeneous stationary state is visible nearby}
+      \vspace{0.02cm}
+      \HydraPoint[HydraGold]
+        {At the threshold}
+        {A spatial mode becomes neutral and a patterned branch can emerge}
+      \vspace{0.02cm}
+      \HydraPoint[HydraWhite]
+        {After the threshold}
+        {The number or stability of stationary states has changed}
     \end{column}
   \end{columns}
-
-  \vspace{0.52cm}
-  \HydraTakeaway{Each side of the feedback modifies the other}
 
 \end{frame}
 
 
-\begin{frame}{Local feedback interacts with a global mechanical constraint}
+\begin{frame}{The homogeneous state loses stability at discrete thresholds}
+
+  \vspace{-0.22cm}
+
+  {\color{HydraWhite}\fontsize{9.6}{12.1}\selectfont
+  \begin{align*}
+    \bar U&\equiv\kappa
+    &
+    \varphi_n(x)&=\cos(2\pi n x)
+  \end{align*}
+  }
+
+  \vspace{-0.44cm}
+
+  {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
+    Linearization assigns one growth rate to every spatial mode
+  \par}
+
+  \vspace{-0.26cm}
+
+  {\color{HydraWhite}\fontsize{10.6}{13.4}\selectfont
+  \begin{align*}
+    \nu_n&=\kappa-1-4\pi^2n^2D
+  \end{align*}
+  }
+
+  \vspace{-0.42cm}
+
+  {\color{HydraGold}\bfseries\fontsize{11.2}{14.2}\selectfont
+  \begin{align*}
+    \boxed{\kappa_n=1+4\pi^2n^2D}
+  \end{align*}
+  }
+
+  \vspace{-0.34cm}
+
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.31\textwidth}
+      \HydraPoint[HydraGold]
+        {$n=1$}
+        {The first nonconstant mode has one maximum and one minimum}
+    \end{column}
+    \begin{column}{0.31\textwidth}
+      \HydraPoint[HydraViolet]
+        {$n=2$}
+        {The next mode produces a two-peak spatial structure}
+    \end{column}
+    \begin{column}{0.31\textwidth}
+      \HydraPoint[HydraCyan]
+        {Discrete thresholds}
+        {Each mode changes stability at its own value of $\kappa$}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+
+\begin{frame}{The first patterned branch can be subcritical or supercritical}
+
+  \vspace{-0.12cm}
+
+  {\color{HydraGold}\bfseries\fontsize{8.2}{9.8}\selectfont
+    THEOREM\par}
+
+  \vspace{0.20cm}
+
+  {\color{HydraWhite}\fontsize{8.8}{11.1}\selectfont
+    At $\kappa=\kappa_n$ a branch of nonconstant stationary solutions bifurcates from the homogeneous state $\bar U\equiv\kappa$
+  \par}
+
+  \vspace{0.24cm}
+
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.47\textwidth}
+      \HydraPoint[HydraGold]
+        {Subcritical branch}
+        {$\kappa_n<3/2$ equivalently $D<(8\pi^2n^2)^{-1}$}
+    \end{column}
+    \begin{column}{0.47\textwidth}
+      \HydraPoint[HydraCyan]
+        {Supercritical branch}
+        {$\kappa_n>3/2$ equivalently $D>(8\pi^2n^2)^{-1}$}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.32cm}
+
+  {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
+    Near the bifurcation only the supercritical branch generated by the first mode can be stable
+  \par}
+
+  \vspace{0.16cm}
+
+  \HydraTakeaway{
+    The direction of the branch determines whether small patterned states appear before or after the linear threshold
+  }
+
+\end{frame}
+
+
+\begin{frame}{Diffusion determines the type of each bifurcation}
+
+  \vspace{-0.14cm}
+
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.73\textwidth}
+      \centering
+      \includegraphics[
+        width=\linewidth,
+        height=5.25cm,
+        keepaspectratio
+      ]{figures/mechanochemistry/bifurcation_parameter_map.png}
+    \end{column}
+
+    \begin{column}{0.23\textwidth}
+      \HydraPoint[HydraGold]
+        {Small diffusion}
+        {The branch can bend toward smaller values of $\kappa$}
+      \vspace{0.04cm}
+      \HydraPoint[HydraCyan]
+        {Larger diffusion}
+        {The branch can emerge toward larger values of $\kappa$}
+      \vspace{0.04cm}
+      {\color{HydraMuted}\fontsize{7.0}{8.6}\selectfont
+        Each spatial mode has its own transition curve
+      \par}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Tissue length turns the stationary picture into dynamics}
 
   \vspace{-0.18cm}
+
+  {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
+    Let $\ell(t)$ denote the current circumference and $L$ its reference value
+  \par}
+
+  \vspace{-0.22cm}
+
+  {\color{HydraWhite}\bfseries\fontsize{10.2}{12.9}\selectfont
+  \begin{align*}
+    \boxed{
+      \partial_tu
+      =
+      D\partial_{xx}u-u
+      +\kappa\bigl(\ell(t)-L\bigr)
+      \frac{e^{u(x,t)}}{\int_0^1e^{u(y,t)}\,dy}
+    }
+  \end{align*}
+  }
+
+  \vspace{-0.34cm}
+
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.31\textwidth}
+      \HydraPoint[HydraGold]
+        {Morphogen rises}
+        {The tissue softens and the mechanical equilibrium shifts}
+    \end{column}
+    \begin{column}{0.31\textwidth}
+      \HydraPoint[HydraCyan]
+        {The spheroid expands}
+        {Increased strain strengthens morphogen production}
+    \end{column}
+    \begin{column}{0.31\textwidth}
+      \HydraPoint[HydraViolet]
+        {Feedback relaxes}
+        {Degradation and mechanical restoration can reverse the expansion}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.18cm}
+
+  \HydraTakeaway{
+    Coupling pattern formation to tissue size creates a route from static symmetry breaking to oscillations
+  }
+
+\end{frame}
+
+
+\begin{frame}{Subcritical feedback permits abrupt switching}
+
+  \vspace{-0.12cm}
 
   \begin{columns}[c,onlytextwidth]
     \begin{column}{0.62\textwidth}
       \centering
       \includegraphics[
         width=\linewidth,
-        height=5.35cm,
+        height=5.05cm,
         keepaspectratio
-      ]{figures/mechanochemistry/3d_intersection.jpg}
+      ]{figures/mechanochemistry/subcritical_bifurcation.png}
     \end{column}
 
     \begin{column}{0.34\textwidth}
       \HydraPoint[HydraGold]
-        {Local activation}
-        {Morphogen changes elasticity and concentrates strain locally}
-      \vspace{-0.05cm}
-      \HydraPoint[HydraCyan]
-        {Long-range inhibition}
-        {The closed pressurized tissue shares a finite total deformation}
-      \vspace{-0.05cm}
-      \HydraPoint[HydraViolet]
-        {Minimal ingredients}
-        {Morphogen dynamics mechanics and one global constraint}
+        {Coexisting states}
+        {A homogeneous and a patterned state may be available for the same parameter value}
+      \vspace{0.04cm}
+      \HydraPoint[HydraRed]
+        {Sudden transition}
+        {Crossing a fold can force the system to jump to a distant branch}
+      \vspace{0.18cm}
+      \begin{tikzpicture}
+        \node[draw=HydraGold,rounded corners=2pt,fill=HydraPanel,
+          minimum width=3.50cm,minimum height=1.20cm,
+          text=HydraMuted,align=center,
+          font=\fontsize{7.2}{8.8}\selectfont]
+          {simulation placeholder\\abrupt inflation and relaxation};
+      \end{tikzpicture}
     \end{column}
   \end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Supercritical feedback produces a gradual patterned response}
+
+  \vspace{-0.12cm}
+
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.62\textwidth}
+      \centering
+      \includegraphics[
+        width=\linewidth,
+        height=5.05cm,
+        keepaspectratio
+      ]{figures/mechanochemistry/supercritical_bifurcation.png}
+    \end{column}
+
+    \begin{column}{0.34\textwidth}
+      \HydraPoint[HydraCyan]
+        {Continuous onset}
+        {The patterned amplitude grows continuously from the homogeneous state}
+      \vspace{0.04cm}
+      \HydraPoint[HydraViolet]
+        {Smooth mechanical response}
+        {Tissue deformation can track the changing stationary branch}
+      \vspace{0.18cm}
+      \begin{tikzpicture}
+        \node[draw=HydraCyan,rounded corners=2pt,fill=HydraPanel,
+          minimum width=3.50cm,minimum height=1.20cm,
+          text=HydraMuted,align=center,
+          font=\fontsize{7.2}{8.8}\selectfont]
+          {simulation placeholder\\gradual inflation and pattern growth};
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Mechanics can realize an activator--inhibitor mechanism without a chemical inhibitor}
+
+  \vspace{-0.08cm}
+
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.31\textwidth}
+      \HydraPoint[HydraGold]
+        {Local positive feedback}
+        {Stretch increases morphogen production and morphogen softens the tissue}
+    \end{column}
+    \begin{column}{0.31\textwidth}
+      \HydraPoint[HydraCyan]
+        {Global mechanical competition}
+        {The fixed total length couples every point through one nonlocal constraint}
+    \end{column}
+    \begin{column}{0.31\textwidth}
+      \HydraPoint[HydraGreen]
+        {Single organizer}
+        {Stable nonconstant stationary states contain one dominant peak}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.42cm}
+
+  {\color{HydraWhite}\bfseries\fontsize{12.2}{15.2}\selectfont
+  \begin{align*}
+    \text{morphogen}
+    \quad\Longrightarrow\quad
+    \text{softening}
+    \quad\Longrightarrow\quad
+    \text{strain}
+    \quad\Longrightarrow\quad
+    \text{morphogen}
+  \end{align*}
+  }
+
+  \vspace{-0.14cm}
+
+  \HydraTakeaway{
+    A single morphogen equation coupled to mechanics can implement local activation and long-range inhibition
+  }
 
 \end{frame}
