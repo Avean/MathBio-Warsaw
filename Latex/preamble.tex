@@ -76,13 +76,15 @@
   \end{beamercolorbox}%
 }
 
-% Slide number, bottom left. Drawn as an overlay so it costs no text height
-% and cannot collide with \source, which is anchored bottom right.
+% Section and local slide number, bottom right. Drawn as an overlay so it costs no text height;
+% \source reserves the adjacent area to its left.
 \setbeamertemplate{footline}{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node[anchor=south west,text=HydraMuted,
+    \node[anchor=south east,
       font=\fontsize{6.6}{7.6}\selectfont]
-      at ([xshift=0.70cm,yshift=0.20cm]current page.south west)
-      {\insertframenumber};
+      at ([xshift=-0.70cm,yshift=0.20cm]current page.south east)
+      {{\color{HydraGold}\bfseries\hydraTwoDigits{\value{section}}}%
+       \hspace{0.16em}{\color{HydraMuted}/}\hspace{0.16em}%
+       {\color{HydraWhite}\hydraTwoDigits{\numexpr\value{framenumber}-\hydraSectionFrameBase\relax}}};
   \end{tikzpicture}%
 }

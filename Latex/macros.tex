@@ -5,6 +5,7 @@
 
 \newcounter{hydrasubindex}
 \setcounter{hydrasubindex}{0}
+\newcommand{\hydraSectionFrameBase}{0}
 
 \newcommand{\hydraFocusX}{0.64}
 \newcommand{\hydraFocusY}{0.25}
@@ -181,6 +182,7 @@
 \NewDocumentCommand{\HydraSection}{O{} m}{%
   \hydraWriteSubTotal
   \setcounter{hydrasubindex}{0}%
+  \xdef\hydraSectionFrameBase{\number\value{framenumber}}%
   \pgfkeys{/hydra section/.cd,
     focus x=0.64,
     focus y=0.25,
@@ -301,7 +303,7 @@
   \begin{tikzpicture}[remember picture,overlay]
     \node[anchor=south east,text=HydraMuted,font=\fontsize{5.0}{5.8}\selectfont,
       align=right,text width=13.6cm]
-      at ([xshift=-0.70cm,yshift=0.16cm]current page.south east) {#1};
+      at ([xshift=-1.75cm,yshift=0.16cm]current page.south east) {#1};
   \end{tikzpicture}%
 }
 
