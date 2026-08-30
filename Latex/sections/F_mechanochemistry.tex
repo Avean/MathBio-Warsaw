@@ -1,6 +1,6 @@
 \HydraSection[
-  focus x=0.61,
-  focus y=0.78,
+  focus x=0.59,
+  focus y=0.76,
   radius=0.13,
   zoom=1.80
 ]{Mechanochemical pattern formation}
@@ -105,11 +105,6 @@
     \end{column}
   \end{columns}
 
-  \vspace{0.48cm}
-
-  \HydraTakeaway{
-    The mathematical inhibitor has a clear role but its biological identity is unresolved
-  }
 
 \end{frame}
 
@@ -169,6 +164,11 @@
         height=5.20cm,
         keepaspectratio
       ]{figures/mechanochemistry/hydra_biology.png}
+
+        {\color{HydraMuted}\fontsize{6}{7.2}\selectfont
+      Wang, Bialas, Goel \& Collins,
+      \textit{Integrative and Comparative Biology} 63 (2023), Fig.~1B.\par
+    }
     \end{column}
 
     \begin{column}{0.29\textwidth}
@@ -186,7 +186,7 @@
     \end{column}
   \end{columns}
 
-  \source{Wang et al., Integrative and Comparative Biology, 2023}
+  % \source{Wang et al., Integrative and Comparative Biology, 2023}
 
 \end{frame}
 
@@ -353,7 +353,7 @@
     \end{column}
   \end{columns}
 
-  \vspace{0.52cm}
+  \vspace{0.92cm}
   \HydraTakeaway{Each side of the feedback modifies the other}
 
 \end{frame}
@@ -394,7 +394,7 @@
   \mbox{A closed ring of springs reveals}
   \mbox{how local elasticity produces}
   \mbox{a global redistribution of strain}
-]{From springs to a continuum}
+]{\mbox{Elastic} \mbox{spring} \mbox{model}}
 
 
 % \begin{frame}{Replace the spheroid by an elastic ring}
@@ -473,189 +473,116 @@
 \end{frame}
 
 
-\begin{frame}{A ring contains many small springs}
+% \begin{frame}{A ring contains many small springs}
 
-  \vspace{-0.14cm}
+%   \vspace{-0.14cm}
 
-  \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.60\textwidth}
-      \centering
-      \begin{tikzpicture}[x=0.95cm,y=0.95cm]
-        \def\R{2.45}
-        \coordinate (O) at (3.40,2.75);
-        \foreach \a in {0,20,...,340}{
-          \fill[HydraWhite] ($(O)+(\a:\R)$) circle[radius=0.060cm];
-        }
-        \draw[HydraCyan,line width=1.0pt]
-          plot[domain=0:360,samples=19]
-            ({3.40+\R*cos(\x)},{2.75+\R*sin(\x)});
-        \fill[HydraGold] ($(O)+(40:\R)$) circle[radius=0.105cm];
-        \fill[HydraGold] ($(O)+(60:\R)$) circle[radius=0.105cm];
-        \draw[HydraGold,line width=2.0pt]
-          ($(O)+(40:\R)$) -- ($(O)+(60:\R)$);
-        \node[anchor=south west,text=HydraGold,
-          font=\bfseries\fontsize{7.4}{8.8}\selectfont]
-          at ($(O)+(50:2.72)$) {spring $i$};
-        \node[text=HydraMuted,font=\fontsize{7}{8.5}\selectfont]
-          at (3.40,2.75) {$N$ springs};
-      \end{tikzpicture}
-    \end{column}
+%   \begin{columns}[c,onlytextwidth]
+%     \begin{column}{0.60\textwidth}
+%       \centering
+%       \begin{tikzpicture}[x=0.95cm,y=0.95cm]
+%         \def\R{2.45}
+%         \coordinate (O) at (3.40,2.75);
+%         \foreach \a in {0,20,...,340}{
+%           \fill[HydraWhite] ($(O)+(\a:\R)$) circle[radius=0.060cm];
+%         }
+%         \draw[HydraCyan,line width=1.0pt]
+%           plot[domain=0:360,samples=19]
+%             ({3.40+\R*cos(\x)},{2.75+\R*sin(\x)});
+%         \fill[HydraGold] ($(O)+(40:\R)$) circle[radius=0.105cm];
+%         \fill[HydraGold] ($(O)+(60:\R)$) circle[radius=0.105cm];
+%         \draw[HydraGold,line width=2.0pt]
+%           ($(O)+(40:\R)$) -- ($(O)+(60:\R)$);
+%         \node[anchor=south west,text=HydraGold,
+%           font=\bfseries\fontsize{7.4}{8.8}\selectfont]
+%           at ($(O)+(50:2.72)$) {spring $i$};
+%         \node[text=HydraMuted,font=\fontsize{7}{8.5}\selectfont]
+%           at (3.40,2.75) {$N$ springs};
+%       \end{tikzpicture}
+%     \end{column}
 
-    \begin{column}{0.36\textwidth}
-      {\color{HydraWhite}\fontsize{10}{12.6}\selectfont
-      \begin{align*}
-        \Delta x&=\frac{L}{N}
-        \\
-        x_i&=i\Delta x
-        \\
-        i&=0,\ldots,N-1
-      \end{align*}
-      }
-      \par
-      \vspace{-0.32cm}
-      {\color{HydraMuted}\fontsize{7.5}{9.2}\selectfont
-        Every spring represents a short material segment of reference length $\Delta x$
-      \par}
-    \end{column}
-  \end{columns}
+%     \begin{column}{0.36\textwidth}
+%       {\color{HydraWhite}\fontsize{10}{12.6}\selectfont
+%       \begin{align*}
+%         \Delta x&=\frac{L}{N}
+%         \\
+%         x_i&=i\Delta x
+%         \\
+%         i&=0,\ldots,N-1
+%       \end{align*}
+%       }
+%       \par
+%       \vspace{-0.32cm}
+%       {\color{HydraMuted}\fontsize{7.5}{9.2}\selectfont
+%         Every spring represents a short material segment of reference length $\Delta x$
+%       \par}
+%     \end{column}
+%   \end{columns}
 
-\end{frame}
-
-
-\begin{frame}{Compare the reference and deformed spring}
-
-  \vspace{0.05cm}
-
-  \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.46\textwidth}
-      \centering
-      {\color{HydraGold}\bfseries\fontsize{8}{9.5}\selectfont
-        REFERENCE CONFIGURATION\par}
-      \vspace{0.30cm}
-      \begin{tikzpicture}[x=1cm,y=1cm]
-        \fill[HydraWhite] (0.55,2.10) circle[radius=0.095cm];
-        \fill[HydraWhite] (5.10,2.10) circle[radius=0.095cm];
-        \draw[HydraLine,line width=1.6pt] (0.55,2.10) -- (5.10,2.10);
-        \draw[<->,HydraGold,line width=1.0pt] (0.55,1.35) -- (5.10,1.35);
-        \node[text=HydraGold,font=\bfseries\fontsize{8}{9.5}\selectfont]
-          at (2.82,0.92) {$\Delta x$};
-      \end{tikzpicture}
-    \end{column}
-
-    \begin{column}{0.06\textwidth}
-      \centering{\color{HydraCyan}\fontsize{19}{19}\selectfont $\Rightarrow$}
-    \end{column}
-
-    \begin{column}{0.46\textwidth}
-      \centering
-      {\color{HydraCyan}\bfseries\fontsize{8}{9.5}\selectfont
-        DEFORMED CONFIGURATION\par}
-      \vspace{0.30cm}
-      \begin{tikzpicture}[x=1cm,y=1cm]
-        \fill[HydraWhite] (0.30,2.10) circle[radius=0.095cm];
-        \fill[HydraWhite] (5.55,2.10) circle[radius=0.095cm];
-        \draw[HydraCyan,line width=1.6pt] (0.30,2.10) -- (5.55,2.10);
-        \draw[<->,HydraCyan,line width=1.0pt] (0.30,1.35) -- (5.55,1.35);
-        \node[text=HydraCyan,font=\bfseries\fontsize{8}{9.5}\selectfont]
-          at (2.92,0.92) {$\ell_i$};
-      \end{tikzpicture}
-    \end{column}
-  \end{columns}
-
-  \vspace{0.38cm}
-
-  {\color{HydraWhite}\fontsize{10.5}{13.2}\selectfont
-  \begin{align*}
-    \text{extension of spring } i
-    &: \quad \ell_i-\Delta x
-  \end{align*}
-  }
-
-\end{frame}
+% \end{frame}
 
 
-\begin{frame}{Strain measures relative extension}
-
-  \vspace{0.18cm}
-
-  \begin{center}
-    \begin{minipage}{0.78\linewidth}
-      {\color{HydraMuted}\fontsize{8}{9.8}\selectfont
-        Absolute extension depends on the size of the spring
-      \par}
-      \vspace{-0.16cm}
-      {\color{HydraWhite}\bfseries\fontsize{15}{18.5}\selectfont
-      \begin{align*}
-        \boxed{
-          \varepsilon_i
-          =
-          \frac{\ell_i-\Delta x}{\Delta x}
-        }
-      \end{align*}
-      }
-      \par
-      \vspace{-0.24cm}
-      \HydraPoint[HydraCyan]
-        {$\varepsilon_i=0$}
-        {The spring keeps its reference length}
-      \vspace{-0.12cm}
-      \HydraPoint[HydraGold]
-        {$\varepsilon_i>0$}
-        {The spring is stretched}
-      \vspace{-0.12cm}
-      \HydraPoint[HydraGold]
-        {$\varepsilon_i<0$}
-        {The spring is compressed}
-    \end{minipage}
-  \end{center}
-
-\end{frame}
-
-
-\begin{frame}{The energy of one spring has the correct continuum scaling}
+\begin{frame}{The energy of a deformed spring}
 
   \vspace{-0.10cm}
 
   \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.52\textwidth}
-      {\color{HydraMuted}\fontsize{7.8}{9.5}\selectfont
+    \begin{column}{0.40\textwidth}
+      \centering
+      \begin{tikzpicture}[x=0.85cm,y=0.85cm]
+        \fill[HydraWhite] (0.30,3.55) circle[radius=0.085cm];
+        \fill[HydraWhite] (3.60,3.55) circle[radius=0.085cm];
+        \draw[HydraLine,line width=1.4pt] (0.30,3.55) -- (3.60,3.55);
+        \node[text=HydraGold,font=\bfseries\fontsize{7.4}{8.8}\selectfont]
+          at (1.95,3.95) {reference: $l$};
+
+        \fill[HydraWhite] (0.05,1.30) circle[radius=0.085cm];
+        \fill[HydraWhite] (3.90,1.30) circle[radius=0.085cm];
+        \draw[HydraCyan,line width=1.4pt] (0.05,1.30) -- (3.90,1.30);
+        \node[text=HydraCyan,font=\bfseries\fontsize{7.4}{8.8}\selectfont]
+          at (1.95,1.70) {deformed: $\ell_i$};
+
+        \draw[-{Latex[length=2mm]},HydraMuted,line width=0.8pt]
+          (1.95,3.10) -- (1.95,2.35);
+      \end{tikzpicture}
+      \par
+      \vspace{-0.06cm}
+      {\color{HydraMuted}\fontsize{7.2}{8.8}\selectfont
+        Spring $i$ may stretch or compress relative to its reference length
+      \par}
+    \end{column}
+
+    \begin{column}{0.56\textwidth}
+      {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
         Hooke's law assigns the spring energy
       \par}
-      \vspace{-0.18cm}
-      {\color{HydraWhite}\fontsize{10.2}{12.9}\selectfont
-      \begin{align*}
-        \mathcal E_i
-        &=
-        \frac12k_i(u_i)
-        \left(\ell_i-\Delta x\right)^2
-        \\
-        k_i(u_i)&=\frac{E(u_i)}{\Delta x}
-      \end{align*}
-      }
-      \par
-      \vspace{-0.34cm}
-      {\color{HydraGold}\bfseries\fontsize{11.2}{14.2}\selectfont
+      \vspace{-0.14cm}
+      {\color{HydraGold}\bfseries\fontsize{12.6}{15.8}\selectfont
       \begin{align*}
         \boxed{
           \mathcal E_i
           =
-          \frac12E(u_i)\varepsilon_i^2\Delta x
+          \frac12\,E(u_i)
+          \left(\ell_i-l\right)^2
         }
       \end{align*}
       }
-    \end{column}
-
-    \begin{column}{0.44\textwidth}
+      \par
+      \vspace{-0.20cm}
       \HydraPoint[HydraGold]
-        {Quadratic response}
-        {Doubling the extension multiplies the elastic energy by four}
-      \vspace{-0.04cm}
+        {$l$}
+        {Reference length of the spring, before deformation}
+      \vspace{-0.00cm}
       \HydraPoint[HydraCyan]
-        {Consistent subdivision}
-        {Increasing the number of springs does not change the tissue stiffness}
-      \vspace{-0.04cm}
+        {$\ell_i$}
+        {Deformed length of spring $i$, after stretching or compression}
+      \vspace{-0.00cm}
+      \HydraPoint[HydraGreen]
+        {$E(u_i)$}
+        {Elastic modulus set by the local morphogen concentration $u_i$}
+      \vspace{-0.00cm}
       {\color{HydraMuted}\fontsize{7.2}{8.8}\selectfont
-        The factor $\Delta x$ prepares the energy for a Riemann-sum limit
+        High morphogen concentration increases the spring's elasticity
       \par}
     \end{column}
   \end{columns}
@@ -663,12 +590,54 @@
 \end{frame}
 
 
-\begin{frame}{Morphogen concentration controls local stiffness}
+% \begin{frame}{Strain measures relative extension}
+
+%   \vspace{0.18cm}
+
+%   \begin{center}
+%     \begin{minipage}{0.78\linewidth}
+%       {\color{HydraMuted}\fontsize{8}{9.8}\selectfont
+%         Absolute extension depends on the size of the spring
+%       \par}
+%       \vspace{-0.16cm}
+%       {\color{HydraWhite}\bfseries\fontsize{15}{18.5}\selectfont
+%       \begin{align*}
+%         \boxed{
+%           \varepsilon_i
+%           =
+%           \frac{\ell_i-\Delta x}{\Delta x}
+%         }
+%       \end{align*}
+%       }
+%       \par
+%       \vspace{-0.24cm}
+%       \HydraPoint[HydraCyan]
+%         {$\varepsilon_i=0$}
+%         {The spring keeps its reference length}
+%       \vspace{-0.12cm}
+%       \HydraPoint[HydraGold]
+%         {$\varepsilon_i>0$}
+%         {The spring is stretched}
+%       \vspace{-0.12cm}
+%       \HydraPoint[HydraGold]
+%         {$\varepsilon_i<0$}
+%         {The spring is compressed}
+%     \end{minipage}
+%   \end{center}
+
+% \end{frame}
+
+
+\begin{frame}{Morphogen concentration influences local stiffness}
 
   \vspace{-0.06cm}
 
   \begin{columns}[c,onlytextwidth]
     \begin{column}{0.48\textwidth}
+      {\color{HydraMuted}\fontsize{7.2}{8.8}\selectfont
+        Experimental measurements support this trend: tissue softens as morphogen concentration rises
+      \par}
+      \vspace{-0.10cm}
       {\color{HydraWhite}\bfseries\fontsize{12.2}{15.4}\selectfont
       \begin{align*}
         E'(u)&<0
@@ -686,9 +655,7 @@
       \vspace{-0.12cm}
       {\color{HydraWhite}\fontsize{10.3}{13}\selectfont
       \begin{align*}
-        E(u)&=e^{-\beta u}
-        \qquad
-        \beta>0
+        E(u)&=e^{-u}
       \end{align*}
       }
     \end{column}
@@ -706,7 +673,7 @@
           plot (\x,{0.60+4.05*exp(-0.58*(\x-0.55))});
         \node[anchor=west,text=HydraGold,
           font=\bfseries\fontsize{7.4}{8.8}\selectfont]
-          at (3.25,1.45) {$e^{-\beta u}$};
+          at (3.25,1.75) {$e^{-u}$};
       \end{tikzpicture}
     \end{column}
   \end{columns}
@@ -775,14 +742,14 @@
         =
         \sum_{i=0}^{N-1}\mathcal E_i=
         \sum_{i=0}^{N-1}
-        \frac12E(u_i)\varepsilon_i^2\Delta x
+        \frac12E(u_i)\left(\ell_i-l\right)^2
       \end{align*}
       }
       \par
       \vspace{-0.28cm}
       \HydraPoint[HydraGold]
         {Local contribution}
-        {Each term depends only on the strain and morphogen at spring $i$}
+        {Each term depends only on the deformed length and morphogen at spring $i$}
       \vspace{-0.10cm}
       \HydraPoint[HydraCyan]
         {Global configuration}
@@ -793,49 +760,76 @@
 \end{frame}
 
 
-\begin{frame}{A material coordinate follows the tissue}
+% \begin{frame}{A material coordinate follows the tissue}
 
-  \vspace{-0.06cm}
+%   \vspace{-0.06cm}
 
-  \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.58\textwidth}
-      \centering
-      \begin{tikzpicture}[x=0.96cm,y=0.96cm]
-        \draw[HydraLine,line width=1.2pt] (2.05,2.75) circle[radius=1.45cm];
-        \draw[HydraCyan,line width=1.2pt] (6.25,2.75) circle[radius=2.05cm];
-        \fill[HydraGold] ({2.05+1.45*cos(35)},{2.75+1.45*sin(35)}) circle[radius=0.09cm];
-        \fill[HydraGold] ({6.25+2.05*cos(35)},{2.75+2.05*sin(35)}) circle[radius=0.09cm];
-        \draw[-{Latex[length=2.5mm]},HydraGold,line width=1.0pt]
-          ({2.05+1.55*cos(35)},{2.75+1.55*sin(35)}) .. controls (4.00,4.80) ..
-          ({6.25+1.95*cos(35)},{2.75+1.95*sin(35)});
-        \node[text=HydraMuted,font=\fontsize{7.2}{8.7}\selectfont]
-          at (2.05,0.78) {reference ring $[0,L]$};
-        \node[text=HydraCyan,font=\fontsize{7.2}{8.7}\selectfont]
-          at (6.25,0.20) {deformed ring $[0,\ell]$};
-        \node[text=HydraGold,font=\bfseries\fontsize{7.2}{8.7}\selectfont]
-          at (4.20,4.88) {$s(x)$};
-      \end{tikzpicture}
-    \end{column}
+%   \begin{columns}[c,onlytextwidth]
+%     \begin{column}{0.58\textwidth}
+%       \centering
+%       \begin{tikzpicture}[x=0.96cm,y=0.96cm]
+%         \draw[HydraLine,line width=1.2pt] (2.05,2.75) circle[radius=1.45cm];
+%         \draw[HydraCyan,line width=1.2pt] (6.25,2.75) circle[radius=2.05cm];
+%         \fill[HydraGold] ({2.05+1.45*cos(35)},{2.75+1.45*sin(35)}) circle[radius=0.09cm];
+%         \fill[HydraGold] ({6.25+2.05*cos(35)},{2.75+2.05*sin(35)}) circle[radius=0.09cm];
+%         \draw[-{Latex[length=2.5mm]},HydraGold,line width=1.0pt]
+%           ({2.05+1.55*cos(35)},{2.75+1.55*sin(35)}) .. controls (4.00,4.80) ..
+%           ({6.25+1.95*cos(35)},{2.75+1.95*sin(35)});
+%         \node[text=HydraMuted,font=\fontsize{7.2}{8.7}\selectfont]
+%           at (2.05,0.78) {reference ring $[0,L]$};
+%         \node[text=HydraCyan,font=\fontsize{7.2}{8.7}\selectfont]
+%           at (6.25,0.20) {deformed ring $[0,\ell]$};
+%         \node[text=HydraGold,font=\bfseries\fontsize{7.2}{8.7}\selectfont]
+%           at (4.20,4.88) {$s(x)$};
+%       \end{tikzpicture}
+%     \end{column}
 
-    \begin{column}{0.38\textwidth}
-      {\color{HydraWhite}\fontsize{10.6}{13.4}\selectfont
-      \begin{align*}
-        x&\in[0,L]
-        \\
-        s(x)&\in[0,\ell]
-      \end{align*}
-      }
-      \par
-      \vspace{-0.25cm}
+%     \begin{column}{0.38\textwidth}
+%       {\color{HydraWhite}\fontsize{10.6}{13.4}\selectfont
+%       \begin{align*}
+%         x&\in[0,L]
+%         \\
+%         s(x)&\in[0,\ell]
+%       \end{align*}
+%       }
+%       \par
+%       \vspace{-0.25cm}
+%       \HydraPoint[HydraGold]
+%         {Material label}
+%         {$x$ identifies a fixed piece of tissue}
+%       \vspace{-0.06cm}
+%       \HydraPoint[HydraCyan]
+%         {Deformed position}
+%         {$s(x)$ gives its arc-length position after stretching}
+%     \end{column}
+%   \end{columns}
+
+% \end{frame}
+
+
+\begin{frame}{Inflation and energy minimization}
+
+  \vspace{0.10cm}
+
+  \begin{center}
+    \begin{minipage}{0.82\linewidth}
       \HydraPoint[HydraGold]
-        {Material label}
-        {$x$ identifies a fixed piece of tissue}
-      \vspace{-0.06cm}
+        {Local stiffness}
+        {The stiffness of each spring is set by the local morphogen concentration}
+      \vspace{0.10cm}
       \HydraPoint[HydraCyan]
-        {Deformed position}
-        {$s(x)$ gives its arc-length position after stretching}
-    \end{column}
-  \end{columns}
+        {Osmotic driving force}
+        {Tension is induced as the spheroid stretches while inflating with pumped-in water}
+      \vspace{0.10cm}
+      \HydraPoint[HydraGold]
+        {Heterogeneous response}
+        {Springs stretch by different amounts according to their individual elasticity}
+      \vspace{0.10cm}
+      \HydraPoint[HydraCyan]
+        {Energy minimization}
+        {Springs stretch so as to minimize the total energy of the ring while it keeps its circular shape}
+    \end{minipage}
+  \end{center}
 
 \end{frame}
 
@@ -1214,16 +1208,16 @@
     \begin{column}{0.43\textwidth}
       {\color{HydraWhite}\fontsize{10.6}{13.4}\selectfont
       \begin{align*}
-        E(u)&=e^{-\beta u}
+        E(u)&=e^{-u}
         \\
-        \frac{1}{E(u)}&=e^{\beta u}
+        \frac{1}{E(u)}&=e^{u}
       \end{align*}
       }
       \par
       \vspace{-0.30cm}
       \HydraPoint[HydraGold]
         {Local factor}
-        {$e^{\beta u(x,t)}$ amplifies regions with larger morphogen}
+        {$e^{u(x,t)}$ amplifies regions with larger morphogen}
     \end{column}
 
     \begin{column}{0.53\textwidth}
@@ -1232,8 +1226,8 @@
         \varepsilon(x,t)
         &=
         (\ell-L)
-        \frac{e^{\beta u(x,t)}}
-        {\displaystyle\int_0^L e^{\beta u(y,t)}\,dy}
+        \frac{e^{u(x,t)}}
+        {\displaystyle\int_0^L e^{u(y,t)}\,dy}
       \end{align*}
       }
       \par
@@ -1267,8 +1261,6 @@
         \widetilde x&=\frac{x}{L}
         \\
         \widetilde t&=\alpha t
-        \\
-        \widetilde u&=\beta u
       \end{align*}
       }
     \end{column}
