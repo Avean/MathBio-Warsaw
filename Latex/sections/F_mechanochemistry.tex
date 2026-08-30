@@ -13,62 +13,62 @@
 ]{Why mechanics?}
 
 
-\begin{frame}{Return to the Gierer--Meinhardt model}
+% \begin{frame}{Recall the Gierer--Meinhardt mechanism}
 
-  \vspace{-0.32cm}
+%   \vspace{-0.32cm}
 
-  \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.57\textwidth}
-      {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
-        The chemical mechanism uses two interacting substances
-      \par}
+%   \begin{columns}[c,onlytextwidth]
+%     \begin{column}{0.57\textwidth}
+%       {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
+%         The chemical mechanism uses two interacting substances
+%       \par}
 
-      \vspace{-0.30cm}
+%       \vspace{-0.30cm}
 
-      {\color{HydraWhite}\fontsize{9.5}{12}\selectfont
-      \begin{align*}
-        \partial_tu
-        &=D_u\Delta u+\frac{au^2}{K+v}-\mu_u u
-        \\
-        \partial_tv
-        &=D_v\Delta v+bu^2-\mu_v v
-      \end{align*}
-      }
+%       {\color{HydraWhite}\fontsize{9.5}{12}\selectfont
+%       \begin{align*}
+%         \partial_tu
+%         &=D_u\Delta u+\frac{au^2}{K+v}-\mu_u u
+%         \\
+%         \partial_tv
+%         &=D_v\Delta v+bu^2-\mu_v v
+%       \end{align*}
+%       }
 
-      \vspace{-0.40cm}
+%       \vspace{-0.40cm}
 
-      \HydraPoint[HydraGold]
-        {Local activation}
-        {The activator promotes its own production over a short range}
+%       \HydraPoint[HydraGold]
+%         {Local activation}
+%         {The activator promotes its own production over a short range}
 
-      \vspace{-0.10cm}
+%       \vspace{-0.10cm}
 
-      \HydraPoint[HydraCyan]
-        {Long-range inhibition}
-        {A second substance suppresses activation over a larger spatial scale}
-    \end{column}
+%       \HydraPoint[HydraCyan]
+%         {Long-range inhibition}
+%         {A second substance suppresses activation over a larger spatial scale}
+%     \end{column}
 
-    \begin{column}{0.39\textwidth}
-      \centering
-      \begin{tikzpicture}[x=0.88cm,y=0.88cm]
-        \draw[HydraLine,line width=1.0pt] (0.45,2.65) -- (5.35,2.65);
-        \fill[HydraGold] (2.90,2.65) circle[radius=0.16cm];
-        \fill[HydraGold,opacity=0.48] (2.35,2.65) circle[radius=0.10cm];
-        \fill[HydraGold,opacity=0.48] (3.45,2.65) circle[radius=0.10cm];
-        \draw[<->,HydraGold,line width=1.1pt] (2.25,3.30) -- (3.55,3.30);
-        \node[text=HydraGold,font=\bfseries\fontsize{7.2}{8.6}\selectfont]
-          at (2.90,3.68) {activation};
-        \draw[<->,HydraCyan,line width=1.1pt] (0.75,1.78) -- (5.05,1.78);
-        \node[text=HydraCyan,font=\bfseries\fontsize{7.2}{8.6}\selectfont]
-          at (2.90,1.34) {inhibition};
-        \node[text=HydraMuted,align=center,text width=4.6cm,
-          font=\fontsize{7}{8.5}\selectfont]
-          at (2.90,0.55) {two spatial scales are encoded by two diffusible substances};
-      \end{tikzpicture}
-    \end{column}
-  \end{columns}
+%     \begin{column}{0.39\textwidth}
+%       \centering
+%       \begin{tikzpicture}[x=0.88cm,y=0.88cm]
+%         \draw[HydraLine,line width=1.0pt] (0.45,2.65) -- (5.35,2.65);
+%         \fill[HydraGold] (2.90,2.65) circle[radius=0.16cm];
+%         \fill[HydraGold,opacity=0.48] (2.35,2.65) circle[radius=0.10cm];
+%         \fill[HydraGold,opacity=0.48] (3.45,2.65) circle[radius=0.10cm];
+%         \draw[<->,HydraGold,line width=1.1pt] (2.25,3.30) -- (3.55,3.30);
+%         \node[text=HydraGold,font=\bfseries\fontsize{7.2}{8.6}\selectfont]
+%           at (2.90,3.68) {activation};
+%         \draw[<->,HydraCyan,line width=1.1pt] (0.75,1.78) -- (5.05,1.78);
+%         \node[text=HydraCyan,font=\bfseries\fontsize{7.2}{8.6}\selectfont]
+%           at (2.90,1.34) {inhibition};
+%         \node[text=HydraMuted,align=center,text width=4.6cm,
+%           font=\fontsize{7}{8.5}\selectfont]
+%           at (2.90,0.55) {two spatial scales are encoded by two diffusible substances};
+%       \end{tikzpicture}
+%     \end{column}
+%   \end{columns}
 
-\end{frame}
+% \end{frame}
 
 
 \begin{frame}{The activator has candidates but the inhibitor remains unclear}
@@ -132,9 +132,9 @@
 
       \vspace{-0.04cm}
 
-      \HydraPoint[HydraViolet]
-        {Modelling question}
-        {Can one morphogen and tissue mechanics reproduce local activation and long-range inhibition}
+      \HydraPoint[HydraGold]
+        {Modeling question}
+        {Can one morphogen and tissue mechanics reproduce local activation and long-range inhibition?}
     \end{column}
 
     \begin{column}{0.53\textwidth}
@@ -157,7 +157,7 @@
 \end{frame}
 
 
-\begin{frame}{Symmetry breaking occurs in a regenerating spheroid}
+\begin{frame}{Regenerating spheroid}
 
   \vspace{-0.22cm}
 
@@ -199,11 +199,11 @@
     \begin{minipage}{0.84\linewidth}
       \centering
       {\color{HydraMuted}\fontsize{8.2}{10}\selectfont
-        Can a local morphogen change the mechanics of the entire spheroid
+        Can a local morphogen change the mechanics of the entire spheroid?
       \par}
       \vspace{0.36cm}
       {\color{HydraWhite}\bfseries\fontsize{18}{23}\selectfont
-        Can mechanics replace the diffusible inhibitor
+        Can mechanics replace the diffusible inhibitor?
       \par}
       \vspace{0.46cm}
       {\color{HydraCyan}\fontsize{20}{20}\selectfont $\Downarrow$\par}
@@ -220,34 +220,8 @@
 \HydraSubsection[
   \mbox{Swelling and rupture expose}
   \mbox{a two-way coupling between}
-  \mbox{morphogen signalling and mechanics}
+  \mbox{morphogen signaling and mechanics}
 ]{Mechanics during regeneration}
-
-
-\begin{frame}{Regenerating spheroids undergo mechanical oscillations}
-
-  \vspace{-0.16cm}
-
-  \begin{center}
-    \begin{tikzpicture}[x=1cm,y=1cm]
-      \fill[HydraPanel] (0.40,0.35) rectangle (14.70,5.05);
-      \draw[HydraLine,line width=1.0pt,rounded corners=3pt]
-        (0.40,0.35) rectangle (14.70,5.05);
-      \fill[HydraGold,opacity=0.18] (7.55,2.70) circle[radius=1.05cm];
-      \draw[HydraGold,line width=1.5pt] (7.55,2.70) circle[radius=1.05cm];
-      \fill[HydraWhite] (7.55,2.70) circle[radius=0.17cm];
-      \draw[-{Latex[length=3.0mm]},HydraWhite,line width=1.2pt]
-        (7.34,2.70) -- (7.90,2.70);
-      \node[text=HydraWhite,font=\bfseries\fontsize{10}{12}\selectfont]
-        at (7.55,4.32) {REGENERATING HYDRA SPHEROID};
-      \node[text=HydraMuted,font=\fontsize{7.6}{9.2}\selectfont]
-        at (7.55,0.92) {observe gradual swelling followed by rapid collapse};
-    \end{tikzpicture}
-  \end{center}
-
-  % Replace the panel above with the biological movie when the file is available
-
-\end{frame}
 
 
 \begin{frame}{One oscillation is a swelling and rupture cycle}
@@ -264,7 +238,7 @@
     \vspace{0.28cm}
 
     {\color{HydraGreen}\bfseries\fontsize{12}{15}\selectfont
-      the tissue deflates heals and the cycle begins again
+      the tissue deflates, heals, and the cycle begins again
     \par}
   \end{center}
 
@@ -326,7 +300,7 @@
     \end{column}
 
     \begin{column}{0.24\textwidth}
-      \HydraPoint[HydraWhite]
+      \HydraPoint[HydraGold]
         {Control}
         {Repeated rupture limits the gradual increase in radius}
       \vspace{-0.02cm}
@@ -335,7 +309,7 @@
         {The timing and amplitude of rupture events are altered}
       \vspace{-0.02cm}
       {\color{HydraMuted}\fontsize{7.1}{8.7}\selectfont
-        Morphogen signalling and tissue-scale mechanics cannot be treated independently
+        Morphogen signaling and tissue-scale mechanics cannot be treated independently
       \par}
     \end{column}
   \end{columns}
@@ -343,7 +317,7 @@
 \end{frame}
 
 
-\begin{frame}{Experiments suggest a two-way mechanochemical coupling}
+\begin{frame}{Experiments suggest a mechanochemical coupling}
 
   \vspace{0.10cm}
 
@@ -374,7 +348,7 @@
       {\color{HydraGreen}\bfseries\fontsize{10.2}{12.5}\selectfont Tissue elasticity\par}
       \vspace{0.24cm}
       {\color{HydraMuted}\fontsize{7.3}{9}\selectfont
-        Morphogen signalling changes how strongly the tissue resists deformation
+        Morphogen signaling changes how strongly the tissue resists deformation
       \par}
     \end{column}
   \end{columns}
@@ -385,7 +359,7 @@
 \end{frame}
 
 
-\begin{frame}{Local feedback interacts with a global mechanical constraint}
+\begin{frame}{Mechanochemical feedback}
 
   \vspace{-0.18cm}
 
@@ -408,9 +382,9 @@
         {Long-range inhibition}
         {The closed pressurized tissue shares a finite total deformation}
       \vspace{-0.05cm}
-      \HydraPoint[HydraViolet]
+      \HydraPoint[HydraGold]
         {Minimal ingredients}
-        {Morphogen dynamics mechanics and one global constraint}
+        {Morphogen dynamics, mechanics and one global constraint}
     \end{column}
   \end{columns}
 
@@ -459,7 +433,7 @@
 % \end{frame}
 
 
-\begin{frame}{The spring application makes the mechanics tangible}
+\begin{frame}{Local changes redistribute strain around the ring}
 
   \vspace{-0.18cm}
 
@@ -478,21 +452,19 @@
           plot[domain=0:360,samples=13]
             ({4.82+1.72*cos(\x)},{2.65+1.72*sin(\x)});
         \fill[HydraGold] ({4.82+1.72*cos(30)},{2.65+1.72*sin(30)}) circle[radius=0.12cm];
-        \node[text=HydraMuted,font=\fontsize{7.3}{8.9}\selectfont]
-          at (4.82,0.62) {LIVE SPRING MODEL};
       \end{tikzpicture}
     \end{column}
 
     \begin{column}{0.31\textwidth}
       \HydraPoint[HydraGold]
         {Move one node}
-        {A local displacement changes several neighbouring springs}
+        {A local displacement changes several neighboring springs}
       \vspace{-0.04cm}
       \HydraPoint[HydraCyan]
         {Change one stiffness}
         {A softer spring takes a larger share of the deformation}
       \vspace{-0.04cm}
-      \HydraPoint[HydraViolet]
+      \HydraPoint[HydraGold]
         {Close the ring}
         {The total extension cannot be assigned independently at every point}
     \end{column}
@@ -539,6 +511,7 @@
         i&=0,\ldots,N-1
       \end{align*}
       }
+      \par
       \vspace{-0.32cm}
       {\color{HydraMuted}\fontsize{7.5}{9.2}\selectfont
         Every spring represents a short material segment of reference length $\Delta x$
@@ -593,8 +566,8 @@
 
   {\color{HydraWhite}\fontsize{10.5}{13.2}\selectfont
   \begin{align*}
-    \text{extension of spring }i
-    &=\ell_i-\Delta x
+    \text{extension of spring } i
+    &: \quad \ell_i-\Delta x
   \end{align*}
   }
 
@@ -620,6 +593,7 @@
         }
       \end{align*}
       }
+      \par
       \vspace{-0.24cm}
       \HydraPoint[HydraCyan]
         {$\varepsilon_i=0$}
@@ -629,7 +603,7 @@
         {$\varepsilon_i>0$}
         {The spring is stretched}
       \vspace{-0.12cm}
-      \HydraPoint[HydraViolet]
+      \HydraPoint[HydraGold]
         {$\varepsilon_i<0$}
         {The spring is compressed}
     \end{minipage}
@@ -658,6 +632,7 @@
         k_i(u_i)&=\frac{E(u_i)}{\Delta x}
       \end{align*}
       }
+      \par
       \vspace{-0.34cm}
       {\color{HydraGold}\bfseries\fontsize{11.2}{14.2}\selectfont
       \begin{align*}
@@ -699,6 +674,7 @@
         E'(u)&<0
       \end{align*}
       }
+      \par
       \vspace{-0.26cm}
       \HydraPoint[HydraGold]
         {High morphogen}
@@ -796,14 +772,13 @@
       {\color{HydraWhite}\bfseries\fontsize{14.2}{17.8}\selectfont
       \begin{align*}
         \mathcal E_N
-        &=
-        \sum_{i=0}^{N-1}\mathcal E_i
-        \\
-        &=
+        =
+        \sum_{i=0}^{N-1}\mathcal E_i=
         \sum_{i=0}^{N-1}
         \frac12E(u_i)\varepsilon_i^2\Delta x
       \end{align*}
       }
+      \par
       \vspace{-0.28cm}
       \HydraPoint[HydraGold]
         {Local contribution}
@@ -850,6 +825,7 @@
         s(x)&\in[0,\ell]
       \end{align*}
       }
+      \par
       \vspace{-0.25cm}
       \HydraPoint[HydraGold]
         {Material label}
@@ -880,6 +856,7 @@
         \frac{s(x_{i+1})-s(x_i)}{\Delta x}-1
       \end{align*}
       }
+      \par
       \vspace{-0.28cm}
       \begin{center}
         {\color{HydraCyan}\fontsize{17}{17}\selectfont
@@ -894,6 +871,7 @@
         \boxed{\varepsilon(x)=\partial_xs(x)-1}
       \end{align*}
       }
+      \par
       \vspace{-0.24cm}
       {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
         The strain compares the local deformed length with the reference length
@@ -918,6 +896,7 @@
         \frac12E(u_i)\varepsilon_i^2\Delta x
       \end{align*}
       }
+      \par
       \vspace{-0.24cm}
       \begin{center}
         {\color{HydraCyan}\fontsize{18}{18}\selectfont
@@ -936,6 +915,7 @@
         }
       \end{align*}
       }
+      \par
       \vspace{-0.22cm}
       {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
         The discrete spring model has become a continuum elastic energy
@@ -963,6 +943,7 @@
         \sum_{i=0}^{N-1}\varepsilon_i\Delta x
       \end{align*}
       }
+      \par
       \vspace{-0.26cm}
       \begin{center}{\color{HydraCyan}\fontsize{17}{17}\selectfont $\Downarrow$}\end{center}
       \vspace{-0.08cm}
@@ -1007,6 +988,7 @@
         \right\}
       \end{align*}
       }
+      \par
       \vspace{-0.26cm}
       {\color{HydraWhite}\fontsize{10.4}{13.2}\selectfont
       \begin{align*}
@@ -1015,6 +997,7 @@
         \int_0^L\varepsilon\,dx&=\ell-L
       \end{align*}
       }
+      \par
       \vspace{-0.28cm}
       \HydraPoint[HydraGold]
         {Quasi-static mechanics}
@@ -1040,6 +1023,7 @@
         &=\varepsilon+\theta\partial_xh
       \end{align*}
       }
+      \par
       \vspace{-0.30cm}
       {\color{HydraMuted}\fontsize{7.4}{9.1}\selectfont
         The periodic perturbation $h$ preserves the closed geometry
@@ -1056,6 +1040,7 @@
         \left(\varepsilon+\theta\partial_xh\right)^2\,dx
       \end{align*}
       }
+      \par
       \vspace{-0.26cm}
       {\color{HydraGold}\bfseries\fontsize{10.5}{13.2}\selectfont
       \begin{align*}
@@ -1089,6 +1074,7 @@
         \partial_x\!\left(E(u)\varepsilon\right)h\,dx
       \end{align*}
       }
+      \par
       \vspace{-0.24cm}
       {\color{HydraMuted}\fontsize{7.7}{9.4}\selectfont
         The first variation vanishes for every admissible perturbation $h$
@@ -1116,6 +1102,7 @@
     \varepsilon(x,t)&=\frac{\sigma(t)}{E(u(x,t))}
   \end{align*}
   }
+  \par
   \vspace{-0.38cm}
   {\color{HydraWhite}\fontsize{9.4}{12}\selectfont
   \begin{align*}
@@ -1123,6 +1110,7 @@
     &=\sigma(t)\int_0^L\frac{1}{E(u(y,t))}\,dy
   \end{align*}
   }
+  \par
   \vspace{-0.32cm}
   {\color{HydraGold}\bfseries\fontsize{11.5}{14.5}\selectfont
   \begin{align*}
@@ -1157,6 +1145,7 @@
         &=\int_0^L\varepsilon(x,t)\,dx
       \end{align*}
       }
+      \par
       \vspace{-0.24cm}
       {\color{HydraMuted}\fontsize{7.5}{9.2}\selectfont
         supplemented with periodic boundary conditions and an initial morphogen profile
@@ -1172,7 +1161,7 @@
         {Instantaneous mechanics}
         {Strain is determined by equilibrium at every time}
       \vspace{-0.04cm}
-      \HydraPoint[HydraViolet]
+      \HydraPoint[HydraGold]
         {One global constraint}
         {The prescribed total extension couples the entire ring}
     \end{column}
@@ -1197,6 +1186,7 @@
     \displaystyle\int_0^L\frac{1}{E(u(y,t))}\,dy}
   \end{align*}
   }
+  \par
   \vspace{-0.28cm}
   \begin{center}{\color{HydraCyan}\fontsize{17}{17}\selectfont $\Downarrow$}\end{center}
   \vspace{-0.08cm}
@@ -1229,6 +1219,7 @@
         \frac{1}{E(u)}&=e^{\beta u}
       \end{align*}
       }
+      \par
       \vspace{-0.30cm}
       \HydraPoint[HydraGold]
         {Local factor}
@@ -1245,6 +1236,7 @@
         {\displaystyle\int_0^L e^{\beta u(y,t)}\,dy}
       \end{align*}
       }
+      \par
       \vspace{-0.24cm}
       \HydraPoint[HydraCyan]
         {Global factor}
@@ -1293,6 +1285,7 @@
         }
       \end{align*}
       }
+      \par
       \vspace{-0.26cm}
       {\color{HydraMuted}\fontsize{7.4}{9.1}\selectfont
         The tildes are dropped and the domain is the unit circle $\mathbb{T}=[0,1]$
@@ -1330,6 +1323,7 @@
         e^{u(x,t)}
       \end{align*}
       }
+      \par
       \vspace{-0.26cm}
       {\color{HydraMuted}\fontsize{7.5}{9.2}\selectfont
         A region with more morphogen becomes softer and receives more strain-driven production
@@ -1337,7 +1331,7 @@
     \end{column}
 
     \begin{column}{0.08\textwidth}
-      \centering{\color{HydraCyan}\fontsize{22}{22}\selectfont $\bigg/$}
+      \centering{\color{HydraLine}\rule{0.6pt}{2.6cm}}
     \end{column}
 
     \begin{column}{0.46\textwidth}
@@ -1350,6 +1344,7 @@
         \int_0^1e^{u(y,t)}\,dy
       \end{align*}
       }
+      \par
       \vspace{-0.26cm}
       {\color{HydraMuted}\fontsize{7.5}{9.2}\selectfont
         Increased production in one region reduces the share of extension available elsewhere
@@ -1387,6 +1382,7 @@
         {\displaystyle\int_0^1e^{U(y)}\,dy}
       \end{align*}
       }
+      \par
       \vspace{-0.20cm}
       {\color{HydraWhite}\fontsize{9.8}{12.5}\selectfont
       \begin{align*}
@@ -1561,6 +1557,7 @@
         &=MC(x)\int_0^1C(y)\varphi(y)\,dy
       \end{align*}
       }
+      \par
       \vspace{-0.28cm}
       {\color{HydraMuted}\fontsize{7.2}{8.8}\selectfont
         Every value of $\varphi$ is coupled through the integral
@@ -1579,6 +1576,7 @@
         &=0
       \end{align*}
       }
+      \par
       \vspace{-0.28cm}
       {\color{HydraMuted}\fontsize{7.2}{8.8}\selectfont
         Classical oscillation theory orders the eigenfunctions by their zeros
@@ -1714,7 +1712,7 @@
         {At the threshold}
         {A spatial mode becomes neutral and a patterned branch can emerge}
       \vspace{0.02cm}
-      \HydraPoint[HydraWhite]
+      \HydraPoint[HydraGold]
         {After the threshold}
         {The number or stability of stationary states has changed}
     \end{column}
@@ -1766,7 +1764,7 @@
         {The first nonconstant mode has one maximum and one minimum}
     \end{column}
     \begin{column}{0.31\textwidth}
-      \HydraPoint[HydraViolet]
+      \HydraPoint[HydraGold]
         {$n=2$}
         {The next mode produces a two-peak spatial structure}
     \end{column}
@@ -1891,7 +1889,7 @@
         {Increased strain strengthens morphogen production}
     \end{column}
     \begin{column}{0.31\textwidth}
-      \HydraPoint[HydraViolet]
+      \HydraPoint[HydraGold]
         {Feedback relaxes}
         {Degradation and mechanical restoration can reverse the expansion}
     \end{column}
@@ -1928,14 +1926,6 @@
       \HydraPoint[HydraRed]
         {Sudden transition}
         {Crossing a fold can force the system to jump to a distant branch}
-      \vspace{0.18cm}
-      \begin{tikzpicture}
-        \node[draw=HydraGold,rounded corners=2pt,fill=HydraPanel,
-          minimum width=3.50cm,minimum height=1.20cm,
-          text=HydraMuted,align=center,
-          font=\fontsize{7.2}{8.8}\selectfont]
-          {simulation placeholder\\abrupt inflation and relaxation};
-      \end{tikzpicture}
     \end{column}
   \end{columns}
 
@@ -1961,17 +1951,9 @@
         {Continuous onset}
         {The patterned amplitude grows continuously from the homogeneous state}
       \vspace{0.04cm}
-      \HydraPoint[HydraViolet]
+      \HydraPoint[HydraGold]
         {Smooth mechanical response}
         {Tissue deformation can track the changing stationary branch}
-      \vspace{0.18cm}
-      \begin{tikzpicture}
-        \node[draw=HydraCyan,rounded corners=2pt,fill=HydraPanel,
-          minimum width=3.50cm,minimum height=1.20cm,
-          text=HydraMuted,align=center,
-          font=\fontsize{7.2}{8.8}\selectfont]
-          {simulation placeholder\\gradual inflation and pattern growth};
-      \end{tikzpicture}
     \end{column}
   \end{columns}
 

@@ -20,6 +20,16 @@
 % after every ':' and after abbreviations such as "i.e." or "Phil. Trans.".
 \frenchspacing
 
+% Slides are read at a glance, so no word may ever be broken across lines.
+% \hyphenpenalty alone is not enough: in a narrow column TeX still hyphenates
+% once no unhyphenated break fits within \tolerance.  Raising the tolerance and
+% allowing emergency stretch lets it set a slightly loose line instead.
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\pretolerance=10000
+\tolerance=9999
+\emergencystretch=3em
+
 \definecolor{HydraNavy}{HTML}{020817}
 \definecolor{HydraPanel}{HTML}{0B1930}
 \definecolor{HydraLine}{HTML}{263B59}

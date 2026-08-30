@@ -3,618 +3,756 @@
   focus y=0.65,
   radius=0.14,
   zoom=1.85
-]{Growth, wounds \& long-range dynamics}
+]{Growth, injury \& regeneration}
 
 
-% \HydraSubsection[
-%   \mbox{Patterns are stable nonconstant}
-%   \mbox{steady states of the full}
-%   \mbox{nonlinear reaction--diffusion system}
-% ]{What is a pattern?}
+% -----------------------------------------------------------------------------
+% Live experiment 1: a local activator perturbation on a short domain
+% -----------------------------------------------------------------------------
+\begin{frame}{Can a local activator perturbation create a second organizer?}
 
+  \vspace{-0.18cm}
 
-\begin{frame}{What do we mean by a pattern?}
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.47\textwidth}
+      {\color{HydraGold}\bfseries\fontsize{7.7}{9.2}\selectfont
+        THE LIVE EXPERIMENT\par}
 
-  \vspace{-0.34cm}
+      \vspace{0.16cm}
 
-  \begin{columns}[T,onlytextwidth]
+      \HydraPoint[HydraGold]
+        {Begin with one organizer}
+        {A stable peak is already established on the short domain.}
 
-    \begin{column}{0.48\textwidth}
-      {\color{HydraMuted}\fontsize{7.5}{9.2}\selectfont
-        Return to the Gierer--Meinhardt system
-      \par}
-
-      \vspace{-0.30cm}
-
-      {\color{HydraWhite}\fontsize{9.0}{11.5}\selectfont
-      \begin{align*}
-        \partial_tu
-        &=
-        D_u\Delta u
-        +
-        \frac{au^2}{K+v}
-        -
-        \mu_u u
-        \\
-        \partial_tv
-        &=
-        D_v\Delta v
-        +
-        bu^2
-        -
-        \mu_v v
-      \end{align*}
-      }
-
-      \vspace{-0.42cm}
-
-      {\color{HydraMuted}\fontsize{7.3}{9}\selectfont
-        with homogeneous Neumann boundary conditions on $\Omega$
-      \par}
-    \end{column}
-
-    \begin{column}{0.48\textwidth}
-      {\centering\color{HydraGold}\bfseries\fontsize{7.5}{9.2}\selectfont
-        STEADY STATE\par}
-
-      \vspace{-0.30cm}
-
-      {\color{HydraWhite}\fontsize{8.2}{10.4}\selectfont
-      \begin{align*}
-        0
-        &=
-        D_u\Delta\bar u
-        +
-        \frac{a\bar u^2}{K+\bar v}
-        -
-        \mu_u\bar u
-        \\
-        0
-        &=
-        D_v\Delta\bar v
-        +
-        b\bar u^2
-        -
-        \mu_v\bar v
-      \end{align*}
-      }
-
-      \vspace{-0.42cm}
+      \vspace{-0.12cm}
 
       \HydraPoint[HydraCyan]
-        {Spatial pattern}
-        {A stable nonconstant steady state $(\bar u(x),\bar v(x))$}
+        {Add activator locally}
+        {A brief, localized perturbation creates a second candidate peak away from the first.}
+
+      \vspace{-0.12cm}
+
+      \HydraPoint[HydraRed]
+        {Then release the system}
+        {After the perturbation, the autonomous nonlinear dynamics select the outcome.}
     \end{column}
 
+    \begin{column}{0.49\textwidth}
+      {\color{HydraMuted}\bfseries\fontsize{7.7}{9.2}\selectfont
+        WHAT COULD HAPPEN?\par}
+
+      \vspace{0.16cm}
+
+      \HydraPoint[HydraGold]
+        {A second organizer forms}
+        {The added peak becomes self-maintaining and both organizers persist.}
+
+      \vspace{-0.12cm}
+
+      \HydraPoint[HydraRed]
+        {The added peak disappears}
+        {It remains transient, loses the competition and the original one-peak pattern returns.}
+    \end{column}
   \end{columns}
 
   \vspace{0.22cm}
 
-  \HydraTakeaway{
-    For nonlinear reaction--diffusion systems, a complete characterization of all steady states is generally not known
-  }
-
+  \begin{center}
+    {\color{HydraWhite}\bfseries\fontsize{12.5}{15.3}\selectfont
+      Does local activation create a new organizer --- or only a transient peak?
+    \par}
+  \end{center}
 \end{frame}
 
 
-\HydraSubsection[
-  \mbox{Growth and division change both}
-  \mbox{the geometry and the initial data}
-  \mbox{of the nonlinear problem}
-]{Growth and \mbox{division}}
+\begin{frame}{The small domain cannot sustain a second peak}
 
-
-\begin{frame}{Growth makes the domain part of the dynamics}
-
-  \vspace{-0.12cm}
+  \vspace{-0.14cm}
 
   \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.46\textwidth}
-      {\color{HydraGold}\bfseries\fontsize{7.6}{9.1}\selectfont
-        TIME-DEPENDENT DOMAIN\par}
+    \begin{column}{0.47\textwidth}
+      {\color{HydraGold}\bfseries\fontsize{7.7}{9.2}\selectfont
+        OBSERVED IN THE LIVE SIMULATION\par}
 
-      \vspace{-0.16cm}
+      \vspace{0.14cm}
 
-      {\color{HydraWhite}\bfseries\fontsize{12}{15.2}\selectfont
+      \HydraPoint[HydraGold]
+        {The original peak persists}
+        {The established organizer remains self-maintaining.}
+
+      \vspace{-0.12cm}
+
+      \HydraPoint[HydraRed]
+        {The added peak decays}
+        {The local activator perturbation does not become a second organizer.}
+    \end{column}
+
+    \begin{column}{0.49\textwidth}
+      {\color{HydraCyan}\bfseries\fontsize{7.7}{9.2}\selectfont
+        NONLINEAR INTERPRETATION\par}
+
+      \vspace{-0.12cm}
+
+      {\color{HydraWhite}\fontsize{10.2}{13}\selectfont
       \begin{align*}
-        \Omega(t)&=[0,L(t)]
-        \\
-        L'(t)&>0
+        (\bar u_1,\bar v_1)+(\delta u,0)
+        \quad\longrightarrow\quad
+        (\bar u_1,\bar v_1).
       \end{align*}
       }
 
-      \vspace{-0.38cm}
+      \vspace{-0.32cm}
 
       \HydraPoint[HydraCyan]
-        {Changing geometry}
-        {Growth changes physical distances and the spatial structures that fit inside the domain}
+        {Competition through inhibition}
+        {The broad inhibitor field couples the two candidate peaks.}
 
-      \vspace{-0.08cm}
+      \vspace{-0.12cm}
 
       \HydraPoint[HydraGold]
-        {Nonlinear question}
-        {Does the current pattern persist, reorganize, or generate additional peaks}
+        {Limited spatial capacity}
+        {For these parameters, $[0,1]$ supports the one-peak attractor but not two persistent organizers.}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.02cm}
+
+  \HydraTakeaway{
+    A local activator perturbation need not enter the basin of a new spatial pattern
+  }
+\end{frame}
+
+
+% -----------------------------------------------------------------------------
+% Live experiment 2: diffusion-driven instability on a larger fixed domain
+% -----------------------------------------------------------------------------
+\begin{frame}{Does a larger Hydra necessarily grow more heads?}
+
+  \vspace{-0.16cm}
+
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.47\textwidth}
+      {\color{HydraGold}\bfseries\fontsize{7.7}{9.2}\selectfont
+        MORE SPACE CHANGES WHAT CAN FIT\par}
+
+      \vspace{0.16cm}
+
+      \HydraPoint[HydraGold]
+        {Peaks can separate}
+        {A longer domain creates regions farther from the existing organizer.}
+
+      \vspace{-0.12cm}
+
+      \HydraPoint[HydraCyan]
+        {More structures are possible}
+        {Several well-separated activator peaks may now coexist.}
+
+      \vspace{-0.12cm}
+
+      \HydraPoint[HydraRed]
+        {Large fixed-domain experiment}
+        {Starting from a nearly uniform state with noise can produce many peaks.}
     \end{column}
 
-    \begin{column}{0.50\textwidth}
+    \begin{column}{0.49\textwidth}
+      {\color{HydraMuted}\bfseries\fontsize{7.7}{9.2}\selectfont
+        BUT OUR HYDRA ALREADY HAS ONE HEAD\par}
+
+      \vspace{0.16cm}
+
+      \HydraPoint[HydraGold]
+        {The initial state is different}
+        {Growth begins from an established organizer, not from uniform noise.}
+
+      \vspace{-0.12cm}
+
+      % \HydraPoint[HydraCyan]
+      %   {The existing pattern has memory}
+      %   {The organizer and its inhibitor field influence where another peak can form.}
+
+      \vspace{-0.12cm}
+
+      \HydraPoint[HydraRed]
+        {The real question}
+        {As the domain grows, will one head persist, split or generate additional heads?}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.14cm}
+
+  \HydraTakeaway{
+    A larger domain permits more peaks, growth determines whether they appear
+  }
+\end{frame}
+
+
+% -----------------------------------------------------------------------------
+% Live experiment 3: the same growth endpoint reached at different rates
+% -----------------------------------------------------------------------------
+\begin{frame}{Growth selects number of peaks}
+
+  \vspace{-0.18cm}
+
+  \begin{center}
+    {\color{HydraWhite}\bfseries\fontsize{12.4}{15.5}\selectfont
+      Let $\Omega$ grow in time: $\Omega(t)=[0,L(t)]$.
+    \par}
+  \end{center}
+
+  \vspace{0.18cm}
+
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.47\textwidth}
+      {\centering\color{HydraCyan}\bfseries\fontsize{12}{14.5}\selectfont
+        SLOW GROWTH\par}
+
+      \vspace{0.14cm}
+
+      {\centering\color{HydraWhite}\fontsize{10.4}{12.8}\selectfont
+        The domain length changes gradually.
+      \par}
+
+      \vspace{0.18cm}
+
+      {\centering\color{HydraBody}\fontsize{8.2}{10.3}\selectfont
+        the solution has time to reorganize as successive modes become available
+      \par}
+    \end{column}
+
+    \begin{column}{0.47\textwidth}
+      {\centering\color{HydraGold}\bfseries\fontsize{12}{14.5}\selectfont
+        FAST GROWTH\par}
+
+      \vspace{0.14cm}
+
+      {\centering\color{HydraWhite}\fontsize{10.4}{12.8}\selectfont
+        The domain length changes rapidly.
+      \par}
+
+      \vspace{0.18cm}
+
+      {\centering\color{HydraBody}\fontsize{8.2}{10.3}\selectfont
+        the domain crosses the same instability ranges on a different timescale
+      \par}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.52cm}
+
+  \begin{center}
+    {\color{HydraGold}\bfseries\fontsize{13.0}{15.8}\selectfont
+      Same initial organizer. Same final length. Same final pattern?
+    \par}
+  \end{center}
+
+  \vspace{0.10cm}
+
+  \HydraTakeaway{
+    The growth rate becomes a nonlinear pattern-selection parameter
+  }
+\end{frame}
+
+
+% -----------------------------------------------------------------------------
+% Live experiment 4: remove the head but omit the biological wound response
+% -----------------------------------------------------------------------------
+\HydraSubsection[
+  \mbox{A cut changes the geometry,}
+  \mbox{but regeneration also requires}
+  \mbox{an injury-induced signal}
+]{Role of the wound}
+
+
+\begin{frame}{Is removing the head enough to trigger regeneration?}
+
+  \vspace{-0.16cm}
+
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.49\textwidth}
+      {\color{HydraGold}\bfseries\fontsize{7.7}{9.2}\selectfont
+        WHAT THE LIVE MODEL DOES\par}
+
+      \vspace{0.16cm}
+
+      \HydraPoint[HydraGold]
+        {Head removed}
+        {The part of the simulated domain containing the organizer is discarded.}
+
+      \vspace{-0.12cm}
+
+      \HydraPoint[HydraCyan]
+        {Profiles inherited}
+        {The remaining fragment keeps the activator and inhibitor profiles present before the cut.}
+
+      \vspace{-0.12cm}
+
+      \HydraPoint[HydraRed]
+        {Wound response omitted}
+        {The geometry changes, but no additional biological signal is introduced.}
+    \end{column}
+
+    \begin{column}{0.47\textwidth}
+      {\centering\color{HydraMuted}\fontsize{7.6}{9.2}\selectfont
+        LIVE OUTCOME\par}
+
+      \vspace{0.26cm}
+
+      {\centering\color{HydraWhite}\bfseries\fontsize{13.2}{16}\selectfont
+        THE HEAD DOES NOT REGROW
+      \par}
+
+      \vspace{0.34cm}
+
+      \HydraPoint[HydraRed]
+        {The residual signal fades}
+        {The inherited headless profile relaxes toward the zero state.}
+
+      \vspace{-0.12cm}
+
+      \HydraPoint[HydraGold]
+        {No organizer is initiated}
+        {Nothing pushes the fragment into the basin of a head-forming pattern.}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.06cm}
+
+  \HydraTakeaway{
+    Changing the geometry is not the same as activating a wound response
+  }
+\end{frame}
+
+
+% -----------------------------------------------------------------------------
+% Biological evidence: head loss with and without tissue injury
+% -----------------------------------------------------------------------------
+\begin{frame}{How the head is removed determines whether it regenerates}
+
+  \vspace{-0.10cm}
+
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.62\textwidth}
       \centering
+      \includegraphics[
+        width=\linewidth,
+        height=5.00cm,
+        keepaspectratio
+      ]{figures/experiments/WoundRole.png}
+    \end{column}
 
-      % REPLACEABLE VISUAL
-      % Replace the tikzpicture with:
-      % \includegraphics[width=\linewidth,height=4.95cm,keepaspectratio]{figures/simulations/growing_domain.png}
-      \begin{tikzpicture}[x=0.90cm,y=0.90cm]
-        \draw[HydraLine,line width=1.15pt,rounded corners=3pt]
-          (0.45,3.30) rectangle (4.05,4.10);
-        \fill[HydraGold,opacity=0.65] (1.05,3.34) rectangle (1.35,4.06);
+    \begin{column}{0.34\textwidth}
+      \HydraPoint[HydraRed]
+        {Cut: wound present}
+        {Cutting disrupts epithelial integrity. Pattern formation follows and a head regenerates.}
 
-        \draw[-{Latex[length=2.6mm]},HydraWhite,line width=1.0pt]
-          (4.35,3.70) -- (5.30,3.70);
-        \node[text=HydraMuted,font=\fontsize{6.8}{8.2}\selectfont]
-          at (4.82,3.25) {$L(t)$ increases};
+      \vspace{-0.15cm}
 
-        \draw[HydraLine,line width=1.15pt,rounded corners=3pt]
-          (0.45,1.25) rectangle (7.65,2.05);
-        \fill[HydraGold,opacity=0.65] (1.65,1.29) rectangle (2.00,2.01);
-        \fill[HydraGold,opacity=0.65] (5.95,1.29) rectangle (6.30,2.01);
+      \HydraPoint[HydraCyan]
+        {Tied: wound avoided}
+        {Careful ligation removes the head while preserving epithelial integrity. Regeneration fails.}
 
-        \draw[<->,HydraCyan,line width=0.9pt]
-          (0.45,0.75) -- (7.65,0.75);
-        \node[text=HydraCyan,font=\bfseries\fontsize{7.2}{8.6}\selectfont]
-          at (4.05,0.35) {new physical scale};
-      \end{tikzpicture}
+      \vspace{-0.15cm}
+
+      \HydraPoint[HydraGold]
+        {Same loss, different outcome}
+        {Head removal is not sufficient; tissue injury supplies the initiating signal.}
     \end{column}
   \end{columns}
 
   \vspace{-0.10cm}
 
-  \HydraTakeaway{
-    The concentrations evolve while the domain supporting them changes
+  {
+  \source{Image: Tursch et al., \emph{PNAS} 119:e2204122119 (2022), Fig.~1A.}
   }
 \end{frame}
 
 
-% \begin{frame}{The growth experiment begins from a one-peak pattern}
+% -----------------------------------------------------------------------------
+% Minimal model extension: an effective, localized and transient wound input
+% -----------------------------------------------------------------------------
+% \begin{frame}{The wound is a transient push between attractors}
 
-%   \vspace{-0.12cm}
-
-%   \begin{columns}[c,onlytextwidth]
-%     \begin{column}{0.70\textwidth}
-%       \centering
-
-%       % REPLACEABLE VISUAL
-%       % Replace the tikzpicture with:
-%       % \includegraphics[width=\linewidth,height=5.25cm,keepaspectratio]{figures/simulations/short_domain_single_peak.png}
-%       \begin{tikzpicture}[x=0.90cm,y=0.90cm]
-%         \draw[-{Latex[length=2mm]},HydraMuted,line width=0.7pt]
-%           (0.45,0.75) -- (8.75,0.75)
-%           node[below,text=HydraMuted,font=\fontsize{7}{8.2}\selectfont] {$x$};
-%         \draw[HydraGold,line width=1.70pt]
-%           plot[smooth] coordinates {(0.55,0.80) (2.10,0.85) (3.25,1.08) (3.85,2.10) (4.20,4.85) (4.58,2.10) (5.15,1.08) (6.30,0.85) (8.60,0.80)};
-%         \draw[HydraCyan,line width=1.45pt]
-%           plot[smooth] coordinates {(0.55,1.05) (1.70,1.35) (2.80,1.85) (4.20,2.45) (5.65,1.85) (6.85,1.35) (8.60,1.05)};
-%         \node[text=HydraGold,font=\bfseries\fontsize{7.2}{8.6}\selectfont]
-%           at (5.15,4.55) {$\bar u_1(x)$};
-%         \node[text=HydraCyan,font=\bfseries\fontsize{7.2}{8.6}\selectfont]
-%           at (6.80,2.15) {$\bar v_1(x)$};
-%       \end{tikzpicture}
-%     \end{column}
-
-%     \begin{column}{0.26\textwidth}
-%       \HydraPoint[HydraGold]
-%         {Reference pattern}
-%         {For the chosen parameters the initial domain supports a stable one-peak steady state}
-
-%       \vspace{-0.18cm}
-
-%       \HydraPoint[HydraCyan]
-%         {Initial condition}
-%         {The growth simulation starts from $(\bar u_1(x),\bar v_1(x))$}
-%     \end{column}
-%   \end{columns}
-% \end{frame}
-
-
-\begin{frame}{Growth can transform one stable pattern into another}
-
-  \vspace{-0.14cm}
-
-  \centering
-
-  % REPLACEABLE VISUAL
-  % Replace the tikzpicture with:
-  % \includegraphics[width=0.94\linewidth,height=5.30cm,keepaspectratio]{figures/simulations/growth_sequence.png}
-  \begin{tikzpicture}[x=0.82cm,y=0.82cm]
-    \foreach \shift/\width/\stage in {0/3.2/{$t_0$},4.0/4.7/{$t_1$},9.3/6.0/{$t_2$}}{
-      \begin{scope}[shift={(\shift,0)}]
-        \draw[HydraLine,line width=1.0pt,rounded corners=2pt]
-          (0.20,0.65) rectangle (\width,1.25);
-        \node[text=HydraMuted,font=\fontsize{7}{8.4}\selectfont]
-          at ({0.5*\width},0.20) {\stage};
-      \end{scope}
-    }
-
-    \fill[HydraGold,opacity=0.72] (1.38,0.69) rectangle (1.68,1.21);
-    \fill[HydraGold,opacity=0.72] (4.75,0.69) rectangle (5.05,1.21);
-    \fill[HydraGold,opacity=0.72] (7.65,0.69) rectangle (7.95,1.21);
-    \fill[HydraGold,opacity=0.72] (10.20,0.69) rectangle (10.50,1.21);
-    \fill[HydraGold,opacity=0.72] (13.65,0.69) rectangle (13.95,1.21);
-
-    \draw[-{Latex[length=2.4mm]},HydraWhite,line width=1.0pt]
-      (3.35,0.95) -- (3.85,0.95);
-    \draw[-{Latex[length=2.4mm]},HydraWhite,line width=1.0pt]
-      (8.85,0.95) -- (9.20,0.95);
-
-    \node[text=HydraGold,font=\bfseries\fontsize{7.3}{8.7}\selectfont]
-      at (7.65,3.95) {a new spatial structure can form as the domain grows};
-    \node[text=HydraMuted,font=\fontsize{7}{8.5}\selectfont,align=center,text width=9.8cm]
-      at (7.65,2.85) {the simulation follows the full nonlinear solution in the physical coordinate};
-  \end{tikzpicture}
-
-  \vspace{-0.12cm}
-
-  \HydraTakeaway{
-    Growth can reorganize an existing pattern instead of merely stretching it
-  }
-\end{frame}
-
-
-\begin{frame}{Division creates two new initial-value problems}
-
-  \vspace{-0.12cm}
-
-  \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.67\textwidth}
-      \centering
-
-      % REPLACEABLE VISUAL
-      % Replace the tikzpicture with:
-      % \includegraphics[width=\linewidth,height=5.10cm,keepaspectratio]{figures/simulations/domain_division.png}
-      \begin{tikzpicture}[x=0.88cm,y=0.88cm]
-        \draw[HydraLine,line width=1.15pt,rounded corners=3pt]
-          (0.45,3.50) rectangle (8.55,4.30);
-        \fill[HydraGold,opacity=0.72] (1.10,3.54) rectangle (1.45,4.26);
-        \fill[HydraGold,opacity=0.52] (7.40,3.54) rectangle (7.68,4.26);
-        \draw[HydraRed,dashed,line width=1.2pt]
-          (4.55,3.25) -- (4.55,4.60);
-        \node[text=HydraRed,font=\bfseries\fontsize{7.2}{8.6}\selectfont]
-          at (4.55,4.95) {cut};
-
-        \draw[-{Latex[length=2.5mm]},HydraWhite,line width=1.0pt]
-          (4.55,2.95) -- (2.70,2.10);
-        \draw[-{Latex[length=2.5mm]},HydraWhite,line width=1.0pt]
-          (4.55,2.95) -- (6.45,2.10);
-
-        \draw[HydraLine,line width=1.10pt,rounded corners=3pt]
-          (0.55,0.70) rectangle (3.85,1.40);
-        \fill[HydraGold,opacity=0.72] (1.10,0.74) rectangle (1.45,1.36);
-
-        \draw[HydraLine,line width=1.10pt,rounded corners=3pt]
-          (5.20,0.70) rectangle (8.50,1.40);
-        \fill[HydraGold,opacity=0.52] (7.40,0.74) rectangle (7.68,1.36);
-
-        \node[text=HydraMuted,font=\fontsize{6.8}{8.2}\selectfont]
-          at (2.20,0.25) {fragment A};
-        \node[text=HydraMuted,font=\fontsize{6.8}{8.2}\selectfont]
-          at (6.85,0.25) {fragment B};
-      \end{tikzpicture}
-    \end{column}
-
-    \begin{column}{0.29\textwidth}
-      \HydraPoint[HydraGold]
-        {Inherited profiles}
-        {Each fragment receives the restriction of the pre-cut profiles of $u$ and $v$}
-
-      \vspace{-0.18cm}
-
-      \HydraPoint[HydraCyan]
-        {New boundaries}
-        {No-flux conditions are imposed at the newly created ends}
-
-      \vspace{-0.18cm}
-
-      \HydraPoint[HydraRed]
-        {Independent evolution}
-        {After division the fragments solve two separate nonlinear problems}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-
-% \begin{frame}{The fragments inherit different initial profiles}
-
-%   \vspace{-0.12cm}
+%   \vspace{-0.18cm}
 
 %   \begin{columns}[c,onlytextwidth]
-%     \begin{column}{0.64\textwidth}
-%       \centering
+%     \begin{column}{0.56\textwidth}
+%       {\color{HydraGold}\bfseries\fontsize{7.7}{9.2}\selectfont
+%         ACTIVATOR EQUATION WITH AN EFFECTIVE WOUND INPUT\par}
 
-%       % REPLACEABLE VISUAL
-%       % Replace the tikzpicture with:
-%       % \includegraphics[width=\linewidth,height=5.15cm,keepaspectratio]{figures/simulations/fragment_fates.png}
-%       \begin{tikzpicture}[x=0.88cm,y=0.88cm]
-%         \draw[-{Latex[length=1.9mm]},HydraMuted,line width=0.7pt]
-%           (0.35,3.40) -- (7.65,3.40);
-%         \draw[HydraGold,line width=1.55pt]
-%           plot[smooth] coordinates {(0.45,3.45) (1.15,3.50) (1.55,4.05) (1.78,5.35) (2.02,4.00) (2.50,3.50) (7.50,3.45)};
-%         \node[text=HydraGold,font=\bfseries\fontsize{7.2}{8.6}\selectfont]
-%           at (5.45,4.65) {fragment containing a peak};
+%       \vspace{-0.24cm}
 
-%         \draw[-{Latex[length=1.9mm]},HydraMuted,line width=0.7pt]
-%           (0.35,0.85) -- (7.65,0.85);
-%         \draw[HydraCyan,line width=1.55pt]
-%           plot[smooth] coordinates {(0.45,0.90) (1.60,1.15) (2.80,1.40) (4.00,1.25) (5.30,1.05) (7.50,0.90)};
-%         \node[text=HydraCyan,font=\bfseries\fontsize{7.2}{8.6}\selectfont]
-%           at (5.25,1.85) {fragment without a mature peak};
+%       {\color{HydraWhite}\fontsize{9.3}{11.8}\selectfont
+%       \begin{align*}
+%         \partial_tu
+%         &=
+%         D_u\Delta u
+%         +
+%         \frac{au^2}{K+v}
+%         -
+%         \mu_u u
+%         +
+%         s_{\mathrm w}(x,t),
+%         \\
+%         \operatorname{supp}s_{\mathrm w}
+%         &\subset
+%         \text{wound region}\times[0,T_{\mathrm w}].
+%       \end{align*}
+%       }
 
-%         \draw[HydraRed,dashed,line width=0.85pt]
-%           (0.45,2.25) -- (7.50,2.25);
-%         \node[anchor=west,text=HydraRed,font=\fontsize{6.8}{8.2}\selectfont]
-%           at (0.55,2.45) {schematic activation threshold};
-%       \end{tikzpicture}
-%     \end{column}
+%       \vspace{-0.34cm}
 
-%     \begin{column}{0.32\textwidth}
 %       \HydraPoint[HydraGold]
-%         {Peak-containing fragment}
-%         {A sufficiently strong inherited organizer can remain self-sustaining}
+%         {Localized and transient}
+%         {$s_{\mathrm w}$ represents the net pro-activator effect of the injury response near the new boundary.}
 
-%       \vspace{-0.18cm}
+%       \vspace{-0.12cm}
 
 %       \HydraPoint[HydraCyan]
-%         {Headless fragment}
-%         {A weak residual profile can remain in the basin of the zero steady state}
+%         {Threshold event}
+%         {Amplitude and duration determine whether the perturbation crosses the basin boundary.}
+%     \end{column}
+
+%     \begin{column}{0.40\textwidth}
+%       {\centering\color{HydraMuted}\fontsize{7.7}{9.2}\selectfont
+%         SAME HEADLESS INITIAL STATE\par}
+
+%       \vspace{0.20cm}
+
+%       {\color{HydraWhite}\fontsize{9.6}{12.3}\selectfont
+%       \begin{align*}
+%         U_{\mathrm{cut}}
+%         &\xrightarrow{\ s_{\mathrm w}=0\ }
+%         \mathcal A_0=(0,0),
+%         \\
+%         U_{\mathrm{cut}}
+%         &\xrightarrow{\ s_{\mathrm w}\neq0\ }
+%         \mathcal A_{\mathrm{head}}.
+%       \end{align*}
+%       }
 
 %       \vspace{-0.18cm}
 
 %       \HydraPoint[HydraRed]
-%         {Different initial data}
-%         {The cut changes both the geometry and the position relative to the nonlinear threshold}
+%         {Two basins}
+%         {The wound changes which long-time state is reached; it need not persist after initiation.}
 %     \end{column}
 %   \end{columns}
+
+%   \vspace{0.02cm}
+
+%   \HydraTakeaway{
+%     The wound disappears; autonomous nonlinear feedback maintains the organizer
+%   }
 % \end{frame}
 
 
-\HydraSubsection[
-  \mbox{Regeneration requires a localized}
-  \mbox{wound signal strong enough to cross}
-  \mbox{the nonlinear activation threshold}
-]{Role of the wound}
+\begin{frame}{The wound pushes the system out of the zero basin}
 
-
-\begin{frame}{A cut alone does not guarantee regeneration}
-
-  \vspace{-0.12cm}
+  \vspace{0.18cm}
 
   \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.70\textwidth}
-      \centering
 
-      % REPLACEABLE VISUAL
-      % Replace the tikzpicture with:
-      % \includegraphics[width=\linewidth,height=5.10cm,keepaspectratio]{figures/simulations/no_wound_decay.png}
-      \begin{tikzpicture}[x=0.76cm,y=0.82cm]
-        \foreach \shift/\amp/\stage in {0/2.6/{$t_0$},3.8/1.5/{$t_1$},7.6/0.5/{$t_2$}}{
-          \begin{scope}[xshift=\shift cm]
-            \draw[-{Latex[length=1.8mm]},HydraMuted,line width=0.65pt]
-              (0.25,0.70) -- (3.55,0.70);
-            \draw[HydraCyan,line width=1.45pt]
-              plot[smooth] coordinates {(0.35,0.75) (0.85,0.80) (1.35,{0.75+0.35*\amp}) (1.75,{0.75+\amp}) (2.15,{0.75+0.35*\amp}) (2.65,0.80) (3.45,0.75)};
-            \node[text=HydraMuted,font=\fontsize{6.8}{8.2}\selectfont]
-              at (1.85,0.25) {\stage};
-          \end{scope}
-        }
+    \begin{column}{0.48\textwidth}
 
-        \draw[-{Latex[length=2.3mm]},HydraWhite,line width=0.95pt]
-          (3.45,1.75) -- (3.70,1.75);
-        \draw[-{Latex[length=2.3mm]},HydraWhite,line width=0.95pt]
-          (7.25,1.75) -- (7.50,1.75);
-        \node[text=HydraRed,font=\bfseries\fontsize{8}{9.6}\selectfont]
-          at (5.65,4.65) {$s_{\mathrm w}\equiv0$};
-      \end{tikzpicture}
-    \end{column}
+      {\color{HydraGold}\bfseries\fontsize{8}{9.5}\selectfont
+        WITHOUT A WOUND\par}
 
-    \begin{column}{0.26\textwidth}
-      \HydraPoint[HydraRed]
-        {Simulation outcome}
-        {Without wound input the headless fragment can converge to $(0,0)$}
-
-      \vspace{-0.18cm}
+      \vspace{0.22cm}
 
       \HydraPoint[HydraCyan]
-        {Nonlinear explanation}
-        {The inherited profile remains below the activation threshold and inside the basin of $(0,0)$}
+        {Small morphogen perturbations}
+        {remain inside the basin of attraction of the zero state.}
+
+      \vspace{0.08cm}
+
+      \HydraPoint[HydraMuted]
+        {The system relaxes back}
+        {to the headless state after the perturbation disappears.}
+
     \end{column}
-  \end{columns}
 
-  \vspace{-0.12cm}
+    \begin{column}{0.48\textwidth}
 
-  \HydraTakeaway{
-    A new boundary does not by itself move the system into the basin of a nonzero pattern
-  }
-\end{frame}
+      {\color{HydraGold}\bfseries\fontsize{8}{9.5}\selectfont
+        AFTER WOUNDING\par}
 
+      \vspace{0.22cm}
 
-\begin{frame}{A wound provides a localized transient signal}
+      \HydraPoint[HydraRed]
+        {A large local morphogen perturbation}
+        {is generated near the wound site.}
 
-  \vspace{-0.12cm}
-
-  \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.56\textwidth}
-      {\color{HydraGold}\bfseries\fontsize{7.6}{9.1}\selectfont
-        ACTIVATOR EQUATION WITH WOUND INPUT\par}
-
-      \vspace{-0.26cm}
-
-      {\color{HydraWhite}\fontsize{9.7}{12.4}\selectfont
-      \begin{align*}
-        \partial_tu
-        &=D_u\Delta u
-        +\frac{au^2}{K+v}
-        -\mu_u u
-        +s_{\mathrm w}(x,t)
-      \end{align*}
-      }
-
-      \vspace{-0.44cm}
-
-      {\color{HydraWhite}\fontsize{8.2}{10.4}\selectfont
-      \begin{align*}
-        \operatorname{supp}s_{\mathrm w}
-        &\subset
-        [0,\ell_{\mathrm w}]
-        \times
-        [0,T_{\mathrm w}]
-      \end{align*}
-      }
-
-      \vspace{-0.42cm}
+      \vspace{0.08cm}
 
       \HydraPoint[HydraGold]
-        {Localized in space}
-        {The perturbation acts near the newly created wound boundary}
+        {The perturbation crosses the basin boundary}
+        {and moves the system toward the head-organizer attractor.}
 
-      \vspace{-0.18cm}
-
-      \HydraPoint[HydraCyan]
-        {Transient in time}
-        {The input disappears after a finite activation period}
     \end{column}
 
-    \begin{column}{0.40\textwidth}
-      \centering
-
-      % REPLACEABLE VISUAL
-      % Replace the tikzpicture with:
-      % \includegraphics[width=\linewidth,height=4.90cm,keepaspectratio]{figures/simulations/wound_signal.png}
-      \begin{tikzpicture}[x=0.88cm,y=0.88cm]
-        \draw[-{Latex[length=2mm]},HydraMuted,line width=0.7pt]
-          (0.35,0.70) -- (5.45,0.70)
-          node[below,text=HydraMuted,font=\fontsize{7}{8.2}\selectfont] {$x$};
-        \draw[-{Latex[length=2mm]},HydraMuted,line width=0.7pt]
-          (0.50,0.50) -- (0.50,4.95)
-          node[left,text=HydraMuted,font=\fontsize{7}{8.2}\selectfont] {$s_{\mathrm w}$};
-
-        \fill[HydraGold,opacity=0.13] (0.50,0.70) rectangle (1.55,4.55);
-        \draw[HydraGold,line width=1.65pt]
-          plot[smooth] coordinates {(0.55,4.30) (0.80,4.20) (1.05,3.75) (1.35,2.10) (1.70,1.10) (2.25,0.78) (5.30,0.72)};
-        \node[anchor=west,text=HydraGold,font=\bfseries\fontsize{7}{8.4}\selectfont]
-          at (1.65,4.10) {wound boundary};
-
-        \draw[<->,HydraCyan,line width=0.9pt]
-          (3.25,1.20) -- (3.25,3.05);
-        \node[anchor=west,text=HydraCyan,font=\fontsize{6.8}{8.2}\selectfont]
-          at (3.42,2.12) {pulse amplitude};
-      \end{tikzpicture}
-
-      \vspace{-0.18cm}
-
-      \HydraPoint[HydraRed]
-        {Threshold crossing}
-        {Sufficient amplitude and duration move the local state across the activation threshold}
-    \end{column}
   \end{columns}
+
+  \vspace{0.28cm}
+
+  \HydraTakeaway{
+    Wounding provides the large perturbation needed to escape the basin of attraction of the zero state
+  }
+
 \end{frame}
 
 
-\begin{frame}{A transient wound can create a persistent organizer}
-
-  \vspace{-0.14cm}
-
-  \centering
-
-  % REPLACEABLE VISUAL
-  % Replace the tikzpicture with:
-  % \includegraphics[width=0.94\linewidth,height=5.25cm,keepaspectratio]{figures/simulations/wound_regeneration_sequence.png}
-  \begin{tikzpicture}[x=0.78cm,y=0.80cm]
-    \foreach \shift/\stage in {0/{cut},3.9/{wound pulse},7.8/{peak initiation},11.7/{self-maintenance}}{
-      \begin{scope}[xshift=\shift cm]
-        \draw[HydraLine,line width=1.0pt,rounded corners=2pt]
-          (0.25,0.70) rectangle (3.25,1.30);
-        \node[text=HydraMuted,font=\fontsize{6.6}{8}\selectfont,align=center,text width=2.5cm]
-          at (1.75,0.20) {\stage};
-      \end{scope}
-    }
-
-    \draw[HydraRed,line width=1.5pt] (0.55,0.58) -- (0.55,1.42);
-    \fill[HydraGold,opacity=0.35] (4.15,0.74) rectangle (5.10,1.26);
-    \fill[HydraGold,opacity=0.58] (8.05,0.74) rectangle (8.42,1.26);
-    \fill[HydraGold,opacity=0.80] (11.95,0.74) rectangle (12.32,1.26);
-
-    \draw[-{Latex[length=2.2mm]},HydraWhite,line width=0.9pt] (3.25,1.00) -- (3.80,1.00);
-    \draw[-{Latex[length=2.2mm]},HydraWhite,line width=0.9pt] (7.15,1.00) -- (7.70,1.00);
-    \draw[-{Latex[length=2.2mm]},HydraWhite,line width=0.9pt] (11.05,1.00) -- (11.60,1.00);
-
-    \node[text=HydraGold,font=\bfseries\fontsize{7.5}{9}\selectfont]
-      at (7.60,4.30) {the wound input disappears while the newly initiated peak persists};
-    \node[text=HydraMuted,font=\fontsize{7}{8.5}\selectfont,align=center,text width=10.5cm]
-      at (7.60,3.15) {after threshold crossing, the autonomous GM dynamics can approach a stable nonconstant steady state};
-  \end{tikzpicture}
+% -----------------------------------------------------------------------------
+% Live experiment 5: divide the domain and apply the same wound rule at the cut
+% -----------------------------------------------------------------------------
+\begin{frame}{One cut, two outcomes}
 
   \vspace{-0.12cm}
 
+  \begin{center}
+    {\color{HydraMuted}\fontsize{7.8}{9.4}\selectfont
+      Both fragments inherit restricted profiles and receive the same localized wound rule at the new boundary
+    \par}
+  \end{center}
+
+  \vspace{0.10cm}
+
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.47\textwidth}
+      {\centering\color{HydraGold}\bfseries\fontsize{11.6}{14}\selectfont
+        FRAGMENT WITH THE HEAD\par}
+
+      \vspace{0.20cm}
+
+      \HydraPoint[HydraGold]
+        {Organizer inherited}
+        {The original peak remains self-maintaining.}
+
+      \vspace{-0.12cm}
+
+      \HydraPoint[HydraCyan]
+        {Wound filtered by context}
+        {Long-range inhibition prevents the cut end from becoming a second head.}
+
+      \vspace{-0.12cm}
+
+      {\centering\color{HydraWhite}\bfseries\fontsize{11.4}{14}\selectfont
+        one head remains
+      \par}
+    \end{column}
+
+    \begin{column}{0.47\textwidth}
+      {\centering\color{HydraCyan}\bfseries\fontsize{11.6}{14}\selectfont
+        HEADLESS FRAGMENT\par}
+
+      \vspace{0.20cm}
+
+      \HydraPoint[HydraRed]
+        {Without the wound input}
+        {The inherited profile decays toward the zero state.}
+
+      \vspace{-0.12cm}
+
+      \HydraPoint[HydraGold]
+        {With the wound input}
+        {The local pulse crosses the threshold and initiates a persistent organizer.}
+
+      \vspace{-0.12cm}
+
+      {\centering\color{HydraWhite}\bfseries\fontsize{11.4}{14}\selectfont
+        a new head forms
+      \par}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.42cm}
+
   \HydraTakeaway{
-    The wound initiates regeneration while the nonlinear feedback maintains the resulting organizer
+    The wound initiates regeneration, the existing pattern determines where it succeeds
   }
 \end{frame}
 
 
-\begin{frame}{The simulations expose a missing biological mechanism}
+% -----------------------------------------------------------------------------
+% Transition to the mechanochemical section
+% -----------------------------------------------------------------------------
+% \begin{frame}{What provides the long-range inhibition?}
+
+%         {\color{HydraWhite}\fontsize{9.7}{12.3}\selectfont
+%       \begin{align*}
+%         \begin{aligned}
+%           \partial_tu
+%           &=
+%           D_u\Delta u+\frac{au^2}{K+v}-\mu_u u
+%           \\
+%           \partial_tv
+%           &=
+%           D_v\Delta v+bu^2-\mu_v v
+%         \end{aligned}
+%       \end{align*}
+%       }
+
+
+%   \vspace{-0.12cm}
+
+%   \begin{columns}[c,onlytextwidth]
+%     \begin{column}{0.47\textwidth}
+%       {\color{HydraGold}\bfseries\fontsize{7.8}{9.3}\selectfont
+%         WHAT THE MODEL EXPLAINS\par}
+
+%       \vspace{0.12cm}
+
+%       \HydraPoint[HydraGold]
+%         {Organizer competition}
+%         {A short domain need not support two persistent peaks.}
+
+%       \vspace{-0.16cm}
+
+%       \HydraPoint[HydraCyan]
+%         {History dependence}
+%         {Domain size and growth rate select among nonlinear outcomes.}
+
+%       \vspace{-0.16cm}
+
+%       \HydraPoint[HydraGold]
+%         {Wound-triggered regeneration}
+%         {A transient local input can move a headless fragment into the organizer basin.}
+%     \end{column}
+
+%     \begin{column}{0.49\textwidth}
+%       {\color{HydraRed}\bfseries\fontsize{7.8}{9.3}\selectfont
+%         WHAT IT STILL ASSUMES\par}
+
+%       \vspace{0.12cm}
+
+%       \HydraPoint[HydraRed]
+%         {Fast diffusing inhibitor}
+%         {The classical mechanism needs a signal acting farther than the activator.}
+
+%       \vspace{-0.16cm}
+
+%       \HydraPoint[HydraCyan]
+%         {A global inhibition}
+%         {The existing head must suppress organizer initiation elsewhere.}
+
+%       \vspace{0.16cm}
+
+%       % \begin{center}
+%       %   {\color{HydraWhite}\bfseries\fontsize{12.2}{15.2}\selectfont
+%       %     Could tissue deformation transmit this inhibition?
+%       %   \par}
+%       % \end{center}
+%     \end{column}
+%   \end{columns}
+
+%   \vspace{0.5cm}
+
+%   \HydraTakeaway{
+%     This is the point where chemical patterning opens into mechanochemistry
+%   }
+% \end{frame}
+
+\HydraSubsection[
+  \mbox{One detail}
+  \mbox{is}
+  \mbox{missing}
+]{Perfect model?}
+
+\begin{frame}{Recall the Gierer--Meinhardt mechanism}
+
+  \vspace{-0.32cm}
+
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.57\textwidth}
+      {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
+        The chemical mechanism uses two interacting substances
+      \par}
+
+      \vspace{-0.30cm}
+
+      {\color{HydraWhite}\fontsize{9.5}{12}\selectfont
+      \begin{align*}
+        \partial_tu
+        &=D_u\Delta u+\frac{au^2}{K+v}-\mu_u u
+        \\
+        \partial_tv
+        &=D_v\Delta v+bu^2-\mu_v v
+      \end{align*}
+      }
+
+      \vspace{-0.40cm}
+
+      \HydraPoint[HydraGold]
+        {Local activation}
+        {The activator promotes its own production over a short range}
+
+      \vspace{-0.10cm}
+
+      \HydraPoint[HydraCyan]
+        {Long-range inhibition}
+        {A second substance suppresses activation over a larger spatial scale}
+    \end{column}
+
+    \begin{column}{0.39\textwidth}
+      \centering
+      \begin{tikzpicture}[x=0.88cm,y=0.88cm]
+        \draw[HydraLine,line width=1.0pt] (0.45,2.65) -- (5.35,2.65);
+        \fill[HydraGold] (2.90,2.65) circle[radius=0.16cm];
+        \fill[HydraGold,opacity=0.48] (2.35,2.65) circle[radius=0.10cm];
+        \fill[HydraGold,opacity=0.48] (3.45,2.65) circle[radius=0.10cm];
+        \draw[<->,HydraGold,line width=1.1pt] (2.25,3.30) -- (3.55,3.30);
+        \node[text=HydraGold,font=\bfseries\fontsize{7.2}{8.6}\selectfont]
+          at (2.90,3.68) {activation};
+        \draw[<->,HydraCyan,line width=1.1pt] (0.75,1.78) -- (5.05,1.78);
+        \node[text=HydraCyan,font=\bfseries\fontsize{7.2}{8.6}\selectfont]
+          at (2.90,1.34) {inhibition};
+        \node[text=HydraMuted,align=center,text width=4.6cm,
+          font=\fontsize{7}{8.5}\selectfont]
+          at (2.90,0.55) {two spatial scales are encoded by two diffusible substances};
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+
+\begin{frame}{The activator has candidates but the inhibitor remains unclear}
 
   \vspace{-0.12cm}
 
   \begin{columns}[c,onlytextwidth]
     \begin{column}{0.47\textwidth}
-      {\color{HydraGold}\bfseries\fontsize{7.7}{9.2}\selectfont
-        WHAT THE SIMULATIONS DEMONSTRATE\par}
-
-      \vspace{0.10cm}
-
-      \HydraPoint[HydraGold]
-        {Several stable patterns}
-        {The full nonlinear system can support different steady spatial profiles}
-
-      \vspace{-0.18cm}
-
-      \HydraPoint[HydraCyan]
-        {Geometry-dependent outcomes}
-        {Growth and division change the domain and the initial-value problem}
-
-      \vspace{-0.18cm}
-
-      \HydraPoint[HydraViolet]
-        {Wound-dependent regeneration}
-        {A transient localized input can initiate a persistent organizer}
+      \centering
+      {\color{HydraGold}\bfseries\fontsize{8}{9.5}\selectfont
+        ACTIVATOR CANDIDATE\par}
+      \vspace{0.22cm}
+      {\color{HydraWhite}\bfseries\fontsize{21}{24}\selectfont Wnt3\par}
+      \vspace{0.22cm}
+      {\color{HydraMuted}\fontsize{7.5}{9.2}\selectfont
+        Stable localized Wnt3 expression marks the emerging head organizer
+      \par}
     \end{column}
 
-    \begin{column}{0.49\textwidth}
-      {\color{HydraRed}\bfseries\fontsize{7.7}{9.2}\selectfont
-        WHAT THE MODEL STILL ASSUMES\par}
+    \begin{column}{0.06\textwidth}
+      \centering{\color{HydraLine}\fontsize{28}{28}\selectfont $\vert$}
+    \end{column}
 
-      \vspace{0.10cm}
-
-      \HydraPoint[HydraRed]
-        {Long-range molecular inhibition}
-        {The classical mechanism requires an inhibitor that spreads farther than the activator}
-
-      \vspace{-0.18cm}
-
-      \HydraPoint[HydraMuted]
-        {Uncertain biological identity}
-        {Candidate activators exist, but the corresponding rapidly spreading inhibitor remains unclear}
-
-      \vspace{0.12cm}
-
-      \begin{center}
-        {\color{HydraWhite}\bfseries\fontsize{11.2}{14}\selectfont
-          Could mechanics supply the missing inhibition?
-        \par}
-      \end{center}
+    \begin{column}{0.47\textwidth}
+      \centering
+      {\color{HydraCyan}\bfseries\fontsize{8}{9.5}\selectfont
+        MISSING COMPONENT\par}
+      \vspace{0.22cm}
+      {\color{HydraWhite}\bfseries\fontsize{18}{22}\selectfont ?\par}
+      \vspace{0.22cm}
+      {\color{HydraMuted}\fontsize{7.5}{9.2}\selectfont
+        No biochemical species has been established as the required fast long-range inhibitor
+      \par}
     \end{column}
   \end{columns}
 
-  \vspace{-0.10cm}
+  \vspace{0.48cm}
 
   \HydraTakeaway{
-    This motivates a mechanochemical model in which tissue deformation participates in pattern formation
+    The mathematical inhibitor has a clear role but its biological identity is unresolved
   }
+
 \end{frame}

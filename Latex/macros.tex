@@ -65,8 +65,10 @@
     \fill[#1] (0,0.28) rectangle (0.30,0.32);
     \node[anchor=west,text=#1,font=\bfseries\fontsize{7.6}{8.6}\selectfont]
       at (0,0) {\hydraTwoDigits{\inserttocsectionnumber}};
-    \node[anchor=west,text=#2,text width=5.05cm,font=#3\fontsize{8.9}{10.4}\selectfont]
-      (title) at (0.62,0) {\inserttocsection};
+    \node[anchor=west,text=#2,text width=5.05cm,align=left,
+      font=#3\fontsize{8.9}{10.4}\selectfont]
+      (title) at (0.62,0)
+      {\hyphenpenalty=10000\exhyphenpenalty=10000\relax\inserttocsection};
   \end{tikzpicture}\par
     % \vspace{-0.50cm}%
 }
@@ -89,7 +91,7 @@
       \node[anchor=center,inner sep=0pt] at (current page.center)
         {\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]
           {\hydraSectionImage}};
-      \fill[HydraNavy,opacity=.91]
+      \fill[HydraNavy,opacity=.97]
         (current page.south west)
         rectangle ([xshift=7.55cm]current page.north west);
 
@@ -108,10 +110,11 @@
         font=\bfseries\fontsize{15.5}{18.5}\selectfont]
         at ([xshift=0.84cm,yshift=-1.15cm]current page.north west)
         {\mbox{The road from Hydra}\\\mbox{to pattern formation}};
-      \node[anchor=north west,text=HydraBody,text width=6.05cm,
+      \node[anchor=north west,text=HydraBody,text width=6.05cm,align=left,
         font=\fontsize{8.8}{11}\selectfont]
         at ([xshift=0.84cm,yshift=-2.65cm]current page.north west)
-        {From biological observations to mathematical mechanisms.};
+        {\hyphenpenalty=10000\exhyphenpenalty=10000\relax
+         From biological observations to mathematical mechanisms.};
       \node[anchor=north west,inner sep=0pt,text width=6.15cm]
         at ([xshift=0.84cm,yshift=-3.52cm]current page.north west)
         {\begin{minipage}{6.15cm}
@@ -130,16 +133,25 @@
 
       \pgfmathsetlengthmacro{\hydraZoomW}{\hydraZoom*\paperwidth}
       \pgfmathsetlengthmacro{\hydraZoomH}{\hydraZoom*\paperheight}
+      % Clamp the pan so the zoomed background always covers the page.  A focus
+      % point near an edge (section 6 sits at focus y=0.78) otherwise pushes the
+      % image off the slide and leaves a bare navy strip along the bottom.
       \pgfmathsetlengthmacro{\hydraZoomCX}{%
-        0.74*\paperwidth-\hydraZoom*(\hydraFocusX-0.5)*\paperwidth}
+        max(min(0.74*\paperwidth-\hydraZoom*(\hydraFocusX-0.5)*\paperwidth,
+                0.5*\hydraZoom*\paperwidth),
+            \paperwidth-0.5*\hydraZoom*\paperwidth)}
       \pgfmathsetlengthmacro{\hydraZoomCY}{%
-        0.50*\paperheight-\hydraZoom*(0.5-\hydraFocusY)*\paperheight}
+        max(min(0.50*\paperheight-\hydraZoom*(0.5-\hydraFocusY)*\paperheight,
+                0.5*\hydraZoom*\paperheight),
+            \paperheight-0.5*\hydraZoom*\paperheight)}
       \node[anchor=center,inner sep=0pt]
         at ([xshift=\hydraZoomCX,yshift=\hydraZoomCY]current page.south west)
         {\includegraphics[width=\hydraZoomW,height=\hydraZoomH,keepaspectratio]
           {\hydraSectionImage}};
 
-      \fill[HydraNavy,opacity=.90]
+      % .90 let bright parts of the photo ghost through the text panel as a
+      % smudge behind the heading; .97 keeps the panel readable.
+      \fill[HydraNavy,opacity=.97]
         (current page.south west)
         rectangle ([xshift=7.48cm]current page.north west);
       \fill[HydraNavy,opacity=.16]
@@ -200,6 +212,11 @@
 
 \NewDocumentCommand{\HydraSubsection}{O{} m}{%
   \stepcounter{hydrasubindex}%
+  % Write the running total on every subsection, not only at \AtEndDocument:
+  % the end-of-document hook fired too late to record the final section, so
+  % section 6 had no entry in the .aux and its progress bars counted up from
+  % one instead of showing all five.  The last write per section wins.
+  \hydraWriteSubTotal
   \gdef\hydraSubTagline{#1}%
   \subsection{#2}%
 }
@@ -213,7 +230,13 @@
 % -----------------------------------------------------------------------------
 % Reusable content layouts
 % -----------------------------------------------------------------------------
+% A display environment (align*, \[...\]) leaves TeX in horizontal mode, so a
+% \vspace written after one is turned into a \vadjust and lands *inside* the
+% next paragraph instead of before it.  Without the \par below, that pulled the
+% bullet text onto the same line as its marker and printed the dot on top of
+% the first letter.  \par in vertical mode is a no-op, so this is always safe.
 \NewDocumentCommand{\HydraPoint}{O{HydraGold} m m}{%
+  \par
   \noindent
   \begin{minipage}[t]{0.26cm}
     \vspace{0.12cm}%
@@ -228,7 +251,7 @@
     \hyphenpenalty=10000\exhyphenpenalty=10000\relax
     {\color{HydraWhite}\bfseries\fontsize{9.5}{12.4}\selectfont #2\par}%
     \vspace{-0.05cm}%
-    {\color{HydraBody}\fontsize{6.8}{11.2}\selectfont #3\par}%
+    {\color{HydraBody}\fontsize{6.8}{8.6}\selectfont #3\par}%
   \end{minipage}\par
   \vspace{0.32cm}%
 }
@@ -244,7 +267,7 @@
 
       \vspace{0.06cm}
 
-      {\color{HydraMuted}\fontsize{5.0}{5.8}\selectfont
+      {\color{HydraMuted}\fontsize{6}{7.2}\selectfont
        \centering #4\par}
     \end{column}
   \end{columns}%
@@ -301,9 +324,12 @@
 
 \newcommand{\source}[1]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node[anchor=south east,text=HydraMuted,font=\fontsize{5.0}{5.8}\selectfont,
-      align=right,text width=13.6cm]
-      at ([xshift=-1.75cm,yshift=0.16cm]current page.south east) {#1};
+    % No fixed text width: a short credit in a 13.6cm right-aligned box was
+    % reported as an underfull hbox on every slide that used one.
+    \node[anchor=south east,text=HydraMuted,font=\fontsize{6}{7.2}\selectfont,
+      align=right,text width=13.6cm,inner sep=0pt]
+      at ([xshift=-1.75cm,yshift=0.16cm]current page.south east)
+      {\raggedleft\hspace{0pt}#1\par};
   \end{tikzpicture}%
 }
 
@@ -338,6 +364,10 @@
       font=\fontsize{10}{14}\selectfont]
       at ([xshift=0.76cm,yshift=-5.85cm]current page.north west)
       {\insertsubtitle};
+    \node[anchor=south west,text=HydraWhite,text width=9.0cm,
+      font=\bfseries\fontsize{10}{13}\selectfont]
+      at ([xshift=0.76cm,yshift=1.52cm]current page.south west)
+      {\insertauthor};
     \node[anchor=south west,text=HydraMuted,text width=9.0cm,
       font=\fontsize{7}{9}\selectfont]
       at ([xshift=0.76cm,yshift=0.88cm]current page.south west)
