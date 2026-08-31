@@ -11,7 +11,7 @@
 \newcommand{\hydraFocusY}{0.25}
 \newcommand{\hydraFocusRadius}{0.13}
 \newcommand{\hydraZoom}{2.05}
-\newcommand{\hydraSectionImage}{figures/hydra/hydra_zoom_map.png}
+\newcommand{\hydraSectionImage}{figures/common/hydra_zoom_map.png}
 \newcommand{\hydraSubTagline}{}
 
 \pgfkeys{/hydra section/.is family}
@@ -200,7 +200,7 @@
     focus y=0.25,
     radius=0.13,
     zoom=2.05,
-    image=figures/hydra/hydra_zoom_map.png,
+    image=figures/common/hydra_zoom_map.png,
     #1}%
   \xdef\hydraFocusX{\hydraNextFocusX}%
   \xdef\hydraFocusY{\hydraNextFocusY}%
@@ -377,3 +377,31 @@
 
 % Backwards-compatible name used in older section files.
 \let\twocolumnslide\HydraTwoColumns
+
+% -----------------------------------------------------------------------------
+% Running gag.  Two slides: the question, then the answer.  Dropped in at the
+% points where a model has just been shown to be insufficient.
+%
+% Both frames are [plain], so they carry no breadcrumb, no footline and no
+% frame title.  The meme is exactly 16:9, the same as the paper, so it fills
+% the slide edge to edge with nothing letterboxed.
+% -----------------------------------------------------------------------------
+\newcommand{\PerfectModel}{%
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture,overlay]
+      \fill[HydraNavy]
+        (current page.south west) rectangle (current page.north east);
+      \node[text=HydraWhite,font=\bfseries\fontsize{44}{52}\selectfont]
+        at (current page.center) {Perfect model?};
+    \end{tikzpicture}
+  \end{frame}
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture,overlay]
+      \fill[HydraNavy]
+        (current page.south west) rectangle (current page.north east);
+      \node[anchor=center,inner sep=0pt] at (current page.center)
+        {\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]
+          {figures/common/well_yes_but_actually_no.jpg}};
+    \end{tikzpicture}
+  \end{frame}%
+}

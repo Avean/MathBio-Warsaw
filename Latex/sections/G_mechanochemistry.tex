@@ -163,7 +163,7 @@
         width=\linewidth,
         height=5.20cm,
         keepaspectratio
-      ]{figures/mechanochemistry/hydra_biology.png}
+      ]{figures/G_mechanochemistry/hydra_biology.png}
 
         {\color{HydraMuted}\fontsize{6}{7.2}\selectfont
       Wang, Bialas, Goel \& Collins,
@@ -262,7 +262,7 @@
         width=\linewidth,
         height=5.25cm,
         keepaspectratio
-      ]{figures/mechanochemistry/oscillation_radius.png}
+      ]{figures/G_mechanochemistry/oscillation_radius.png}
     \end{column}
 
     \begin{column}{0.24\textwidth}
@@ -296,7 +296,7 @@
         width=\linewidth,
         height=5.15cm,
         keepaspectratio
-      ]{figures/mechanochemistry/oscillation_wnt3_oe.jpg}
+      ]{figures/G_mechanochemistry/oscillation_wnt3_oe.jpg}
     \end{column}
 
     \begin{column}{0.24\textwidth}
@@ -370,7 +370,7 @@
         width=\linewidth,
         height=5.35cm,
         keepaspectratio
-      ]{figures/mechanochemistry/3d_intersection.jpg}
+      ]{figures/G_mechanochemistry/3d_intersection.jpg}
     \end{column}
 
     \begin{column}{0.34\textwidth}
@@ -408,7 +408,7 @@
 %         width=\linewidth,
 %         height=4.95cm,
 %         keepaspectratio
-%       ]{figures/mechanochemistry/sphere_springs.png}
+%       ]{figures/G_mechanochemistry/sphere_springs.png}
 %     \end{column}
 
 %     \begin{column}{0.48\textwidth}
@@ -473,53 +473,6 @@
 \end{frame}
 
 
-% \begin{frame}{A ring contains many small springs}
-
-%   \vspace{-0.14cm}
-
-%   \begin{columns}[c,onlytextwidth]
-%     \begin{column}{0.60\textwidth}
-%       \centering
-%       \begin{tikzpicture}[x=0.95cm,y=0.95cm]
-%         \def\R{2.45}
-%         \coordinate (O) at (3.40,2.75);
-%         \foreach \a in {0,20,...,340}{
-%           \fill[HydraWhite] ($(O)+(\a:\R)$) circle[radius=0.060cm];
-%         }
-%         \draw[HydraCyan,line width=1.0pt]
-%           plot[domain=0:360,samples=19]
-%             ({3.40+\R*cos(\x)},{2.75+\R*sin(\x)});
-%         \fill[HydraGold] ($(O)+(40:\R)$) circle[radius=0.105cm];
-%         \fill[HydraGold] ($(O)+(60:\R)$) circle[radius=0.105cm];
-%         \draw[HydraGold,line width=2.0pt]
-%           ($(O)+(40:\R)$) -- ($(O)+(60:\R)$);
-%         \node[anchor=south west,text=HydraGold,
-%           font=\bfseries\fontsize{7.4}{8.8}\selectfont]
-%           at ($(O)+(50:2.72)$) {spring $i$};
-%         \node[text=HydraMuted,font=\fontsize{7}{8.5}\selectfont]
-%           at (3.40,2.75) {$N$ springs};
-%       \end{tikzpicture}
-%     \end{column}
-
-%     \begin{column}{0.36\textwidth}
-%       {\color{HydraWhite}\fontsize{10}{12.6}\selectfont
-%       \begin{align*}
-%         \Delta x&=\frac{L}{N}
-%         \\
-%         x_i&=i\Delta x
-%         \\
-%         i&=0,\ldots,N-1
-%       \end{align*}
-%       }
-%       \par
-%       \vspace{-0.32cm}
-%       {\color{HydraMuted}\fontsize{7.5}{9.2}\selectfont
-%         Every spring represents a short material segment of reference length $\Delta x$
-%       \par}
-%     \end{column}
-%   \end{columns}
-
-% \end{frame}
 
 
 \begin{frame}{The energy of a deformed spring}
@@ -1230,85 +1183,6 @@
 \end{frame}
 
 
-% \begin{frame}{Mechanical variables can be eliminated}
-
-%   \vspace{-0.12cm}
-
-%   {\color{HydraWhite}\fontsize{9.0}{11.4}\selectfont
-%   \begin{align*}
-%     \partial_tu
-%     &=D\partial_{xx}u-u+\kappa\varepsilon
-%     \\
-%     \varepsilon(x,t)
-%     &=
-%     \frac{(\ell-L)\,e^{u(x,t)}}
-%     {\displaystyle\int_0^L e^{u(y,t)}\,dy}
-%   \end{align*}
-%   }
-%   \par
-%   \vspace{-0.28cm}
-%   \begin{center}{\color{HydraCyan}\fontsize{17}{17}\selectfont $\Downarrow$}\end{center}
-%   \vspace{-0.08cm}
-%   {\color{HydraGold}\bfseries\fontsize{9.6}{12.2}\selectfont
-%   \begin{align*}
-%     \boxed{
-%       \partial_tu
-%       =D\partial_{xx}u-u
-%       +\kappa
-%       \frac{(\ell-L)\,e^{u(x,t)}}
-%       {\displaystyle\int_0^L e^{u(y,t)}\,dy}
-%     }
-%   \end{align*}
-%   }
-
-% \end{frame}
-
-% \begin{frame}{Exponential softening produces the nonlocal feedback}
-
-%   \vspace{-0.02cm}
-
-%   \begin{columns}[c,onlytextwidth]
-%     \begin{column}{0.43\textwidth}
-%       {\color{HydraWhite}\fontsize{10.6}{13.4}\selectfont
-%       \begin{align*}
-%         E(u)&=e^{-u}
-%         \\
-%         \frac{1}{E(u)}&=e^{u}
-%       \end{align*}
-%       }
-%       \par
-%       \vspace{-0.30cm}
-%       \HydraPoint[HydraGold]
-%         {Local factor}
-%         {$e^{u(x,t)}$ amplifies regions with larger morphogen}
-%     \end{column}
-
-%     \begin{column}{0.53\textwidth}
-%       {\color{HydraGold}\bfseries\fontsize{10.8}{13.6}\selectfont
-%       \begin{align*}
-%         \varepsilon(x,t)
-%         &=
-%         (\ell-L)
-%         \frac{e^{u(x,t)}}
-%         {\displaystyle\int_0^L e^{u(y,t)}\,dy}
-%       \end{align*}
-%       }
-%       \par
-%       \vspace{-0.24cm}
-%       \HydraPoint[HydraCyan]
-%         {Global factor}
-%         {The denominator preserves the prescribed total extension}
-%     \end{column}
-%   \end{columns}
-
-%   \vspace{0.30cm}
-%   \HydraTakeaway{
-%     The mechanics generates a local exponential activation divided by a global normalization
-%   }
-
-% \end{frame}
-
-
 \begin{frame}{One nonlocal equation for the morphogen}
 
   \vspace{-0.04cm}
@@ -1519,7 +1393,7 @@
         width=\linewidth,
         height=7.05cm,
         keepaspectratio
-      ]{figures/mechanochemistry/parameter_space.png}
+      ]{figures/G_mechanochemistry/parameter_space.png}
     
 
 \end{frame}
@@ -1667,7 +1541,7 @@
       width=\linewidth,
       height=4.55cm,
       keepaspectratio
-    ]{figures/mechanochemistry/stationary_profiles.png}
+    ]{figures/G_mechanochemistry/stationary_profiles.png}
   \end{center}
 
   \vspace{0.26cm}
@@ -1834,7 +1708,7 @@
       width=0.75\linewidth,
       % height=4.35cm,
       keepaspectratio
-    ]{figures/mechanochemistry/Comparison2.png}
+    ]{figures/G_mechanochemistry/Comparison2.png}
   \end{center}
 
 \end{frame}
@@ -1903,7 +1777,7 @@
         width=\linewidth,
         height=7.25cm,
         keepaspectratio
-      ]{figures/mechanochemistry/bifurcation_parameter_map.png}
+      ]{figures/G_mechanochemistry/bifurcation_parameter_map.png}
     \end{column}
 
     \begin{column}{0.23\textwidth}
@@ -1982,7 +1856,7 @@
         width=\linewidth,
         height=5.05cm,
         keepaspectratio
-      ]{figures/mechanochemistry/subcritical_bifurcation.png}
+      ]{figures/G_mechanochemistry/subcritical_bifurcation.png}
     \end{column}
 
     \begin{column}{0.34\textwidth}
@@ -2010,7 +1884,7 @@
         width=\linewidth,
         height=5.05cm,
         keepaspectratio
-      ]{figures/mechanochemistry/supercritical_bifurcation.png}
+      ]{figures/G_mechanochemistry/supercritical_bifurcation.png}
     \end{column}
 
     \begin{column}{0.34\textwidth}
@@ -2069,4 +1943,53 @@
     A single morphogen equation coupled to mechanics can implement local activation and long-range inhibition
   }
 
+\end{frame}
+
+
+\PerfectModel
+
+
+% =============================================================================
+% Answering the meme: what the mechanochemical model buys, and the one thing
+% it cannot do.  The unimodality result is a theorem, so this is not a matter
+% of tuning parameters.
+% =============================================================================
+\begin{frame}{Many desirable properties, and one hard limit}
+
+  \vspace{0.34cm}
+
+  \HydraPoint[HydraGold]
+    {The model does almost everything we wanted}
+    {A single morphogen coupled to tissue mechanics delivers local activation
+     and long-range inhibition, without invoking a second chemical that nobody
+     has ever measured.}
+
+  \vspace{0.20cm}
+
+  \HydraPoint[HydraCyan]
+    {But it always produces exactly one peak}
+    {Every nonconstant stationary solution with two or more peaks is unstable.
+     This is a theorem, not a matter of choosing parameters differently.}
+
+  \vspace{0.20cm}
+
+  \HydraPoint[HydraGold]
+    {The experiments say otherwise}
+    {Strongly stretched spheroids are observed to carry more than one peak,
+     which the model cannot reproduce for any choice of parameters.}
+
+\end{frame}
+
+
+% =============================================================================
+% Closing beat of the section.  Same treatment as the question slide in
+% \PerfectModel, so the two read as a pair.
+% =============================================================================
+\begin{frame}[plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[HydraNavy]
+      (current page.south west) rectangle (current page.north east);
+    \node[text=HydraWhite,font=\bfseries\fontsize{36}{44}\selectfont]
+      at (current page.center) {Story still continues \ldots};
+  \end{tikzpicture}
 \end{frame}
