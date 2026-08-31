@@ -1,6 +1,6 @@
 \HydraSection[
   focus x=0.59,
-  focus y=0.76,
+  focus y=0.83,
   radius=0.13,
   zoom=1.80
 ]{Mechanochemical pattern formation}
@@ -560,7 +560,7 @@
       {\color{HydraGold}\bfseries\fontsize{12.6}{15.8}\selectfont
       \begin{align*}
         \boxed{
-          \mathcal E_i
+          \textcolor{HydraCyan}{\mathcal E}_i
           =
           \frac12\,E(u_i)
           \left(\ell_i-l\right)^2
@@ -738,11 +738,11 @@
       \vspace{-0.10cm}
       {\color{HydraWhite}\bfseries\fontsize{14.2}{17.8}\selectfont
       \begin{align*}
-        \mathcal E_N
+        \textcolor{HydraCyan}{\mathcal E}_N
         =
-        \sum_{i=0}^{N-1}\mathcal E_i=
+        \sum_{i=0}^{N-1}\textcolor{HydraCyan}{\mathcal E}_i=
         \sum_{i=0}^{N-1}
-        \frac12E(u_i)\left(\ell_i-l\right)^2
+        \frac12e^{-u_i}\left(\ell_i-l\right)^2
       \end{align*}
       }
       \par
@@ -816,15 +816,15 @@
       \HydraPoint[HydraGold]
         {Local stiffness}
         {The stiffness of each spring is set by the local morphogen concentration}
-      \vspace{0.10cm}
+      \vspace{0.50cm}
       \HydraPoint[HydraCyan]
         {Osmotic driving force}
         {Tension is induced as the spheroid stretches while inflating with pumped-in water}
-      \vspace{0.10cm}
+      \vspace{0.50cm}
       \HydraPoint[HydraGold]
         {Heterogeneous response}
         {Springs stretch by different amounts according to their individual elasticity}
-      \vspace{0.10cm}
+      \vspace{0.50cm}
       \HydraPoint[HydraCyan]
         {Energy minimization}
         {Springs stretch so as to minimize the total energy of the ring while it keeps its circular shape}
@@ -834,306 +834,320 @@
 \end{frame}
 
 
-\begin{frame}{Discrete strain converges to a spatial derivative}
+\begin{frame}{Passing with the number of springs to the limit}
 
-  \vspace{0.05cm}
+  \vspace{-0.04cm}
+
+  \begin{center}
+    \begin{minipage}{0.94\linewidth}
+
+      {\color{HydraWhite}\bfseries\fontsize{8.2}{9.8}\selectfont Passing with the strain\par}
+      \vspace{-0.06cm}
+      \begin{center}
+        {\color{HydraWhite}\fontsize{9.4}{11.8}\selectfont
+          $\displaystyle\varepsilon_i=\frac{\ell_i-l}{l}$
+        }
+        \quad
+        {\color{HydraCyan}\fontsize{13}{13}\selectfont$\Rightarrow$}
+        \quad
+        {\color{HydraWhite}\bfseries\fontsize{9.4}{11.8}\selectfont
+          ${\displaystyle\varepsilon(x)=\lim_{l\to0}\frac{\ell_i-l}{l}}$
+        }
+      \end{center}
+
+      \vspace{0.20cm}
+
+      {\color{HydraWhite}\bfseries\fontsize{8.2}{9.8}\selectfont Passing with the energy\par}
+      \vspace{-0.06cm}
+      \begin{center}
+        {\color{HydraWhite}\fontsize{9}{11.2}\selectfont
+          $\displaystyle\textcolor{HydraCyan}{\mathcal E}_N=\sum_{i=0}^{N-1}\frac12e^{-u_i}\left(\ell_i-l\right)^2$
+        }
+        \quad
+        {\color{HydraCyan}\fontsize{13}{13}\selectfont$\Rightarrow$}
+        \quad
+        {\color{HydraWhite}\bfseries\fontsize{9}{11.2}\selectfont
+          ${\displaystyle\textcolor{HydraCyan}{\mathcal E(x)}=\frac12\int_0^L e^{-u(x)}\varepsilon(x)^2\,dx}$
+        }
+      \end{center}
+
+      \vspace{0.20cm}
+
+      {\color{HydraWhite}\bfseries\fontsize{8.2}{9.8}\selectfont Passing with the constraint\par}
+      \vspace{-0.06cm}
+      \begin{center}
+        {\color{HydraWhite}\fontsize{9.4}{11.8}\selectfont
+          $\displaystyle\ell-L=\sum_{i=0}^{N-1}\varepsilon_i\,l$
+        }
+        \quad
+        {\color{HydraCyan}\fontsize{13}{13}\selectfont$\Rightarrow$}
+        \quad
+        {\color{HydraWhite}\bfseries\fontsize{9.4}{11.8}\selectfont
+          ${\displaystyle\ell-L=\int_0^L\varepsilon(x)\,dx}$
+        }
+      \end{center}
+
+    \end{minipage}
+  \end{center}
+
+\end{frame}
+
+
+% \begin{frame}{Mechanical equilibrium minimizes elastic energy}
+
+%   \vspace{0.10cm}
+
+%   \begin{center}
+%     \begin{minipage}{0.84\linewidth}
+%       {\color{HydraMuted}\fontsize{7.8}{9.5}\selectfont
+%         Mechanics relaxes rapidly compared with morphogen dynamics
+%       \par}
+%       \vspace{-0.10cm}
+%       {\color{HydraWhite}\bfseries\fontsize{13.2}{16.6}\selectfont
+%       \begin{align*}
+%         s
+%         &\in
+%         \operatorname*{arg\,min}
+%         \left\{
+%           \frac12\int_0^L e^{-u}\varepsilon^2\,dx
+%         \right\}
+%       \end{align*}
+%       }
+%       \par
+%       \vspace{-0.26cm}
+%       {\color{HydraWhite}\fontsize{10.4}{13.2}\selectfont
+%       \begin{align*}
+%         \varepsilon&=\partial_xs-1
+%         \\
+%         \int_0^L\varepsilon\,dx&=\ell-L
+%       \end{align*}
+%       }
+%       \par
+%       \vspace{-0.28cm}
+%       \HydraPoint[HydraGold]
+%         {Quasi-static mechanics}
+%         {For each current morphogen profile the tissue immediately reaches mechanical equilibrium}
+%     \end{minipage}
+%   \end{center}
+
+% \end{frame}
+
+
+% \begin{frame}{Perturb the deformation to compute the first variation}
+
+%   \vspace{0.02cm}
+
+%   \begin{columns}[c,onlytextwidth]
+%     \begin{column}{0.47\textwidth}
+%       {\color{HydraWhite}\fontsize{10.4}{13.2}\selectfont
+%       \begin{align*}
+%         s_\theta(x)&=s(x)+\theta h(x)
+%         \\
+%         \varepsilon_\theta&=\partial_xs_\theta-1
+%         \\
+%         &=\varepsilon+\theta\partial_xh
+%       \end{align*}
+%       }
+%       \par
+%       \vspace{-0.30cm}
+%       {\color{HydraMuted}\fontsize{7.4}{9.1}\selectfont
+%         The periodic perturbation $h$ preserves the closed geometry
+%       \par}
+%     \end{column}
+
+%     \begin{column}{0.49\textwidth}
+%       {\color{HydraWhite}\fontsize{9.6}{12.2}\selectfont
+%       \begin{align*}
+%         \textcolor{HydraCyan}{\mathcal E}_{\mathrm{el}}[s_\theta;u]
+%         &=
+%         \frac12\int_0^L
+%         e^{-u}
+%         \left(\varepsilon+\theta\partial_xh\right)^2\,dx
+%       \end{align*}
+%       }
+%       \par
+%       \vspace{-0.26cm}
+%       {\color{HydraGold}\bfseries\fontsize{10.5}{13.2}\selectfont
+%       \begin{align*}
+%         \delta\textcolor{HydraCyan}{\mathcal E}_{\mathrm{el}}
+%         &=
+%         \left.\frac{d}{d\theta}
+%         \textcolor{HydraCyan}{\mathcal E}_{\mathrm{el}}[s_\theta;u]
+%         \right|_{\theta=0}
+%         \\
+%         &=\int_0^L e^{-u}\varepsilon\partial_xh\,dx
+%       \end{align*}
+%       }
+%     \end{column}
+%   \end{columns}
+
+% \end{frame}
+
+
+% \begin{frame}{Integration by parts gives mechanical equilibrium}
+
+%   \vspace{0.12cm}
+
+%   \begin{center}
+%     \begin{minipage}{0.88\linewidth}
+%       {\color{HydraWhite}\fontsize{10.5}{13.2}\selectfont
+%       \begin{align*}
+%         \delta\textcolor{HydraCyan}{\mathcal E}_{\mathrm{el}}
+%         &=\int_0^L e^{-u}\varepsilon\partial_xh\,dx
+%         \\
+%         &=-\int_0^L
+%         \partial_x\!\left(e^{-u}\varepsilon\right)h\,dx
+%       \end{align*}
+%       }
+%       \par
+%       \vspace{-0.24cm}
+%       {\color{HydraMuted}\fontsize{7.7}{9.4}\selectfont
+%         The first variation vanishes for every admissible perturbation $h$
+%       \par}
+%       \vspace{-0.14cm}
+%       {\color{HydraGold}\bfseries\fontsize{15}{18.5}\selectfont
+%       \begin{align*}
+%         \boxed{\partial_x\!\left(e^{-u}\varepsilon\right)=0}
+%       \end{align*}
+%       }
+%     \end{minipage}
+%   \end{center}
+
+% \end{frame}
+
+
+\begin{frame}{The tissue minimizes the energy instantly}
+
+  \vspace{0.06cm}
 
   \begin{center}
     \begin{minipage}{0.86\linewidth}
-      {\color{HydraWhite}\fontsize{10.6}{13.4}\selectfont
-      \begin{align*}
-        \ell_i
-        &=s(x_{i+1})-s(x_i)
-        \\
-        \varepsilon_i
-        &=
-        \frac{s(x_{i+1})-s(x_i)}{\Delta x}-1
-      \end{align*}
-      }
-      \par
-      \vspace{-0.28cm}
-      \begin{center}
-        {\color{HydraCyan}\fontsize{17}{17}\selectfont
-          $\Delta x\longrightarrow0$
-          \qquad
-          $\Rightarrow$
-        }
-      \end{center}
-      \vspace{-0.04cm}
-      {\color{HydraWhite}\bfseries\fontsize{14.5}{18}\selectfont
-      \begin{align*}
-        \boxed{\varepsilon(x)=\partial_xs(x)-1}
-      \end{align*}
-      }
-      \par
-      \vspace{-0.24cm}
-      {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
-        The strain compares the local deformed length with the reference length
-      \par}
-    \end{minipage}
-  \end{center}
 
-\end{frame}
-
-
-\begin{frame}{The spring sum becomes a continuum energy}
-
-  \vspace{0.14cm}
-
-  \begin{center}
-    \begin{minipage}{0.90\linewidth}
-      {\color{HydraWhite}\fontsize{11}{13.8}\selectfont
-      \begin{align*}
-        \mathcal E_N
-        &=
-        \sum_{i=0}^{N-1}
-        \frac12E(u_i)\varepsilon_i^2\Delta x
-      \end{align*}
-      }
-      \par
-      \vspace{-0.24cm}
-      \begin{center}
-        {\color{HydraCyan}\fontsize{18}{18}\selectfont
-          $N\longrightarrow\infty$
-          \qquad
-          $\Downarrow$
-        }
-      \end{center}
-      \vspace{-0.04cm}
-      {\color{HydraGold}\bfseries\fontsize{15}{18.5}\selectfont
-      \begin{align*}
-        \boxed{
-          \mathcal E_{\mathrm{el}}[s;u]
-          =
-          \frac12\int_0^L E(u(x))\varepsilon(x)^2\,dx
-        }
-      \end{align*}
-      }
-      \par
-      \vspace{-0.22cm}
-      {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
-        The discrete spring model has become a continuum elastic energy
-      \par}
-    \end{minipage}
-  \end{center}
-
-\end{frame}
-
-
-\begin{frame}{The closed ring imposes a global length constraint}
-
-  \vspace{0.04cm}
-
-  \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.53\textwidth}
-      {\color{HydraWhite}\fontsize{10.8}{13.6}\selectfont
-      \begin{align*}
-        \ell-L
-        &=
-        \sum_{i=0}^{N-1}
-        \left(\ell_i-\Delta x\right)
-        \\
-        &=
-        \sum_{i=0}^{N-1}\varepsilon_i\Delta x
-      \end{align*}
-      }
-      \par
-      \vspace{-0.26cm}
-      \begin{center}{\color{HydraCyan}\fontsize{17}{17}\selectfont $\Downarrow$}\end{center}
-      \vspace{-0.08cm}
-      {\color{HydraGold}\bfseries\fontsize{13.2}{16.5}\selectfont
-      \begin{align*}
-        \boxed{\ell-L=\int_0^L\varepsilon(x)\,dx}
-      \end{align*}
-      }
-    \end{column}
-
-    \begin{column}{0.43\textwidth}
       \HydraPoint[HydraGold]
-        {Total extension is prescribed}
-        {Inflation determines how much longer the deformed ring is}
-      \vspace{-0.02cm}
+        {Instantaneous minimization}
+        {Mechanics relaxes much faster than the morphogen dynamics, so for every morphogen profile the ring is already at the minimum of its elastic energy}
+      \vspace{0.24cm}
       \HydraPoint[HydraCyan]
-        {Local strains are coupled}
-        {More extension in one region leaves less extension for the rest of the ring}
-    \end{column}
-  \end{columns}
+        {Any other configuration costs more}
+        {Every other way of distributing the stretching along the ring gives a strictly larger total energy}
+      \vspace{0.24cm}
+      \HydraPoint[HydraGold]
+        {Vanishing variation}
+        {Mathematically this requires the derivative of the energy with respect to the strain to vanish}
 
-\end{frame}
+      \vspace{0.30cm}
 
-
-\begin{frame}{Mechanical equilibrium minimizes elastic energy}
-
-  \vspace{0.10cm}
-
-  \begin{center}
-    \begin{minipage}{0.84\linewidth}
-      {\color{HydraMuted}\fontsize{7.8}{9.5}\selectfont
-        Mechanics relaxes rapidly compared with morphogen dynamics
+      {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
+        In one dimension the condition reduces to
       \par}
       \vspace{-0.10cm}
-      {\color{HydraWhite}\bfseries\fontsize{13.2}{16.6}\selectfont
+      {\color{HydraGold}\bfseries\fontsize{13.5}{17}\selectfont
       \begin{align*}
-        s
-        &\in
-        \operatorname*{arg\,min}
-        \left\{
-          \frac12\int_0^L E(u)\varepsilon^2\,dx
-        \right\}
+        \boxed{\partial_x\!\left(e^{-u}\varepsilon\right)=0}
       \end{align*}
       }
       \par
-      \vspace{-0.26cm}
-      {\color{HydraWhite}\fontsize{10.4}{13.2}\selectfont
-      \begin{align*}
-        \varepsilon&=\partial_xs-1
-        \\
-        \int_0^L\varepsilon\,dx&=\ell-L
-      \end{align*}
-      }
-      \par
-      \vspace{-0.28cm}
-      \HydraPoint[HydraGold]
-        {Quasi-static mechanics}
-        {For each current morphogen profile the tissue immediately reaches mechanical equilibrium}
+      \vspace{-0.20cm}
+      % {\color{HydraMuted}\fontsize{7.2}{8.8}\selectfont
+      %   The derivation is omitted
+      % \par}
+
     \end{minipage}
   \end{center}
 
 \end{frame}
 
 
-\begin{frame}{Perturb the deformation to compute the first variation}
 
-  \vspace{0.02cm}
+
+
+\begin{frame}{Morphogen dynamics}
+
+  \vspace{-0.10cm}
 
   \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.47\textwidth}
-      {\color{HydraWhite}\fontsize{10.4}{13.2}\selectfont
+    \begin{column}{0.50\textwidth}
+      {\color{HydraWhite}\bfseries\fontsize{12.4}{15.6}\selectfont
       \begin{align*}
-        s_\theta(x)&=s(x)+\theta h(x)
-        \\
-        \varepsilon_\theta&=\partial_xs_\theta-1
-        \\
-        &=\varepsilon+\theta\partial_xh
+        \boxed{
+          \partial_tu
+          =
+          D\,\partial_{xx}u
+          -u
+          +\kappa\varepsilon
+        }
       \end{align*}
       }
       \par
-      \vspace{-0.30cm}
-      {\color{HydraMuted}\fontsize{7.4}{9.1}\selectfont
-        The periodic perturbation $h$ preserves the closed geometry
-      \par}
+      \vspace{-0.18cm}
+      \begin{columns}[t,onlytextwidth]
+        \begin{column}{0.56\textwidth}
+          \centering
+          {\color{HydraMuted}\fontsize{6.8}{8.4}\selectfont
+            Boundary conditions
+          \par}
+          \vspace{-0.30cm}
+          {\color{HydraWhite}\fontsize{8}{10.2}\selectfont
+          \begin{align*}
+            u(0,t)&=u(L,t)
+            \\
+            \partial_xu(0,t)&=\partial_xu(L,t)
+          \end{align*}
+          }
+        \end{column}
+
+        \begin{column}{0.42\textwidth}
+          \centering
+          {\color{HydraMuted}\fontsize{6.8}{8.4}\selectfont
+            Initial condition
+          \par}
+          \vspace{-0.30cm}
+          {\color{HydraWhite}\fontsize{8}{10.2}\selectfont
+          \begin{align*}
+            u(x,0)&=u_0(x)
+          \end{align*}
+          }
+        \end{column}
+      \end{columns}
     \end{column}
 
-    \begin{column}{0.49\textwidth}
-      {\color{HydraWhite}\fontsize{9.6}{12.2}\selectfont
-      \begin{align*}
-        \mathcal E_{\mathrm{el}}[s_\theta;u]
-        &=
-        \frac12\int_0^L
-        E(u)
-        \left(\varepsilon+\theta\partial_xh\right)^2\,dx
-      \end{align*}
-      }
-      \par
-      \vspace{-0.26cm}
-      {\color{HydraGold}\bfseries\fontsize{10.5}{13.2}\selectfont
-      \begin{align*}
-        \delta\mathcal E_{\mathrm{el}}
-        &=
-        \left.\frac{d}{d\theta}
-        \mathcal E_{\mathrm{el}}[s_\theta;u]
-        \right|_{\theta=0}
-        \\
-        &=\int_0^L E(u)\varepsilon\partial_xh\,dx
-      \end{align*}
-      }
+    \begin{column}{0.46\textwidth}
+      \HydraPoint[HydraCyan]
+        {Diffusion \ $D\,\partial_{xx}u$}
+        {The morphogen spreads along the ring, with diffusion coefficient $D$}
+      \vspace{-0.04cm}
+      \HydraPoint[HydraGold]
+        {Degradation \ $-u$}
+        {The morphogen decays at a constant rate, normalized to one}
+      \vspace{-0.04cm}
+      \HydraPoint[HydraGreen]
+        {Mechanical production \ $\kappa\varepsilon$}
+        {Stretched tissue produces more morphogen, with mechanosensitivity $\kappa$}
     \end{column}
   \end{columns}
 
 \end{frame}
 
 
-\begin{frame}{Integration by parts gives mechanical equilibrium}
+\begin{frame}{The full model}
 
-  \vspace{0.12cm}
+  \vspace{-0.06cm}
 
-  \begin{center}
-    \begin{minipage}{0.88\linewidth}
-      {\color{HydraWhite}\fontsize{10.5}{13.2}\selectfont
-      \begin{align*}
-        \delta\mathcal E_{\mathrm{el}}
-        &=\int_0^L E(u)\varepsilon\partial_xh\,dx
-        \\
-        &=-\int_0^L
-        \partial_x\!\left(E(u)\varepsilon\right)h\,dx
-      \end{align*}
-      }
-      \par
-      \vspace{-0.24cm}
-      {\color{HydraMuted}\fontsize{7.7}{9.4}\selectfont
-        The first variation vanishes for every admissible perturbation $h$
-      \par}
-      \vspace{-0.14cm}
-      {\color{HydraGold}\bfseries\fontsize{15}{18.5}\selectfont
-      \begin{align*}
-        \boxed{\partial_x\!\left(E(u)\varepsilon\right)=0}
-      \end{align*}
-      }
-    \end{minipage}
-  \end{center}
+  {\color{HydraWhite}\fontsize{8.6}{10.8}\selectfont
+    Let $\Omega$ be a circle of length one
+  \par}
 
-\end{frame}
-
-
-\begin{frame}{Mechanical equilibrium determines the strain explicitly}
-
-  \vspace{-0.14cm}
-
-  {\color{HydraWhite}\fontsize{9.8}{12.5}\selectfont
-  \begin{align*}
-    E(u(x,t))\varepsilon(x,t)&=\sigma(t)
-    \\
-    \varepsilon(x,t)&=\frac{\sigma(t)}{E(u(x,t))}
-  \end{align*}
-  }
-  \par
-  \vspace{-0.38cm}
-  {\color{HydraWhite}\fontsize{9.4}{12}\selectfont
-  \begin{align*}
-    \ell-L
-    &=\sigma(t)\int_0^L\frac{1}{E(u(y,t))}\,dy
-  \end{align*}
-  }
-  \par
-  \vspace{-0.32cm}
-  {\color{HydraGold}\bfseries\fontsize{11.5}{14.5}\selectfont
-  \begin{align*}
-    \boxed{
-      \varepsilon(x,t)
-      =
-      \frac{\ell-L}
-      {E(u(x,t))
-      \displaystyle\int_0^L\frac{1}{E(u(y,t))}\,dy}
-    }
-  \end{align*}
-  }
-
-\end{frame}
-
-
-\begin{frame}{The full model couples dynamics and mechanical equilibrium}
-
-  \vspace{-0.12cm}
+  \vspace{0.22cm}
 
   \begin{columns}[c,onlytextwidth]
     \begin{column}{0.62\textwidth}
       {\color{HydraWhite}\fontsize{10.6}{13.4}\selectfont
       \begin{align*}
         \partial_tu
-        &=D\partial_{xx}u-\alpha u+\kappa\varepsilon
+        &=D\partial_{xx}u-u+\kappa\varepsilon
         \\
         0
-        &=\partial_x\!\left(E(u)\varepsilon\right)
+        &=\partial_x\!\left(e^{-u}\varepsilon\right)
         \\
         \ell-L
         &=\int_0^L\varepsilon(x,t)\,dx
@@ -1164,35 +1178,51 @@
 \end{frame}
 
 
-\begin{frame}{Mechanical variables can be eliminated exactly}
 
-  \vspace{-0.12cm}
 
-  {\color{HydraWhite}\fontsize{9.0}{11.4}\selectfont
-  \begin{align*}
-    \partial_tu
-    &=D\partial_{xx}u-\alpha u+\kappa\varepsilon
-    \\
-    \varepsilon(x,t)
-    &=
-    \frac{\ell-L}
-    {E(u(x,t))
-    \displaystyle\int_0^L\frac{1}{E(u(y,t))}\,dy}
-  \end{align*}
-  }
-  \par
-  \vspace{-0.28cm}
-  \begin{center}{\color{HydraCyan}\fontsize{17}{17}\selectfont $\Downarrow$}\end{center}
-  \vspace{-0.08cm}
-  {\color{HydraGold}\bfseries\fontsize{9.6}{12.2}\selectfont
+
+\begin{frame}{Mechanical equilibrium determines the strain explicitly}
+
+  \vspace{0.10cm}
+
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.45\textwidth}
+      \centering
+      {\color{HydraWhite}\fontsize{9.6}{12.2}\selectfont
+      \begin{align*}
+        \partial_x\!\left(e^{-u(x,t)}\varepsilon(x,t)\right)&=0
+      \end{align*}
+      }
+    \end{column}
+
+    \begin{column}{0.08\textwidth}
+      \centering{\color{HydraCyan}\fontsize{18}{18}\selectfont $+$}
+    \end{column}
+
+    \begin{column}{0.45\textwidth}
+      \centering
+      {\color{HydraWhite}\fontsize{9.6}{12.2}\selectfont
+      \begin{align*}
+        \ell-L
+        &=\int_0^L\varepsilon(x,t)\,dx
+      \end{align*}
+      }
+    \end{column}
+  \end{columns}
+
+  \vspace{0.30cm}
+
+  \begin{center}{\color{HydraCyan}\fontsize{18}{18}\selectfont $\Downarrow$}\end{center}
+
+  \vspace{0.10cm}
+
+  {\color{HydraGold}\bfseries\fontsize{12.5}{15.8}\selectfont
   \begin{align*}
     \boxed{
-      \partial_tu
-      =D\partial_{xx}u-\alpha u
-      +\kappa
-      \frac{\ell-L}
-      {E(u(x,t))
-      \displaystyle\int_0^L\frac{1}{E(u(y,t))}\,dy}
+      \varepsilon(x,t)
+      =
+      \frac{(\ell-L)\,e^{u(x,t)}}
+      {\displaystyle\int_0^L e^{u(y,t)}\,dy}
     }
   \end{align*}
   }
@@ -1200,72 +1230,95 @@
 \end{frame}
 
 
-\begin{frame}{Exponential softening produces the nonlocal feedback}
+% \begin{frame}{Mechanical variables can be eliminated}
 
-  \vspace{-0.02cm}
+%   \vspace{-0.12cm}
+
+%   {\color{HydraWhite}\fontsize{9.0}{11.4}\selectfont
+%   \begin{align*}
+%     \partial_tu
+%     &=D\partial_{xx}u-u+\kappa\varepsilon
+%     \\
+%     \varepsilon(x,t)
+%     &=
+%     \frac{(\ell-L)\,e^{u(x,t)}}
+%     {\displaystyle\int_0^L e^{u(y,t)}\,dy}
+%   \end{align*}
+%   }
+%   \par
+%   \vspace{-0.28cm}
+%   \begin{center}{\color{HydraCyan}\fontsize{17}{17}\selectfont $\Downarrow$}\end{center}
+%   \vspace{-0.08cm}
+%   {\color{HydraGold}\bfseries\fontsize{9.6}{12.2}\selectfont
+%   \begin{align*}
+%     \boxed{
+%       \partial_tu
+%       =D\partial_{xx}u-u
+%       +\kappa
+%       \frac{(\ell-L)\,e^{u(x,t)}}
+%       {\displaystyle\int_0^L e^{u(y,t)}\,dy}
+%     }
+%   \end{align*}
+%   }
+
+% \end{frame}
+
+% \begin{frame}{Exponential softening produces the nonlocal feedback}
+
+%   \vspace{-0.02cm}
+
+%   \begin{columns}[c,onlytextwidth]
+%     \begin{column}{0.43\textwidth}
+%       {\color{HydraWhite}\fontsize{10.6}{13.4}\selectfont
+%       \begin{align*}
+%         E(u)&=e^{-u}
+%         \\
+%         \frac{1}{E(u)}&=e^{u}
+%       \end{align*}
+%       }
+%       \par
+%       \vspace{-0.30cm}
+%       \HydraPoint[HydraGold]
+%         {Local factor}
+%         {$e^{u(x,t)}$ amplifies regions with larger morphogen}
+%     \end{column}
+
+%     \begin{column}{0.53\textwidth}
+%       {\color{HydraGold}\bfseries\fontsize{10.8}{13.6}\selectfont
+%       \begin{align*}
+%         \varepsilon(x,t)
+%         &=
+%         (\ell-L)
+%         \frac{e^{u(x,t)}}
+%         {\displaystyle\int_0^L e^{u(y,t)}\,dy}
+%       \end{align*}
+%       }
+%       \par
+%       \vspace{-0.24cm}
+%       \HydraPoint[HydraCyan]
+%         {Global factor}
+%         {The denominator preserves the prescribed total extension}
+%     \end{column}
+%   \end{columns}
+
+%   \vspace{0.30cm}
+%   \HydraTakeaway{
+%     The mechanics generates a local exponential activation divided by a global normalization
+%   }
+
+% \end{frame}
+
+
+\begin{frame}{One nonlocal equation for the morphogen}
+
+  \vspace{-0.04cm}
 
   \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.43\textwidth}
-      {\color{HydraWhite}\fontsize{10.6}{13.4}\selectfont
-      \begin{align*}
-        E(u)&=e^{-u}
-        \\
-        \frac{1}{E(u)}&=e^{u}
-      \end{align*}
-      }
-      \par
-      \vspace{-0.30cm}
-      \HydraPoint[HydraGold]
-        {Local factor}
-        {$e^{u(x,t)}$ amplifies regions with larger morphogen}
-    \end{column}
-
-    \begin{column}{0.53\textwidth}
-      {\color{HydraGold}\bfseries\fontsize{10.8}{13.6}\selectfont
-      \begin{align*}
-        \varepsilon(x,t)
-        &=
-        (\ell-L)
-        \frac{e^{u(x,t)}}
-        {\displaystyle\int_0^L e^{u(y,t)}\,dy}
-      \end{align*}
-      }
-      \par
-      \vspace{-0.24cm}
-      \HydraPoint[HydraCyan]
-        {Global factor}
-        {The denominator preserves the prescribed total extension}
-    \end{column}
-  \end{columns}
-
-  \vspace{0.30cm}
-  \HydraTakeaway{
-    The mechanics generates a local exponential activation divided by a global normalization
-  }
-
-\end{frame}
-
-
-\begin{frame}{Nondimensionalization gives one nonlocal equation}
-
-  \vspace{-0.16cm}
-
-  \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.35\textwidth}
-      {\color{HydraMuted}\fontsize{7.4}{9.1}\selectfont
-        Natural variables
+    \begin{column}{0.58\textwidth}
+      {\color{HydraWhite}\fontsize{8.6}{10.8}\selectfont
+        Let $\Omega$ be a circle of length one
       \par}
-      \vspace{-0.22cm}
-      {\color{HydraWhite}\fontsize{8.8}{11.2}\selectfont
-      \begin{align*}
-        \widetilde x&=\frac{x}{L}
-        \\
-        \widetilde t&=\alpha t
-      \end{align*}
-      }
-    \end{column}
-
-    \begin{column}{0.61\textwidth}
+      \vspace{0.14cm}
       {\color{HydraGold}\bfseries\fontsize{11.4}{14.4}\selectfont
       \begin{align*}
         \boxed{
@@ -1273,29 +1326,66 @@
           =D\partial_{xx}u-u
           +\kappa
           \frac{e^{u(x,t)}}
-          {\displaystyle\int_0^1e^{u(y,t)}\,dy}
+          {\displaystyle\int_\Omega e^{u(y,t)}\,dy}
         }
       \end{align*}
       }
       \par
-      \vspace{-0.26cm}
-      {\color{HydraMuted}\fontsize{7.4}{9.1}\selectfont
-        The tildes are dropped and the domain is the unit circle $\mathbb{T}=[0,1]$
-      \par}
+      \vspace{-0.14cm}
+      \begin{columns}[t,onlytextwidth]
+        \begin{column}{0.56\textwidth}
+          \centering
+          {\color{HydraMuted}\fontsize{6.8}{8.4}\selectfont
+            Boundary conditions
+          \par}
+          \vspace{-0.30cm}
+          {\color{HydraWhite}\fontsize{8}{10.2}\selectfont
+          \begin{align*}
+            u(0,t)&=u(1,t)
+            \\
+            \partial_xu(0,t)&=\partial_xu(1,t)
+          \end{align*}
+          }
+        \end{column}
+
+        \begin{column}{0.42\textwidth}
+          \centering
+          {\color{HydraMuted}\fontsize{6.8}{8.4}\selectfont
+            Initial condition
+          \par}
+          \vspace{-0.30cm}
+          {\color{HydraWhite}\fontsize{8}{10.2}\selectfont
+          \begin{align*}
+            u(x,0)&=u_0(x)
+          \end{align*}
+          }
+        \end{column}
+      \end{columns}
+    \end{column}
+
+    \begin{column}{0.38\textwidth}
+      \HydraPoint[HydraGold]
+        {Single equation}
+        {The whole mechanochemical model reduces to one equation for the morphogen}
+      \vspace{-0.04cm}
+      \HydraPoint[HydraCyan]
+        {An unusual situation}
+        {A single reaction--diffusion equation cannot normally produce patterns}
+      \vspace{-0.04cm}
+      \HydraPoint[HydraGold]
+        {Nonlocal term}
+        {The nonlocal coupling plays the crucial role and replaces the missing inhibitor}
     \end{column}
   \end{columns}
 
-  \vspace{0.30cm}
+  \vspace{0.24cm}
 
-  {\color{HydraWhite}\fontsize{8.8}{11.2}\selectfont
-  \begin{align*}
-    u(0,t)&=u(1,t)
-    &
-    \partial_xu(0,t)&=\partial_xu(1,t)
-    &
-    u(x,0)&=u_0(x)
-  \end{align*}
-  }
+  \begin{center}
+    {\color{HydraMuted}\fontsize{7.4}{9.1}\selectfont
+      The special structure of this equation makes it far more tractable analytically
+      than the Gierer--Meinhardt model
+    \par}
+  \end{center}
 
 \end{frame}
 
@@ -1359,13 +1449,13 @@
 ]{Steady states and stability}
 
 
-\begin{frame}{Stationary patterns solve a nonlocal boundary-value problem}
+\begin{frame}{Stationary solutions}
 
-  \vspace{0.02cm}
+  \vspace{-0.10cm}
 
   \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.62\textwidth}
-      {\color{HydraWhite}\fontsize{11}{13.9}\selectfont
+    \begin{column}{0.60\textwidth}
+      {\color{HydraWhite}\fontsize{10.2}{12.9}\selectfont
       \begin{align*}
         0
         &=D\partial_{xx}U-U
@@ -1374,275 +1464,228 @@
         {\displaystyle\int_0^1e^{U(y)}\,dy}
       \end{align*}
       }
-      \par
-      \vspace{-0.20cm}
-      {\color{HydraWhite}\fontsize{9.8}{12.5}\selectfont
-      \begin{align*}
-        U(0)&=U(1)
-        \\
-        \partial_xU(0)&=\partial_xU(1)
-      \end{align*}
-      }
     \end{column}
 
-    \begin{column}{0.34\textwidth}
-      \HydraPoint[HydraGold]
-        {Homogeneous solution}
-        {$\bar U\equiv\kappa$ is always a stationary solution}
-      \vspace{-0.04cm}
-      \HydraPoint[HydraCyan]
-        {Patterned solution}
-        {A nonconstant periodic function $U(x)$ represents a spatial pattern}
+    \begin{column}{0.36\textwidth}
+      \begin{minipage}{\linewidth}
+        \HydraPoint[HydraGold]
+          {Homogeneous solution}
+          {$\bar U\equiv\kappa$ is always a stationary solution}
+        \vspace{-0.06cm}
+        \HydraPoint[HydraCyan]
+          {Patterned solution}
+          {A nonconstant periodic function $U(x)$ represents a spatial pattern}
+      \end{minipage}
     \end{column}
   \end{columns}
 
-  \vspace{0.18cm}
-
-  {\color{HydraMuted}\fontsize{7.4}{9.1}\selectfont
-    Every stationary solution has mean value $\int_0^1U(x)\,dx=\kappa$
-  \par}
-
-\end{frame}
-
-
-\begin{frame}{Small diffusion permits patterns while large diffusion suppresses them}
-
-  \vspace{-0.16cm}
+  \vspace{1.24cm}
 
   {\color{HydraGold}\bfseries\fontsize{8.2}{9.8}\selectfont
     THEOREM\par}
 
-  \vspace{0.12cm}
+  \vspace{0.02cm}
 
-  {\color{HydraWhite}\fontsize{8.5}{10.7}\selectfont
+  {\color{HydraWhite}\fontsize{8.2}{10.4}\selectfont
     For every $\kappa>0$ there exist constants
+    $0<D_{\min}(\kappa)<D_{\max}(\kappa)$ such that
   \par}
 
-  \vspace{-0.34cm}
-
-  {\color{HydraWhite}\bfseries\fontsize{11.2}{14.2}\selectfont
-  \begin{align*}
-    0<D_{\min}(\kappa)<D_{\max}(\kappa)
-  \end{align*}
-  }
-
-  \vspace{-0.36cm}
+  \vspace{0.06cm}
 
   \begin{columns}[T,onlytextwidth]
     \begin{column}{0.48\textwidth}
       \HydraPoint[HydraGold]
-        {$0<D<D_{\min}(\kappa)$}
+        {$0<D<D_{\min}(\kappa)$\vspace{0.16cm}}
         {A nonconstant stationary solution exists and is Lyapunov stable in $L^2$}
     \end{column}
 
     \begin{column}{0.48\textwidth}
       \HydraPoint[HydraCyan]
-        {$D>D_{\max}(\kappa)$}
+        {$D>D_{\max}(\kappa)$\vspace{0.16cm}}
         {$\bar U\equiv\kappa$ is the unique stationary solution and is globally asymptotically stable}
     \end{column}
   \end{columns}
 
-  \vspace{0.20cm}
-
-  {\color{HydraMuted}\fontsize{7.4}{9.1}\selectfont
-    The analytic thresholds are sufficient bounds and need not be optimal
-  \par}
-
 \end{frame}
 
 
-\begin{frame}{The parameter plane separates homogeneous and patterned regimes}
+\begin{frame}{The parameter space}
 
   \vspace{-0.16cm}
 
-  \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.74\textwidth}
       \centering
       \includegraphics[
         width=\linewidth,
-        height=5.35cm,
+        height=7.05cm,
         keepaspectratio
       ]{figures/mechanochemistry/parameter_space.png}
-    \end{column}
-
-    \begin{column}{0.22\textwidth}
-      \HydraPoint[HydraCyan]
-        {Patterns}
-        {Nonconstant steady states are found for sufficiently small diffusion}
-      \vspace{-0.10cm}
-      \HydraPoint[HydraGold]
-        {Homogeneous state}
-        {Large diffusion removes spatial variation}
-      \vspace{-0.10cm}
-      {\color{HydraMuted}\fontsize{6.9}{8.5}\selectfont
-        Hatched regions are established analytically
-      \par}
-    \end{column}
-  \end{columns}
+    
 
 \end{frame}
 
 
-\begin{frame}{Linearization asks whether a stationary profile amplifies perturbations}
+% \begin{frame}{Linearization asks whether a stationary profile amplifies perturbations}
+
+%   \vspace{-0.10cm}
+
+%   {\color{HydraWhite}\fontsize{9.8}{12.4}\selectfont
+%   \begin{align*}
+%     u(x,t)&=U(x)+e^{\nu t}\varphi(x)
+%   \end{align*}
+%   }
+
+%   \vspace{-0.36cm}
+
+%   {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
+%     Keeping only first-order terms gives the nonlocal eigenvalue problem
+%   \par}
+
+%   \vspace{-0.24cm}
+
+%   {\color{HydraWhite}\fontsize{8.7}{11}\selectfont
+%   \begin{align*}
+%     D\partial_{xx}\varphi
+%     +\left(
+%       \kappa\frac{e^U}{\int_0^1e^U}-1-\nu
+%     \right)\varphi
+%     &=
+%     \kappa
+%     \frac{e^U}{\left(\int_0^1e^U\right)^2}
+%     \int_0^1e^U\varphi
+%   \end{align*}
+%   }
+
+%   \vspace{-0.24cm}
+
+%   \begin{columns}[T,onlytextwidth]
+%     \begin{column}{0.48\textwidth}
+%       \HydraPoint[HydraCyan]
+%         {$\nu<0$}
+%         {The corresponding perturbation decays}
+%     \end{column}
+%     \begin{column}{0.48\textwidth}
+%       \HydraPoint[HydraGold]
+%         {$\nu>0$}
+%         {The corresponding perturbation grows}
+%     \end{column}
+%   \end{columns}
+
+% \end{frame}
+
+
+% \begin{frame}{A local problem helps locate the nonlocal eigenvalues}
+
+%   \vspace{-0.08cm}
+
+%   \begin{columns}[c,onlytextwidth]
+%     \begin{column}{0.48\textwidth}
+%       \centering
+%       {\color{HydraGold}\bfseries\fontsize{7.8}{9.4}\selectfont
+%         NONLOCAL PROBLEM\par}
+%       \vspace{-0.24cm}
+%       {\color{HydraWhite}\fontsize{8.7}{11}\selectfont
+%       \begin{align*}
+%         D\partial_{xx}\varphi
+%         +(A-\nu)\varphi
+%         &=MC(x)\int_0^1C(y)\varphi(y)\,dy
+%       \end{align*}
+%       }
+%       \par
+%       \vspace{-0.28cm}
+%       {\color{HydraMuted}\fontsize{7.2}{8.8}\selectfont
+%         Every value of $\varphi$ is coupled through the integral
+%       \par}
+%     \end{column}
+
+%     \begin{column}{0.48\textwidth}
+%       \centering
+%       {\color{HydraCyan}\bfseries\fontsize{7.8}{9.4}\selectfont
+%         LOCAL PROBLEM\par}
+%       \vspace{-0.24cm}
+%       {\color{HydraWhite}\fontsize{8.7}{11}\selectfont
+%       \begin{align*}
+%         D\partial_{xx}\psi
+%         +(A-\lambda)\psi
+%         &=0
+%       \end{align*}
+%       }
+%       \par
+%       \vspace{-0.28cm}
+%       {\color{HydraMuted}\fontsize{7.2}{8.8}\selectfont
+%         Classical oscillation theory orders the eigenfunctions by their zeros
+%       \par}
+%     \end{column}
+%   \end{columns}
+
+%   \vspace{0.36cm}
+
+%   \HydraTakeaway{
+%     Relevant nonlocal eigenvalues lie between eigenvalues of the associated local problem
+%   }
+
+% \end{frame}
+
+
+\begin{frame}{Stable mechanochemical patterns are necessarily unimodal}
 
   \vspace{-0.10cm}
 
   {\color{HydraWhite}\fontsize{9.8}{12.4}\selectfont
   \begin{align*}
-    u(x,t)&=U(x)+e^{\nu t}\varphi(x)
+    0
+    &=D\partial_{xx}U-U
+    +\kappa
+    \frac{e^{U(x)}}
+    {\displaystyle\int_0^1e^{U(y)}\,dy}
   \end{align*}
   }
 
-  \vspace{-0.36cm}
+  \vspace{0.70cm}
 
-  {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
-    Keeping only first-order terms gives the nonlocal eigenvalue problem
-  \par}
-
-  \vspace{-0.24cm}
-
-  {\color{HydraWhite}\fontsize{8.7}{11}\selectfont
-  \begin{align*}
-    D\partial_{xx}\varphi
-    +\left(
-      \kappa\frac{e^U}{\int_0^1e^U}-1-\nu
-    \right)\varphi
-    &=
-    \kappa
-    \frac{e^U}{\left(\int_0^1e^U\right)^2}
-    \int_0^1e^U\varphi
-  \end{align*}
-  }
-
-  \vspace{-0.24cm}
-
-  \begin{columns}[T,onlytextwidth]
-    \begin{column}{0.48\textwidth}
-      \HydraPoint[HydraCyan]
-        {$\nu<0$}
-        {The corresponding perturbation decays}
-    \end{column}
-    \begin{column}{0.48\textwidth}
-      \HydraPoint[HydraGold]
-        {$\nu>0$}
-        {The corresponding perturbation grows}
-    \end{column}
-  \end{columns}
-
-\end{frame}
-
-
-\begin{frame}{A local problem helps locate the nonlocal eigenvalues}
-
-  \vspace{-0.08cm}
-
-  \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.48\textwidth}
-      \centering
-      {\color{HydraGold}\bfseries\fontsize{7.8}{9.4}\selectfont
-        NONLOCAL PROBLEM\par}
-      \vspace{-0.24cm}
-      {\color{HydraWhite}\fontsize{8.7}{11}\selectfont
-      \begin{align*}
-        D\partial_{xx}\varphi
-        +(A-\nu)\varphi
-        &=MC(x)\int_0^1C(y)\varphi(y)\,dy
-      \end{align*}
-      }
-      \par
-      \vspace{-0.28cm}
-      {\color{HydraMuted}\fontsize{7.2}{8.8}\selectfont
-        Every value of $\varphi$ is coupled through the integral
-      \par}
-    \end{column}
-
-    \begin{column}{0.48\textwidth}
-      \centering
-      {\color{HydraCyan}\bfseries\fontsize{7.8}{9.4}\selectfont
-        LOCAL PROBLEM\par}
-      \vspace{-0.24cm}
-      {\color{HydraWhite}\fontsize{8.7}{11}\selectfont
-      \begin{align*}
-        D\partial_{xx}\psi
-        +(A-\lambda)\psi
-        &=0
-      \end{align*}
-      }
-      \par
-      \vspace{-0.28cm}
-      {\color{HydraMuted}\fontsize{7.2}{8.8}\selectfont
-        Classical oscillation theory orders the eigenfunctions by their zeros
-      \par}
-    \end{column}
-  \end{columns}
-
-  \vspace{0.36cm}
-
-  \HydraTakeaway{
-    Relevant nonlocal eigenvalues lie between eigenvalues of the associated local problem
-  }
-
-\end{frame}
-
-
-\begin{frame}{Stable mechanochemical patterns are necessarily unimodal}
-
-  \vspace{-0.16cm}
-
-  \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.52\textwidth}
-      \centering
-      \includegraphics[
-        width=\linewidth,
-        height=4.65cm,
-        keepaspectratio
-      ]{figures/mechanochemistry/one_two_peaks.png}
-    \end{column}
-
-    \begin{column}{0.44\textwidth}
+  \begin{center}
+    \begin{minipage}{0.86\linewidth}
       {\color{HydraGold}\bfseries\fontsize{8.2}{9.8}\selectfont
         THEOREM\par}
-      \vspace{0.16cm}
-      \HydraPoint[HydraGreen]
-        {Stable nonconstant solution}
-        {The stable solution obtained by energy minimization has one peak}
-      \vspace{-0.06cm}
-      \HydraPoint[HydraRed]
-        {Every multimodal solution}
-        {All solutions with two or more peaks are linearly and nonlinearly unstable}
-      \vspace{-0.06cm}
-      {\color{HydraMuted}\fontsize{7.2}{8.8}\selectfont
-        The global mechanical constraint strongly selects a single organizer
+      \vspace{0.14cm}
+      {\color{HydraWhite}\fontsize{9.6}{12.6}\selectfont
+        Every nonconstant stationary solution with two or more peaks is unstable.
+        A stable stationary solution can therefore have at most one peak.
       \par}
-    \end{column}
-  \end{columns}
+    \end{minipage}
+  \end{center}
 
 \end{frame}
 
 
-\begin{frame}{Diffusion changes the width but not the number of stable peaks}
+\begin{frame}{Diffusion changes the width but not the number of peaks}
 
   \vspace{-0.14cm}
 
-  \begin{columns}[c,onlytextwidth]
-    \begin{column}{0.72\textwidth}
-      \centering
-      \includegraphics[
-        width=\linewidth,
-        height=5.15cm,
-        keepaspectratio
-      ]{figures/mechanochemistry/stationary_profiles.png}
-    \end{column}
+  \begin{center}
+    \includegraphics[
+      width=\linewidth,
+      height=4.55cm,
+      keepaspectratio
+    ]{figures/mechanochemistry/stationary_profiles.png}
+  \end{center}
 
-    \begin{column}{0.24\textwidth}
+  \vspace{0.26cm}
+
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.32\textwidth}
       \HydraPoint[HydraGold]
         {Smaller diffusion}
         {The stable peak becomes sharper and more localized}
-      \vspace{-0.04cm}
+    \end{column}
+
+    \begin{column}{0.32\textwidth}
       \HydraPoint[HydraCyan]
         {Larger diffusion}
         {The stable profile becomes broader}
-      \vspace{-0.04cm}
+    \end{column}
+
+    \begin{column}{0.32\textwidth}
       \HydraPoint[HydraGreen]
         {Robust selection}
         {The stable pattern retains a single dominant peak}
@@ -1713,102 +1756,138 @@
 \end{frame}
 
 
-\begin{frame}{The homogeneous state loses stability at discrete thresholds}
+% \begin{frame}{The homogeneous state loses stability at discrete thresholds}
 
-  \vspace{-0.22cm}
+%   \vspace{-0.22cm}
 
-  {\color{HydraWhite}\fontsize{9.6}{12.1}\selectfont
+%   {\color{HydraWhite}\fontsize{9.6}{12.1}\selectfont
+%   \begin{align*}
+%     \bar U&\equiv\kappa
+%     &
+%     \varphi_n(x)&=\cos(2\pi n x)
+%   \end{align*}
+%   }
+
+%   \vspace{-0.44cm}
+
+%   {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
+%     Linearization assigns one growth rate to every spatial mode
+%   \par}
+
+%   \vspace{-0.26cm}
+
+%   {\color{HydraWhite}\fontsize{10.6}{13.4}\selectfont
+%   \begin{align*}
+%     \nu_n&=\kappa-1-4\pi^2n^2D
+%   \end{align*}
+%   }
+
+%   \vspace{-0.42cm}
+
+%   {\color{HydraGold}\bfseries\fontsize{11.2}{14.2}\selectfont
+%   \begin{align*}
+%     \boxed{\kappa_n=1+4\pi^2n^2D}
+%   \end{align*}
+%   }
+
+%   \vspace{-0.34cm}
+
+%   \begin{columns}[T,onlytextwidth]
+%     \begin{column}{0.31\textwidth}
+%       \HydraPoint[HydraGold]
+%         {$n=1$}
+%         {The first nonconstant mode has one maximum and one minimum}
+%     \end{column}
+%     \begin{column}{0.31\textwidth}
+%       \HydraPoint[HydraGold]
+%         {$n=2$}
+%         {The next mode produces a two-peak spatial structure}
+%     \end{column}
+%     \begin{column}{0.31\textwidth}
+%       \HydraPoint[HydraCyan]
+%         {Discrete thresholds}
+%         {Each mode changes stability at its own value of $\kappa$}
+%     \end{column}
+%   \end{columns}
+
+% \end{frame}
+
+
+\begin{frame}{Bifurcation diagram}
+
+  \vspace{-0.36cm}
+
+  {\color{HydraWhite}\fontsize{10.2}{12.9}\selectfont
   \begin{align*}
-    \bar U&\equiv\kappa
-    &
-    \varphi_n(x)&=\cos(2\pi n x)
+    \partial_tu
+    &=D\partial_{xx}u-u
+    +\kappa
+    \frac{e^{u}}
+    {\displaystyle\int_0^1e^{u}}
   \end{align*}
   }
 
-  \vspace{-0.44cm}
+  \vspace{-0.20cm}
 
-  {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
-    Linearization assigns one growth rate to every spatial mode
-  \par}
-
-  \vspace{-0.26cm}
-
-  {\color{HydraWhite}\fontsize{10.6}{13.4}\selectfont
-  \begin{align*}
-    \nu_n&=\kappa-1-4\pi^2n^2D
-  \end{align*}
-  }
-
-  \vspace{-0.42cm}
-
-  {\color{HydraGold}\bfseries\fontsize{11.2}{14.2}\selectfont
-  \begin{align*}
-    \boxed{\kappa_n=1+4\pi^2n^2D}
-  \end{align*}
-  }
-
-  \vspace{-0.34cm}
-
-  \begin{columns}[T,onlytextwidth]
-    \begin{column}{0.31\textwidth}
-      \HydraPoint[HydraGold]
-        {$n=1$}
-        {The first nonconstant mode has one maximum and one minimum}
-    \end{column}
-    \begin{column}{0.31\textwidth}
-      \HydraPoint[HydraGold]
-        {$n=2$}
-        {The next mode produces a two-peak spatial structure}
-    \end{column}
-    \begin{column}{0.31\textwidth}
-      \HydraPoint[HydraCyan]
-        {Discrete thresholds}
-        {Each mode changes stability at its own value of $\kappa$}
-    \end{column}
-  \end{columns}
+  \begin{center}
+    \includegraphics[
+      width=0.75\linewidth,
+      % height=4.35cm,
+      keepaspectratio
+    ]{figures/mechanochemistry/Comparison2.png}
+  \end{center}
 
 \end{frame}
 
 
-\begin{frame}{The first patterned branch can be subcritical or supercritical}
+\begin{frame}{Biffuration types}
 
-  \vspace{-0.12cm}
+  \vspace{-0.16cm}
+
+  {\color{HydraWhite}\fontsize{8.6}{10.9}\selectfont
+    The constant steady state exhibits a pitchfork bifurcation at every
+  \par}
+
+  \vspace{-0.24cm}
+
+  {\color{HydraWhite}\fontsize{9.6}{12.2}\selectfont
+  \begin{align*}
+    \kappa_n=1+4\pi^2n^2D
+    \qquad
+    \text{for }n\in\mathbb{N}
+  \end{align*}
+  }
+
+  \vspace{0.26cm}
+
+  {\color{HydraWhite}\fontsize{8.6}{10.9}\selectfont
+    In particular the constant steady state $\bar U\equiv\kappa$ loses stability at
+    $\kappa_1=1+4\pi^2D$
+  \par}
+
+  \vspace{0.90cm}
 
   {\color{HydraGold}\bfseries\fontsize{8.2}{9.8}\selectfont
     THEOREM\par}
 
-  \vspace{0.20cm}
+  \vspace{0.08cm}
 
-  {\color{HydraWhite}\fontsize{8.8}{11.1}\selectfont
-    At $\kappa=\kappa_n$ a branch of nonconstant stationary solutions bifurcates from the homogeneous state $\bar U\equiv\kappa$
+  {\color{HydraWhite}\fontsize{8.6}{11}\selectfont
+    For fixed diffusion $D>0$ there exists a branch of stationary solutions $U(s)$ with
+    $\kappa=\kappa(s)$ and $s\in(-\delta,\delta)$ satisfying $\kappa(0)=\kappa_n$ and
+    $\kappa'(0)=0$. Moreover, if
   \par}
 
-  \vspace{0.24cm}
+  \vspace{0.18cm}
 
-  \begin{columns}[T,onlytextwidth]
-    \begin{column}{0.47\textwidth}
-      \HydraPoint[HydraGold]
-        {Subcritical branch}
-        {$\kappa_n<3/2$ equivalently $D<(8\pi^2n^2)^{-1}$}
-    \end{column}
-    \begin{column}{0.47\textwidth}
-      \HydraPoint[HydraCyan]
-        {Supercritical branch}
-        {$\kappa_n>3/2$ equivalently $D>(8\pi^2n^2)^{-1}$}
-    \end{column}
-  \end{columns}
-
-  \vspace{0.32cm}
-
-  {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
-    Near the bifurcation only the supercritical branch generated by the first mode can be stable
+  {\color{HydraWhite}\fontsize{8.6}{11}\selectfont
+    \hspace{0.70cm}$\bullet$\ \ $\kappa_n>3/2$ then $\kappa''(0)>0$
+    \ (supercritical pitchfork bifurcation)
+    \par
+    \vspace{0.10cm}
+    \hspace{0.70cm}$\bullet$\ \ $\kappa_n<3/2$ then $\kappa''(0)<0$
+    \ (subcritical pitchfork bifurcation)
   \par}
-
-  \vspace{0.16cm}
-
-  \HydraTakeaway{
-    The direction of the branch determines whether small patterned states appear before or after the linear threshold
-  }
 
 \end{frame}
 
@@ -1822,7 +1901,7 @@
       \centering
       \includegraphics[
         width=\linewidth,
-        height=5.25cm,
+        height=7.25cm,
         keepaspectratio
       ]{figures/mechanochemistry/bifurcation_parameter_map.png}
     \end{column}
@@ -1836,9 +1915,9 @@
         {Larger diffusion}
         {The branch can emerge toward larger values of $\kappa$}
       \vspace{0.04cm}
-      {\color{HydraMuted}\fontsize{7.0}{8.6}\selectfont
-        Each spatial mode has its own transition curve
-      \par}
+      % {\color{HydraMuted}\fontsize{7.0}{8.6}\selectfont
+      %   Each spatial mode has its own transition curve
+      % \par}
     \end{column}
   \end{columns}
 
@@ -1867,7 +1946,7 @@
   \end{align*}
   }
 
-  \vspace{-0.34cm}
+  \vspace{0.24cm}
 
   \begin{columns}[T,onlytextwidth]
     \begin{column}{0.31\textwidth}
@@ -1887,16 +1966,12 @@
     \end{column}
   \end{columns}
 
-  \vspace{0.18cm}
-
-  \HydraTakeaway{
-    Coupling pattern formation to tissue size creates a route from static symmetry breaking to oscillations
-  }
+  \
 
 \end{frame}
 
 
-\begin{frame}{Subcritical feedback permits abrupt switching}
+\begin{frame}{Subcritical feedback}
 
   \vspace{-0.12cm}
 
@@ -1924,7 +1999,7 @@
 \end{frame}
 
 
-\begin{frame}{Supercritical feedback produces a gradual patterned response}
+\begin{frame}{Supercritical feedback }
 
   \vspace{-0.12cm}
 
