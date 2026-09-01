@@ -383,11 +383,14 @@
 % points where a model has just been shown to be insufficient.
 %
 % Both frames are [plain], so they carry no breadcrumb, no footline and no
-% frame title.  The meme is exactly 16:9, the same as the paper, so it fills
-% the slide edge to edge with nothing letterboxed.
+% frame title, and [noframenumbering], so the gag does not advance the frame
+% counter that the footline reads: the slide numbers of the section run on
+% either side of it as if the two frames were not there.  The meme is exactly
+% 16:9, the same as the paper, so it fills the slide edge to edge with nothing
+% letterboxed.
 % -----------------------------------------------------------------------------
 \newcommand{\PerfectModel}{%
-  \begin{frame}[plain]
+  \begin{frame}[plain,noframenumbering]
     \begin{tikzpicture}[remember picture,overlay]
       \fill[HydraNavy]
         (current page.south west) rectangle (current page.north east);
@@ -395,7 +398,7 @@
         at (current page.center) {Perfect model?};
     \end{tikzpicture}
   \end{frame}
-  \begin{frame}[plain]
+  \begin{frame}[plain,noframenumbering]
     \begin{tikzpicture}[remember picture,overlay]
       \fill[HydraNavy]
         (current page.south west) rectangle (current page.north east);

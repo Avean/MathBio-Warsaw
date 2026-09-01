@@ -3,31 +3,31 @@
 % the mechanochemical part.
 %
 % Nothing here may redefine shared navigation state: this file is no longer
-% last in the document, so any enewcommand or \setbeamertemplate would leak
+% last in the document, so any \renewcommand or \setbeamertemplate would leak
 % into every section that follows it.
 % -----------------------------------------------------------------------------
 
 
 
-% Dashed box standing in for an image that does not exist yet.
-% #1 height, #2 intended file name, #3 what the picture has to show.
-\NewDocumentCommand{\SDPlaceholder}{O{5.00cm} m m}{%
-  \begin{center}
-    \begin{tikzpicture}
-      \node[draw=HydraLine,dashed,line width=0.9pt,rounded corners=4pt,
-        inner sep=0.32cm,align=center,
-        text width=\dimexpr\linewidth-1.10cm\relax,
-        minimum height=#1]{%
-        {\color{HydraGold}\bfseries\fontsize{6.8}{8.2}\selectfont
-          FIGURE PENDING\par}
-        \vspace{0.18cm}
-        {\color{HydraWhite}\fontsize{8.0}{9.9}\selectfont #3\par}
-        \vspace{0.16cm}
-        {\color{HydraMuted}\fontsize{6.2}{7.5}\selectfont \texttt{#2}\par}
-      };
-    \end{tikzpicture}
-  \end{center}%
-}
+% % Dashed box standing in for an image that does not exist yet.
+% % #1 height, #2 intended file name, #3 what the picture has to show.
+% \NewDocumentCommand{\SDPlaceholder}{O{5.00cm} m m}{%
+%   \begin{center}
+%     \begin{tikzpicture}
+%       \node[draw=HydraLine,dashed,line width=0.9pt,rounded corners=4pt,
+%         inner sep=0.32cm,align=center,
+%         text width=\dimexpr\linewidth-1.10cm\relax,
+%         minimum height=#1]{%
+%         {\color{HydraGold}\bfseries\fontsize{6.8}{8.2}\selectfont
+%           FIGURE PENDING\par}
+%         \vspace{0.18cm}
+%         {\color{HydraWhite}\fontsize{8.0}{9.9}\selectfont #3\par}
+%         \vspace{0.16cm}
+%         {\color{HydraMuted}\fontsize{6.2}{7.5}\selectfont \texttt{#2}\par}
+%       };
+%     \end{tikzpicture}
+%   \end{center}%
+% }
 
 \PerfectModel
 
