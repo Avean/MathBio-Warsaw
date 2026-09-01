@@ -9,7 +9,7 @@ const output_directory = normpath(joinpath(
     "..",
     "Latex",
     "figures",
-    "local_dynamics",
+    "B_reaction_diffusion",
 ))
 
 const stable_output = joinpath(output_directory, "stability_converging.png")

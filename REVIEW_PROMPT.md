@@ -13,10 +13,10 @@ Przejrzyj dokładnie moją prezentację Beamer i zaproponuj oraz wprowadź popra
 - Wykład: "How Does a Hydra Decide Where to Grow a Head?" — pattern formation, Turing instability, mechanochemistry. Slajdy są po angielsku.
 - Silnik: **LuaLaTeX** (`fontspec`, font Arial). Buduj z katalogu `Latex/`: `latexmk -lualatex main.tex`.
 - `Latex/main.tex` to punkt wejścia, ale **większość sekcji jest zakomentowana** — odkomentuj wszystkie `\input{sections/...}`, żeby zbudować pełną prezentację, i przywróć oryginalny stan `main.tex` na końcu.
-- Kolejność sekcji: `A_hydra`, `B_reaction_diffusion`, `C_local_dynamics`, `D_turing_instability`, `GiererMeinhardt`, `E_simulations`, `F_mechanochemistry`. Razem ~159 slajdów, ~11 700 linii.
+- Kolejność sekcji: `A_hydra`, `B_reaction_diffusion`, `C_turing_instability`, `D_gierer_meinhardt`, `E_growth_wound_and_sd`, `F_mechanochemistry`, `G_closing`. Razem ~159 slajdów, ~11 700 linii.
 - `Latex/preamble.tex` — ciemny motyw (`HydraNavy` tło, akcenty `HydraGold`/`HydraCyan`/`HydraViolet`/`HydraMagenta`), własny `frametitle` z breadcrumbem.
 - `Latex/macros.tex` — własne makra zdefiniowane przez `\NewDocumentCommand`, m.in. `\HydraSection`, `\HydraSubsection`, `\titlelayout`. Przeczytaj je zanim cokolwiek zmienisz.
-- Figury w `Latex/figures/` (podfoldery: `hydra`, `diffusion`, `gierer_meinhardt`, `local_dynamics`, `turing`, `mechanochemistry`, `experiments`).
+- Figury w `Latex/figures/` — podfoldery nazwane jak pliki sekcji (`A_hydra`, `B_reaction_diffusion`, `C_turing_instability`, `D_gierer_meinhardt`, `E_growth_wound_and_sd`, `F_mechanochemistry`) plus `common` na figury współdzielone.
 - To jest repozytorium git. Zrób commit stanu wyjściowego przed zmianami, a poprawki commituj partiami, żeby dało się je cofnąć pojedynczo.
 
 ## Krok 1 — obejrzyj prezentację

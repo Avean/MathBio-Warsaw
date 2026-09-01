@@ -23,7 +23,7 @@ const output_directory = normpath(joinpath(
     "..",
     "Latex",
     "figures",
-    "gierer_meinhardt",
+    "D_gierer_meinhardt",
 ))
 
 const nullclines_output = joinpath(

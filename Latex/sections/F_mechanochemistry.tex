@@ -13,62 +13,6 @@
 ]{Why mechanics?}
 
 
-% \begin{frame}{Recall the Gierer--Meinhardt mechanism}
-
-%   \vspace{-0.32cm}
-
-%   \begin{columns}[c,onlytextwidth]
-%     \begin{column}{0.57\textwidth}
-%       {\color{HydraMuted}\fontsize{7.6}{9.3}\selectfont
-%         The chemical mechanism uses two interacting substances
-%       \par}
-
-%       \vspace{-0.30cm}
-
-%       {\color{HydraWhite}\fontsize{9.5}{12}\selectfont
-%       \begin{align*}
-%         \partial_tu
-%         &=D_u\Delta u+\frac{au^2}{K+v}-\mu_u u
-%         \\
-%         \partial_tv
-%         &=D_v\Delta v+bu^2-\mu_v v
-%       \end{align*}
-%       }
-
-%       \vspace{-0.40cm}
-
-%       \HydraPoint[HydraGold]
-%         {Local activation}
-%         {The activator promotes its own production over a short range}
-
-%       \vspace{-0.10cm}
-
-%       \HydraPoint[HydraCyan]
-%         {Long-range inhibition}
-%         {A second substance suppresses activation over a larger spatial scale}
-%     \end{column}
-
-%     \begin{column}{0.39\textwidth}
-%       \centering
-%       \begin{tikzpicture}[x=0.88cm,y=0.88cm]
-%         \draw[HydraLine,line width=1.0pt] (0.45,2.65) -- (5.35,2.65);
-%         \fill[HydraGold] (2.90,2.65) circle[radius=0.16cm];
-%         \fill[HydraGold,opacity=0.48] (2.35,2.65) circle[radius=0.10cm];
-%         \fill[HydraGold,opacity=0.48] (3.45,2.65) circle[radius=0.10cm];
-%         \draw[<->,HydraGold,line width=1.1pt] (2.25,3.30) -- (3.55,3.30);
-%         \node[text=HydraGold,font=\bfseries\fontsize{7.2}{8.6}\selectfont]
-%           at (2.90,3.68) {activation};
-%         \draw[<->,HydraCyan,line width=1.1pt] (0.75,1.78) -- (5.05,1.78);
-%         \node[text=HydraCyan,font=\bfseries\fontsize{7.2}{8.6}\selectfont]
-%           at (2.90,1.34) {inhibition};
-%         \node[text=HydraMuted,align=center,text width=4.6cm,
-%           font=\fontsize{7}{8.5}\selectfont]
-%           at (2.90,0.55) {two spatial scales are encoded by two diffusible substances};
-%       \end{tikzpicture}
-%     \end{column}
-%   \end{columns}
-
-% \end{frame}
 
 
 \begin{frame}{The activator has candidates but the inhibitor remains unclear}
@@ -163,7 +107,7 @@
         width=\linewidth,
         height=5.20cm,
         keepaspectratio
-      ]{figures/G_mechanochemistry/hydra_biology.png}
+      ]{figures/F_mechanochemistry/hydra_biology.png}
 
         {\color{HydraMuted}\fontsize{6}{7.2}\selectfont
       Wang, Bialas, Goel \& Collins,
@@ -262,7 +206,7 @@
         width=\linewidth,
         height=5.25cm,
         keepaspectratio
-      ]{figures/G_mechanochemistry/oscillation_radius.png}
+      ]{figures/F_mechanochemistry/oscillation_radius.png}
     \end{column}
 
     \begin{column}{0.24\textwidth}
@@ -296,7 +240,7 @@
         width=\linewidth,
         height=5.15cm,
         keepaspectratio
-      ]{figures/G_mechanochemistry/oscillation_wnt3_oe.jpg}
+      ]{figures/F_mechanochemistry/oscillation_wnt3_oe.jpg}
     \end{column}
 
     \begin{column}{0.24\textwidth}
@@ -370,7 +314,7 @@
         width=\linewidth,
         height=5.35cm,
         keepaspectratio
-      ]{figures/G_mechanochemistry/3d_intersection.jpg}
+      ]{figures/F_mechanochemistry/3d_intersection.jpg}
     \end{column}
 
     \begin{column}{0.34\textwidth}
@@ -395,42 +339,6 @@
   \mbox{how local elasticity produces}
   \mbox{a global redistribution of strain}
 ]{\mbox{Elastic} \mbox{spring} \mbox{model}}
-
-
-% \begin{frame}{Replace the spheroid by an elastic ring}
-
-%   \vspace{-0.18cm}
-
-%   \begin{columns}[c,onlytextwidth]
-%     \begin{column}{0.48\textwidth}
-%       \centering
-%       \includegraphics[
-%         width=\linewidth,
-%         height=4.95cm,
-%         keepaspectratio
-%       ]{figures/G_mechanochemistry/sphere_springs.png}
-%     \end{column}
-
-%     \begin{column}{0.48\textwidth}
-%       \HydraPoint[HydraGold]
-%         {Closed geometry}
-%         {The one-dimensional ring represents a cross-section of the spheroid}
-%       \vspace{-0.04cm}
-%       \HydraPoint[HydraCyan]
-%         {Elastic tissue}
-%         {Neighbouring material points are connected by springs}
-%       \vspace{-0.04cm}
-%       \HydraPoint[HydraGreen]
-%         {Morphogen-dependent stiffness}
-%         {Each spring responds to the local concentration of morphogen}
-%     \end{column}
-%   \end{columns}
-
-%   \HydraTakeaway{
-%     The ring retains the essential coupling while removing unnecessary geometry
-%   }
-
-% \end{frame}
 
 
 \begin{frame}{Local changes redistribute strain around the ring}
@@ -543,42 +451,6 @@
 \end{frame}
 
 
-% \begin{frame}{Strain measures relative extension}
-
-%   \vspace{0.18cm}
-
-%   \begin{center}
-%     \begin{minipage}{0.78\linewidth}
-%       {\color{HydraMuted}\fontsize{8}{9.8}\selectfont
-%         Absolute extension depends on the size of the spring
-%       \par}
-%       \vspace{-0.16cm}
-%       {\color{HydraWhite}\bfseries\fontsize{15}{18.5}\selectfont
-%       \begin{align*}
-%         \boxed{
-%           \varepsilon_i
-%           =
-%           \frac{\ell_i-\Delta x}{\Delta x}
-%         }
-%       \end{align*}
-%       }
-%       \par
-%       \vspace{-0.24cm}
-%       \HydraPoint[HydraCyan]
-%         {$\varepsilon_i=0$}
-%         {The spring keeps its reference length}
-%       \vspace{-0.12cm}
-%       \HydraPoint[HydraGold]
-%         {$\varepsilon_i>0$}
-%         {The spring is stretched}
-%       \vspace{-0.12cm}
-%       \HydraPoint[HydraGold]
-%         {$\varepsilon_i<0$}
-%         {The spring is compressed}
-%     \end{minipage}
-%   \end{center}
-
-% \end{frame}
 
 
 \begin{frame}{Morphogen concentration influences local stiffness}
@@ -713,51 +585,6 @@
 \end{frame}
 
 
-% \begin{frame}{A material coordinate follows the tissue}
-
-%   \vspace{-0.06cm}
-
-%   \begin{columns}[c,onlytextwidth]
-%     \begin{column}{0.58\textwidth}
-%       \centering
-%       \begin{tikzpicture}[x=0.96cm,y=0.96cm]
-%         \draw[HydraLine,line width=1.2pt] (2.05,2.75) circle[radius=1.45cm];
-%         \draw[HydraCyan,line width=1.2pt] (6.25,2.75) circle[radius=2.05cm];
-%         \fill[HydraGold] ({2.05+1.45*cos(35)},{2.75+1.45*sin(35)}) circle[radius=0.09cm];
-%         \fill[HydraGold] ({6.25+2.05*cos(35)},{2.75+2.05*sin(35)}) circle[radius=0.09cm];
-%         \draw[-{Latex[length=2.5mm]},HydraGold,line width=1.0pt]
-%           ({2.05+1.55*cos(35)},{2.75+1.55*sin(35)}) .. controls (4.00,4.80) ..
-%           ({6.25+1.95*cos(35)},{2.75+1.95*sin(35)});
-%         \node[text=HydraMuted,font=\fontsize{7.2}{8.7}\selectfont]
-%           at (2.05,0.78) {reference ring $[0,L]$};
-%         \node[text=HydraCyan,font=\fontsize{7.2}{8.7}\selectfont]
-%           at (6.25,0.20) {deformed ring $[0,\ell]$};
-%         \node[text=HydraGold,font=\bfseries\fontsize{7.2}{8.7}\selectfont]
-%           at (4.20,4.88) {$s(x)$};
-%       \end{tikzpicture}
-%     \end{column}
-
-%     \begin{column}{0.38\textwidth}
-%       {\color{HydraWhite}\fontsize{10.6}{13.4}\selectfont
-%       \begin{align*}
-%         x&\in[0,L]
-%         \\
-%         s(x)&\in[0,\ell]
-%       \end{align*}
-%       }
-%       \par
-%       \vspace{-0.25cm}
-%       \HydraPoint[HydraGold]
-%         {Material label}
-%         {$x$ identifies a fixed piece of tissue}
-%       \vspace{-0.06cm}
-%       \HydraPoint[HydraCyan]
-%         {Deformed position}
-%         {$s(x)$ gives its arc-length position after stretching}
-%     \end{column}
-%   \end{columns}
-
-% \end{frame}
 
 
 \begin{frame}{Inflation and energy minimization}
@@ -1393,7 +1220,7 @@
         width=\linewidth,
         height=7.05cm,
         keepaspectratio
-      ]{figures/G_mechanochemistry/parameter_space.png}
+      ]{figures/F_mechanochemistry/parameter_space.png}
     
 
 \end{frame}
@@ -1541,7 +1368,7 @@
       width=\linewidth,
       height=4.55cm,
       keepaspectratio
-    ]{figures/G_mechanochemistry/stationary_profiles.png}
+    ]{figures/F_mechanochemistry/stationary_profiles.png}
   \end{center}
 
   \vspace{0.26cm}
@@ -1708,7 +1535,7 @@
       width=0.75\linewidth,
       % height=4.35cm,
       keepaspectratio
-    ]{figures/G_mechanochemistry/Comparison2.png}
+    ]{figures/F_mechanochemistry/Comparison2.png}
   \end{center}
 
 \end{frame}
@@ -1777,7 +1604,7 @@
         width=\linewidth,
         height=7.25cm,
         keepaspectratio
-      ]{figures/G_mechanochemistry/bifurcation_parameter_map.png}
+      ]{figures/F_mechanochemistry/bifurcation_parameter_map.png}
     \end{column}
 
     \begin{column}{0.23\textwidth}
@@ -1856,7 +1683,7 @@
         width=\linewidth,
         height=5.05cm,
         keepaspectratio
-      ]{figures/G_mechanochemistry/subcritical_bifurcation.png}
+      ]{figures/F_mechanochemistry/subcritical_bifurcation.png}
     \end{column}
 
     \begin{column}{0.34\textwidth}
@@ -1884,7 +1711,7 @@
         width=\linewidth,
         height=5.05cm,
         keepaspectratio
-      ]{figures/G_mechanochemistry/supercritical_bifurcation.png}
+      ]{figures/F_mechanochemistry/supercritical_bifurcation.png}
     \end{column}
 
     \begin{column}{0.34\textwidth}

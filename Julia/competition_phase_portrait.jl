@@ -25,7 +25,7 @@ const output_path = normpath(joinpath(
     "..",
     "Latex",
     "figures",
-    "local_dynamics",
+    "B_reaction_diffusion",
     "vector_field.png",
 ))
 

@@ -21,8 +21,8 @@ Latex/
 ├── preamble.tex         # packages, fonts, colours, and slide theme
 ├── macros.tex           # reusable slide and navigation macros
 ├── references.bib       # bibliography
-├── sections/            # lecture sections
-├── figures/             # figures grouped by section
+├── sections/            # lecture sections, A–G in presentation order
+├── figures/             # one folder per section file, plus common/
 └── docs/                # supplementary source material
 
 Julia/
