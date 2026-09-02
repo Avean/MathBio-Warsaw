@@ -11,151 +11,151 @@
   \mbox{into a source of spatial structure}
 ]{The Turing idea}
 
-\begin{frame}{Scalar reaction--diffusion equation}
+% \begin{frame}{Scalar reaction--diffusion equation}
 
-\vspace{-0.40cm}
+% \vspace{-0.40cm}
 
-\begin{columns}[c,onlytextwidth]
+% \begin{columns}[c,onlytextwidth]
 
-\begin{column}{0.57\textwidth}
+% \begin{column}{0.57\textwidth}
 
-  {\color{HydraWhite}\fontsize{11.2}{14.2}\selectfont
-  \begin{align*}
-    \partial_tu=D\Delta u+f(u)
-  \end{align*}
-  }
+%   {\color{HydraWhite}\fontsize{11.2}{14.2}\selectfont
+%   \begin{align*}
+%     \partial_tu=D\Delta u+f(u)
+%   \end{align*}
+%   }
 
-  \vspace{-0.42cm}
+%   \vspace{-0.42cm}
 
-  {\color{HydraMuted}\fontsize{7.8}{9.6}\selectfont
-    Let $\bar u$ be a stable homogeneous equilibrium
-  \par}
+%   {\color{HydraMuted}\fontsize{7.8}{9.6}\selectfont
+%     Let $\bar u$ be a stable homogeneous equilibrium
+%   \par}
 
-  \vspace{-0.40cm}
+%   \vspace{-0.40cm}
 
-  {\color{HydraWhite}\fontsize{10.4}{13.2}\selectfont
-  \begin{align*}
-    f(\bar u)&=0
-    \qquad
-    f'(\bar u)<0
-  \end{align*}
-  }
+%   {\color{HydraWhite}\fontsize{10.4}{13.2}\selectfont
+%   \begin{align*}
+%     f(\bar u)&=0
+%     \qquad
+%     f'(\bar u)<0
+%   \end{align*}
+%   }
 
-  \vspace{-0.44cm}
+%   \vspace{-0.44cm}
 
-  {\color{HydraMuted}\fontsize{7.8}{9.6}\selectfont
-    For a perturbation in the $k$th spatial eigenfunction
-  \par}
+%   {\color{HydraMuted}\fontsize{7.8}{9.6}\selectfont
+%     For a perturbation in the $k$th spatial eigenfunction
+%   \par}
 
-  \vspace{-0.38cm}
+%   \vspace{-0.38cm}
 
-  {\color{HydraWhite}\fontsize{10.2}{13}\selectfont
-  \begin{align*}
-    u(x,t)
-    &=
-    \bar u+a_k(t)\phi_k(x)
-    \\
-    \partial_ta_k
-    &=
-    \left(f'(\bar u)-D\mu_k\right)a_k
-  \end{align*}
-  }
+%   {\color{HydraWhite}\fontsize{10.2}{13}\selectfont
+%   \begin{align*}
+%     u(x,t)
+%     &=
+%     \bar u+a_k(t)\phi_k(x)
+%     \\
+%     \partial_ta_k
+%     &=
+%     \left(f'(\bar u)-D\mu_k\right)a_k
+%   \end{align*}
+%   }
 
-  \vspace{-0.50cm}
+%   \vspace{-0.50cm}
 
-  {\color{HydraWhite}\bfseries\fontsize{13.4}{16.4}\selectfont
-  \begin{align*}
-    \boxed{
-      \lambda_k=f'(\bar u)-D\mu_k<0
-    }
-  \end{align*}
-  }
+%   {\color{HydraWhite}\bfseries\fontsize{13.4}{16.4}\selectfont
+%   \begin{align*}
+%     \boxed{
+%       \lambda_k=f'(\bar u)-D\mu_k<0
+%     }
+%   \end{align*}
+%   }
 
-\end{column}
+% \end{column}
 
-\begin{column}{0.39\textwidth}
-  \centering
+% \begin{column}{0.39\textwidth}
+%   \centering
 
-  % REPLACEABLE VISUAL
-  % Replace the tikzpicture with:
-  % \includegraphics[width=\linewidth,height=4.85cm,keepaspectratio]
-  % {figures/C_turing_instability/...}
-  \begin{tikzpicture}[x=0.90cm,y=0.90cm]
+%   % REPLACEABLE VISUAL
+%   % Replace the tikzpicture with:
+%   % \includegraphics[width=\linewidth,height=4.85cm,keepaspectratio]
+%   % {figures/C_turing_instability/...}
+%   \begin{tikzpicture}[x=0.90cm,y=0.90cm]
 
-    \draw[-{Latex[length=2.2mm]},HydraMuted,line width=0.75pt]
-      (0.45,2.15) -- (5.75,2.15)
-      node[
-        below,
-        text=HydraMuted,
-        font=\fontsize{7}{8.2}\selectfont
-      ]
-      {$\mu_k$};
+%     \draw[-{Latex[length=2.2mm]},HydraMuted,line width=0.75pt]
+%       (0.45,2.15) -- (5.75,2.15)
+%       node[
+%         below,
+%         text=HydraMuted,
+%         font=\fontsize{7}{8.2}\selectfont
+%       ]
+%       {$\mu_k$};
 
-    \draw[-{Latex[length=2.2mm]},HydraMuted,line width=0.75pt]
-      (0.65,0.42) -- (0.65,5.25)
-      node[
-        left,
-        text=HydraMuted,
-        font=\fontsize{7}{8.2}\selectfont
-      ]
-      {$\lambda_k$};
+%     \draw[-{Latex[length=2.2mm]},HydraMuted,line width=0.75pt]
+%       (0.65,0.42) -- (0.65,5.25)
+%       node[
+%         left,
+%         text=HydraMuted,
+%         font=\fontsize{7}{8.2}\selectfont
+%       ]
+%       {$\lambda_k$};
 
-    \draw[HydraGold,line width=1.65pt]
-      (0.75,1.55) -- (5.25,0.48);
+%     \draw[HydraGold,line width=1.65pt]
+%       (0.75,1.55) -- (5.25,0.48);
 
-    \foreach \x/\lab in {
-      0.95/0,
-      1.75/1,
-      2.65/2,
-      3.70/3,
-      4.90/4
-    }{
-      \pgfmathsetmacro{\yy}{1.55-0.2378*(\x-0.75)}
+%     \foreach \x/\lab in {
+%       0.95/0,
+%       1.75/1,
+%       2.65/2,
+%       3.70/3,
+%       4.90/4
+%     }{
+%       \pgfmathsetmacro{\yy}{1.55-0.2378*(\x-0.75)}
 
-      \fill[HydraCyan]
-        (\x,\yy) circle[radius=0.065cm];
+%       \fill[HydraCyan]
+%         (\x,\yy) circle[radius=0.065cm];
 
-      \node[
-        anchor=north,
-        text=HydraMuted,
-        font=\fontsize{6.5}{7.8}\selectfont
-      ]
-        at (\x,2.02)
-        {$\mu_{\lab}$};
-    }
+%       \node[
+%         anchor=north,
+%         text=HydraMuted,
+%         font=\fontsize{6.5}{7.8}\selectfont
+%       ]
+%         at (\x,2.02)
+%         {$\mu_{\lab}$};
+%     }
 
-    \node[
-      anchor=west,
-      text=HydraGold,
-      font=\bfseries\fontsize{7.4}{8.9}\selectfont
-    ]
-      at (2.60,1.28)
-      {$f'(\bar u)-D\mu$};
+%     \node[
+%       anchor=west,
+%       text=HydraGold,
+%       font=\bfseries\fontsize{7.4}{8.9}\selectfont
+%     ]
+%       at (2.60,1.28)
+%       {$f'(\bar u)-D\mu$};
 
-    \node[
-      anchor=west,
-      text=HydraMuted,
-      font=\fontsize{7.2}{8.7}\selectfont
-    ]
-      at (1.00,3.85)
-      {all growth rates remain negative};
+%     \node[
+%       anchor=west,
+%       text=HydraMuted,
+%       font=\fontsize{7.2}{8.7}\selectfont
+%     ]
+%       at (1.00,3.85)
+%       {all growth rates remain negative};
 
-    \draw[dashed,HydraLine,line width=0.7pt]
-      (0.65,2.15) -- (5.45,2.15);
+%     \draw[dashed,HydraLine,line width=0.7pt]
+%       (0.65,2.15) -- (5.45,2.15);
 
-  \end{tikzpicture}
+%   \end{tikzpicture}
 
-  \vspace{-0.10cm}
+%   \vspace{-0.10cm}
 
-  \HydraPoint[HydraCyan]
-    {Diffusion adds damping}
-    {Every nonconstant spatial mode is more stable than the homogeneous mode.}
+%   \HydraPoint[HydraCyan]
+%     {Diffusion adds damping}
+%     {Every nonconstant spatial mode is more stable than the homogeneous mode.}
 
-\end{column}
+% \end{column}
 
-\end{columns}
+% \end{columns}
 
-\end{frame}
+% \end{frame}
 
 
 \begin{frame}{Scalar reaction--diffusion equation: no stable patterns}

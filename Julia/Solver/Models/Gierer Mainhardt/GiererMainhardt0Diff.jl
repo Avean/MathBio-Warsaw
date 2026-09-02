@@ -67,8 +67,8 @@ RDModel(
     ),
 
     latex_equations = (
-    raw"\partial_t u =  a \frac{u^2}{v + 1} - \mu_u u",
-    raw"\partial_t v =  b u^2 - \mu_v v",
+    raw"\partial_t u = 1.5 \frac{u^2}{v + 1} - 0.5u",
+    raw"\partial_t v = 2u^2 - v",
     ),
 
 )
