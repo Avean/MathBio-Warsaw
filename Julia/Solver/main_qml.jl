@@ -11,3 +11,4 @@ ReactionDiffusionQML.run_qml_app(N = 300)
 nothing
 
 
+
